@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>svihalek.dev — Mobile App Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  html, body { margin: 0; padding: 0; min-height: 100%; font-family: 'Archivo', -apple-system, sans-serif; background: #0a0a0c; color: #e8e6e0; }
+  *, *::before, *::after { box-sizing: border-box; }
+
+  :root {
+    --blue: #4f8aff;
+    --blue-deep: #2a6df0;
+    --ink: #0d0d0f;
+    --cream: #f6f3eb;
+    --dark: #0a0a0c;
+    --dark-2: #131318;
+    --dark-3: #1c1c22;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sans: 'Archivo', -apple-system, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  ::selection { background: var(--blue); color: #fff; }
+
+  /* Scroll-reveal */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* Custom scrollbar (subtle) */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: #1f1f26; border-radius: 0; }
+  ::-webkit-scrollbar-thumb:hover { background: #2a2a32; }
+
+  /* Section anchor offset so sticky chrome doesn't cover the heading */
+  section[id^="ts-"] { scroll-margin-top: 100px; }
+
+  /* === Responsive (mobile + tablet) === */
+  @media (max-width: 1100px) {
+    .ts-services-grid { grid-template-columns: minmax(0, 1fr) !important; }
+    .ts-portfolio-case { grid-template-columns: minmax(0, 1fr) !important; }
+    .ts-portfolio-mockup { height: 380px !important; }
+    .ts-contact-row { grid-template-columns: minmax(0, 1fr) !important; }
+  }
+
+  @media (max-width: 900px) {
+    /* Hide sidebar on tablet — content gets full width */
+    .ts-sidebar { display: none !important; }
+    .ts-section { padding: 64px 32px !important; }
+    .ts-hero { padding: 56px 0 80px !important; }
+    .ts-hero-code { padding: 0 32px !important; }
+    .ts-line-numbers { display: none !important; }
+    .ts-stack-block { font-size: 12px !important; padding: 22px 20px !important; }
+    .ts-footer { padding: 36px 32px 40px !important; }
+  }
+
+  @media (max-width: 640px) {
+    /* Mobile */
+    .ts-chrome { padding: 10px 12px !important; gap: 10px !important; }
+    .ts-url { padding: 6px 10px !important; font-size: 11px !important; }
+    .ts-tabbar { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; scrollbar-width: none; }
+    .ts-tabbar::-webkit-scrollbar { display: none; }
+    .ts-tabbar > * { flex-shrink: 0 !important; }
+    .ts-section { padding: 56px 20px !important; }
+    .ts-hero { padding: 40px 0 64px !important; }
+    .ts-hero-code { padding: 0 20px !important; }
+    .ts-footer { padding: 32px 20px 36px !important; }
+    .ts-footer-meta { flex-direction: column !important; align-items: flex-start !important; gap: 6px !important; }
+    .ts-portfolio-case { padding: 20px !important; gap: 24px !important; }
+    .ts-portfolio-mockup { height: 320px !important; }
+    .ts-contact-row { gap: 28px !important; }
+    .ts-stack-block { padding: 18px 16px !important; font-size: 11px !important; }
+    .ts-stack-block .ts-stack-row,
+    .ts-stack-block { word-break: break-word; }
+
+    /* CTA row: stack and full width */
+    .ts-cta-row { flex-direction: column !important; align-items: stretch !important; }
+    .ts-cta-row > a { justify-content: center !important; }
+    .ts-cta-row > div { display: none !important; }
+
+    /* Make tab labels a touch more compact */
+    .ts-tabbar button { padding: 10px 14px !important; font-size: 11px !important; }
+  }
+
+  /* Mobile: hide chrome version label, IDE branding */
+  @media (max-width: 720px) {
+    .ts-tabbar > div:last-child { display: none !important; }
+  }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="variant-a-terminal.jsx"></script>
+
+  <script type="text/babel" data-presets="env,react">
+    const { TerminalSite, useTweaks } = window;
+
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "showAvailability": true,
+      "accentColor": "#4f8aff"
+    }/*EDITMODE-END*/;
+
+    function App() {
+      const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+      // Apply accent color CSS variable
+      React.useEffect(() => {
+        document.documentElement.style.setProperty('--blue', tweaks.accentColor);
+      }, [tweaks.accentColor]);
+
+      // Scroll-reveal observer
+      React.useEffect(() => {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add('in');
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+        return () => io.disconnect();
+      }, []);
+
+      return <TerminalSite tweaks={tweaks} setTweak={setTweak} />;
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
