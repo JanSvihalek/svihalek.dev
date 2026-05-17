@@ -24,6 +24,8 @@ const TerminalSite = ({ tweaks = { showAvailability: true }, setTweak = () => { 
   const [cursorOn, setCursorOn] = React.useState(true);
   const [formData, setFormData] = React.useState({ name: '', email: '', message: '' });
   const [sent, setSent] = React.useState(false);
+  const [sending, setSending] = React.useState(false);
+  const [sendError, setSendError] = React.useState(false);
   const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
 
   const TweaksPanel = window.TweaksPanel;
@@ -72,19 +74,53 @@ const TerminalSite = ({ tweaks = { showAvailability: true }, setTweak = () => { 
 
         {/* === IDE tab bar === */}
         <div style={tsTabBar} className="ts-tabbar">
-          {TABS.map((tab) => (
-            <button key={tab.slug} onClick={() => { setActiveTab(tab.slug); scrollToSlug(tab.slug); }} style={{
-              ...tsTab,
-              background: activeTab === tab.slug ? 'var(--dark-2)' : 'transparent',
-              color: activeTab === tab.slug ? '#e8e6e0' : '#6a6a75',
-              borderTop: activeTab === tab.slug ? '2px solid var(--blue)' : '2px solid transparent',
-            }}>
-              <span style={{ color: 'var(--blue)', marginRight: 8, fontSize: 11 }}>●</span>
-              {tab.label}
-            </button>
-          ))}
-          <div style={{ flex: 1 }}></div>
+          {/* Desktop tabs */}
+          <div className="ts-tab-btns">
+            {TABS.map((tab) => (
+              <button key={tab.slug} onClick={() => { setActiveTab(tab.slug); scrollToSlug(tab.slug); }} style={{
+                ...tsTab,
+                background: activeTab === tab.slug ? 'var(--dark-2)' : 'transparent',
+                color: activeTab === tab.slug ? '#e8e6e0' : '#6a6a75',
+                borderTop: activeTab === tab.slug ? '2px solid var(--blue)' : '2px solid transparent',
+              }}>
+                <span style={{ color: 'var(--blue)', marginRight: 8, fontSize: 11 }}>●</span>
+                {tab.label}
+              </button>
+            ))}
+            <div style={{ flex: 1 }}></div>
+          </div>
+
+          {/* Hamburger button — mobile only */}
+          <button className="ts-hamburger" onClick={() => setMobileNavOpen(v => !v)} aria-label="Menu">
+            {mobileNavOpen ? (
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <line x1="2" y1="2" x2="16" y2="16" /><line x1="16" y1="2" x2="2" y2="16" />
+              </svg>
+            ) : (
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <line x1="2" y1="5" x2="16" y2="5" /><line x1="2" y1="9" x2="16" y2="9" /><line x1="2" y1="13" x2="16" y2="13" />
+              </svg>
+            )}
+          </button>
         </div>
+
+        {/* Mobile nav dropdown */}
+        {mobileNavOpen && (
+          <div style={{ background: '#0d0d0f', borderTop: '1px solid #1f1f26', padding: '8px 0' }}>
+            {TABS.map((tab) => (
+              <button key={tab.slug} onClick={() => { setActiveTab(tab.slug); scrollToSlug(tab.slug); }} style={{
+                display: 'flex', alignItems: 'center', gap: 12, width: '100%', padding: '12px 20px',
+                background: activeTab === tab.slug ? 'rgba(79,138,255,0.08)' : 'transparent',
+                border: 'none', borderLeft: activeTab === tab.slug ? '2px solid var(--blue)' : '2px solid transparent',
+                color: activeTab === tab.slug ? '#e8e6e0' : '#7a7a85',
+                fontFamily: 'var(--mono)', fontSize: 13, cursor: 'pointer', textAlign: 'left',
+              }}>
+                <span style={{ color: 'var(--blue)', fontSize: 10 }}>●</span>
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* === Main layout: sidebar + content === */}
@@ -133,7 +169,7 @@ const TerminalSite = ({ tweaks = { showAvailability: true }, setTweak = () => { 
             <div style={tsHeroCode} className="ts-hero-code">
               <div style={tsCommentLine}>{`// ${t.heroComment}`}</div>
               <div style={tsPromptLine}>
-                <span style={{ color: '#7a7a85' }}>~</span>
+                <span style={{ color: 'green' }}>~</span>
                 <span style={{ color: 'var(--blue)' }}>$</span>
                 <span style={{ color: '#e8e6e0' }}>whoami</span>
                 <span style={{ color: 'var(--blue)', opacity: cursorOn ? 1 : 0 }}>▎</span>
@@ -207,7 +243,7 @@ const TerminalSite = ({ tweaks = { showAvailability: true }, setTweak = () => { 
                   ['client', 'Autoservis · B2B'],
                   ['platform', 'iOS · Android'],
                   ['stack', 'Flutter · Firebase · ML Kit'],
-                  ['status', 'production'],
+                  ['status', 'under development'],
                 ]}
                 features={t.torkisFeatures}
                 mockup="torkis"
@@ -223,7 +259,7 @@ const TerminalSite = ({ tweaks = { showAvailability: true }, setTweak = () => { 
                   ['client', 'malí podnikatelé · B2C'],
                   ['platform', 'iOS · Android · Web'],
                   ['stack', 'Flutter · SPAYD · Hive'],
-                  ['status', 'production'],
+                  ['status', 'under development'],
                 ]}
                 features={t.qrkniFeatures}
                 mockup="qrkni"
@@ -286,12 +322,42 @@ const TerminalSite = ({ tweaks = { showAvailability: true }, setTweak = () => { 
                     <div style={{ fontSize: 14, color: '#7a7a85' }}>{t.thanksBody}</div>
                   </div>
                 ) : (
-                  <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+                  <form onSubmit={async (e) => {
+                    e.preventDefault();
+                    setSending(true);
+                    setSendError(false);
+                    try {
+                      const res = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                          access_key: '1dd3b7ad-5611-48bf-bdcf-59ed78e807a9',
+                          subject: '[svihalek.dev] Nová zpráva od ' + formData.name,
+                          from_name: formData.name,
+                          email: formData.email,
+                          message: formData.message,
+                        }),
+                      });
+                      const data = await res.json();
+                      if (data.success) {
+                        setSent(true);
+                      } else {
+                        setSendError(true);
+                      }
+                    } catch {
+                      setSendError(true);
+                    } finally {
+                      setSending(false);
+                    }
+                  }} style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
                     <Field label={t.nameLabel} value={formData.name} onChange={(v) => setFormData({ ...formData, name: v })} placeholder="Jan Novák" />
                     <Field label={t.emailLabel} value={formData.email} onChange={(v) => setFormData({ ...formData, email: v })} placeholder="jan@firma.cz" />
                     <Field label={t.msgLabel} multiline value={formData.message} onChange={(v) => setFormData({ ...formData, message: v })} placeholder={t.msgPlaceholder} />
-                    <button type="submit" style={{ ...tsCtaPrimary, alignSelf: 'flex-start', marginTop: 10 }}>
-                      {t.sendLabel}
+                    {sendError && (
+                      <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: '#ff5f57' }}>Odeslání selhalo — zkus to znovu nebo napiš přímo na jan.svihalek00@gmail.com</div>
+                    )}
+                    <button type="submit" disabled={sending} style={{ ...tsCtaPrimary, alignSelf: 'flex-start', marginTop: 10, opacity: sending ? 0.6 : 1, cursor: sending ? 'default' : 'pointer' }}>
+                      {sending ? '...' : t.sendLabel}
                     </button>
                   </form>
                 )}
@@ -324,7 +390,7 @@ const TerminalSite = ({ tweaks = { showAvailability: true }, setTweak = () => { 
           {/* Footer */}
           <footer style={tsFooter} className="ts-footer">
             <div style={tsPromptLine}>
-              <span style={{ color: '#7a7a85' }}>~</span>
+              <span style={{ color: 'green' }}>~</span>
               <span style={{ color: 'var(--blue)' }}>$</span>
               <span style={{ color: '#e8e6e0' }}>exit</span>
               <span style={{ color: 'var(--blue)', opacity: cursorOn ? 1 : 0 }}>▎</span>
@@ -600,9 +666,9 @@ const cs = {
   qrkniFeatures: ['SPAYD spec — funguje s každou českou bankou', 'offline generování — bez backend závislosti', 'šablony plateb pro opakované platby', 'sdílení QR jako obrázek nebo přímý odkaz'],
   stackTitle: 'Tech stack',
   stackSub: 'S čím dnes pracuji. Volba stacku není dogma — beru nástroj, který se k problému hodí.',
-  stackDesc: 'Jeden vývojář, dva storey, produkční kvalita.',
+  stackDesc: 'Jeden vývojář, produkční kvalita.',
   contactTitle: 'Pošli zprávu',
-  contactSub: 'Mám aktuálně 2 volné sloty na Q2 2026. Napiš par řádků o tom, co potřebuješ — ozvu se do jednoho pracovního dne.',
+  contactSub: 'Mám aktuálně 2 volné sloty na Q2 2026. Napiš par řádků o tom, co potřebuješ a já se ti ozvu.',
   formHeading: 'Nová zpráva',
   sendLabel: 'Odeslat zprávu',
   nameLabel: 'Jméno',
