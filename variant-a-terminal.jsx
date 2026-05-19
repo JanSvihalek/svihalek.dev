@@ -497,6 +497,7 @@ const PortfolioCase = ({ tag, tagColor, title, desc, meta, features, mockup, log
 const TorkisMockup = () => (
   <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, background: 'linear-gradient(135deg, #080f1a 0%, #0d1929 100%)', borderRadius: 8, overflow: 'hidden' }}>
     <img src="images/torkis_prijem.png" alt="TORKIS – Příjem vozidla" style={{ height: '88%', width: 'auto', borderRadius: 18, boxShadow: '0 8px 32px rgba(0,0,0,0.6)', transform: 'rotate(-2deg)' }} />
+    <img src="images/torkis_foto.png" alt="TORKIS – Fotodokumentace" style={{ height: '88%', width: 'auto', borderRadius: 18, boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }} />
     <img src="images/torkis_vozidla.png" alt="TORKIS – Karta vozidla" style={{ height: '88%', width: 'auto', borderRadius: 18, boxShadow: '0 8px 32px rgba(0,0,0,0.6)', transform: 'rotate(2deg)' }} />
   </div>
 );
