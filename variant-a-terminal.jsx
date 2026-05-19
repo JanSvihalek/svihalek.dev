@@ -212,20 +212,10 @@ const TerminalSite = ({ tweaks = { showAvailability: true }, setTweak = () => { 
           <section id="ts-services" style={tsSection} className="ts-section">
             <SectionHeader num="01" file={TABS[1].label} title={t.servicesTitle} subtitle={t.servicesSub} />
 
-            <div style={tsCodeBlock}>
-              <div style={tsCodeKey}>class</div>
-              <span style={tsCodeClass}>Services</span>
-              <span style={{ color: '#e8e6e0' }}> &#123;</span>
-            </div>
-
             <div style={tsServicesGrid} className="ts-services-grid">
               {t.services.map((s, i) => (
                 <ServiceCard key={i} idx={i} icon={s.icon} method={s.method} title={s.title} desc={s.desc} bullets={s.bullets} />
               ))}
-            </div>
-
-            <div style={{ ...tsCodeBlock, marginTop: 24 }}>
-              <span style={{ color: '#e8e6e0' }}>&#125;</span>
             </div>
           </section>
 
