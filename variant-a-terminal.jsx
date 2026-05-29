@@ -181,7 +181,7 @@ const TerminalSite = ({ tweaks = { showAvailability: true }, setTweak = () => { 
 
               <div style={tsRoleLine}>
                 <span style={{ color: 'var(--blue)' }}>▸</span>
-                <span style={{ color: 'var(--blue)', letterSpacing: '0.18em' }}>MOBILE APP DEVELOPER</span>
+                <span style={{ color: 'var(--blue)', letterSpacing: '0.18em' }}>MOBILE APP/WEB DEVELOPER</span>
                 <span style={{ color: '#4a4a52' }}>/</span>
                 <span style={{ color: '#7a7a85', letterSpacing: '0.18em' }}>FLUTTER · CROSS-PLATFORM</span>
               </div>
