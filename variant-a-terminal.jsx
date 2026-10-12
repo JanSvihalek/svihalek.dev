@@ -225,20 +225,21 @@ const TerminalSite = ({ tweaks = { showAvailability: true }, setTweak = () => { 
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
               <PortfolioCase
-                tag="TORKIS"
-                tagColor="#54c7fc"
-                title={t.torkisTitle}
-                desc={t.torkisDesc}
+                tag="RENOWORKSHOP"
+                tagColor="#4599FE"
+                title={t.rwTitle}
+                desc={t.rwDesc}
                 meta={[
-                  ['client', 'Autoservis · B2B'],
-                  ['platform', 'iOS · Android'],
-                  ['stack', 'Flutter · Firebase · ML Kit'],
-                  ['status', 'under development'],
+                  ['client', 'Dealer BMW · interní'],
+                  ['platform', 'iOS · iPadOS · Android'],
+                  ['stack', 'Flutter · Node.js · MS SQL · ML Kit'],
+                  ['erp', 'Helios Nephrite'],
+                  ['status', 'pilot'],
                 ]}
-                features={t.torkisFeatures}
-                mockup="torkis"
-                logo={<img src="images/torkis-app-icon-192.png" alt="TORKIS" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
-                websiteHref="https://torkis.cz"
+                features={t.rwFeatures}
+                mockup="renoworkshop"
+                logo={<img src="images/renoworkshop-app-icon-192.png" alt="RenoWorkshop" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
+                storeNote={t.rwNote}
               />
               <PortfolioCase
                 tag="QRkni"
@@ -500,10 +501,10 @@ const StoreBadge = ({ store, href }) => {
   );
 };
 
-const PortfolioCase = ({ tag, tagColor, title, desc, meta, features, mockup, logo, iosHref, androidHref, websiteHref }) => (
+const PortfolioCase = ({ tag, tagColor, title, desc, meta, features, mockup, logo, iosHref, androidHref, websiteHref, storeNote }) => (
   <div style={tsPortfolioCase} className="ts-portfolio-case">
     <div style={tsPortfolioMockup} className="ts-portfolio-mockup">
-      {mockup === 'torkis' ? <TorkisMockup /> : <QrkniMockup />}
+      {mockup === 'renoworkshop' ? <RenoWorkshopMockup /> : <QrkniMockup />}
     </div>
     <div style={tsPortfolioBody}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
@@ -535,8 +536,16 @@ const PortfolioCase = ({ tag, tagColor, title, desc, meta, features, mockup, log
         ))}
       </div>
       <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
-        <StoreBadge store="ios" href={iosHref} />
-        <StoreBadge store="android" href={androidHref} />
+        {storeNote ? (
+          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: '#7a7a85' }}>
+            <span style={{ color: 'var(--blue)', marginRight: 8 }}>//</span>{storeNote}
+          </span>
+        ) : (
+          <>
+            <StoreBadge store="ios" href={iosHref} />
+            <StoreBadge store="android" href={androidHref} />
+          </>
+        )}
         {websiteHref && (
           <a href={websiteHref} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '7px 14px', background: 'transparent', border: '1px solid #2a2a32', borderRadius: 9, color: '#a8a8b0', textDecoration: 'none', fontFamily: 'var(--mono)', fontSize: 12, transition: 'border-color 0.15s, color 0.15s' }}
             onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--blue)'; e.currentTarget.style.color = '#e8e6e0'; }}
@@ -550,10 +559,10 @@ const PortfolioCase = ({ tag, tagColor, title, desc, meta, features, mockup, log
   </div>
 );
 
-const TorkisMockup = () => (
-  <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, background: 'linear-gradient(135deg, #080f1a 0%, #0d1929 100%)', borderRadius: 8, overflow: 'hidden' }}>
-    <img src="images/torkis_prijem.png" alt="TORKIS – Příjem vozidla" style={{ height: '88%', width: 'auto', borderRadius: 18, boxShadow: '0 8px 32px rgba(0,0,0,0.6)', transform: 'rotate(-2deg)' }} />
-    <img src="images/torkis_foto.png" alt="TORKIS – Fotodokumentace" style={{ height: '88%', width: 'auto', borderRadius: 18, boxShadow: '0 8px 32px rgba(0,0,0,0.6)', transform: 'rotate(2deg)' }} />
+const RenoWorkshopMockup = () => (
+  <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, background: 'linear-gradient(135deg, #031E49 0%, #0a1830 100%)', borderRadius: 8, overflow: 'hidden' }}>
+    <img src="images/renoworkshop_seznam.png" alt="RenoWorkshop – zakázky na dílně" style={{ height: '88%', width: 'auto', borderRadius: 18, boxShadow: '0 8px 32px rgba(0,0,0,0.6)', transform: 'rotate(-2deg)' }} />
+    <img src="images/renoworkshop_detail.png" alt="RenoWorkshop – detail zakázky s obálkou klíče" style={{ height: '88%', width: 'auto', borderRadius: 18, boxShadow: '0 8px 32px rgba(0,0,0,0.6)', transform: 'rotate(2deg)' }} />
   </div>
 );
 
@@ -647,10 +656,11 @@ const cs = {
     },
   ],
   portfolioTitle: 'Vybrané projekty',
-  portfolioSub: 'Dva projekty, na kterých jsem strávil poslední rok. Oba v produkci, oba pro reálné podnikatele.',
-  torkisTitle: 'TORKIS — evidence vozidel pro automotive',
-  torkisDesc: 'Aplikace pro mechaniky autoservisů, mechaniky v terénu a prodejce vozidel. Naskenuje SPZ nebo VIN, automaticky dohledá vůz a zákazníka, žádné ruční vyplňování. Fotodokumentace, záznam stavu vozu, chat se zákazníkem — to vše v jedné appce na tabletu.',
-  torkisFeatures: ['OCR automatické rozpoznání SPZ a VIN', 'Fotodokumentace s anotacemi přímo ve skice', 'Generování PDF se záznamem stavu vozu', 'Chat se zákazníkem', 'Možnost napojení na váš stávající ERP/DMS'],
+  portfolioSub: 'Dva projekty z posledního roku – interní aplikace pro dealera BMW napojená na ERP a vlastní aplikace pro malé podnikatele.',
+  rwTitle: 'RenoWorkshop — dílenská aplikace pro servis BMW',
+  rwDesc: 'Interní aplikace pro příjem vozidel a dílnu dealera BMW. Technik naskenuje SPZ nebo VIN a aplikace dohledá zakázku přímo v ERP Helios Nephrite. Příjem vozu s kontrolou a fotodokumentací, průběh opravy, pracovní list i obálky s klíči – papírový zakázkový list v deskách už není potřeba.',
+  rwFeatures: ['rozpoznání SPZ, VIN a QR přímo v zařízení (ML Kit)', 'napojení na ERP Helios Nephrite přes vlastní API', 'příjem vozidla s kontrolou a fotodokumentací', 'dílenský stav, zpracovatel a pracovní list', 'obálky na klíče s QR štítky', 'PDF protokol zakázky'],
+  rwNote: 'interní distribuce přes MDM – není v obchodech',
   qrkniTitle: 'QRkni — QR platby pro mikropodnikatele',
   qrkniDesc: 'Generování QR kódů pro platby převodem pro malé firmy a jejich brigádníky. Místo posílání IBAN přes SMS si zaměstnanec naskenuje QR a peníze chodí přesně tam, kam mají — s variabilním symbolem a popisem.',
   qrkniFeatures: ['SPAYD spec — funguje s každou českou bankou', 'offline generování — bez backend závislosti', 'šablony plateb pro opakované platby', 'sdílení QR jako obrázek nebo přímý odkaz'],
@@ -690,10 +700,11 @@ const en = {
     { icon: '◉', method: 'maintain', title: 'Maintenance', desc: 'Long-term care for an app you had built elsewhere — or with me. SDK upgrades, bug fixes, small features.', bullets: ['monthly retainer (8–24 h)', 'Flutter / dependency upgrades', 'crash report monitoring', 'small features without queueing'] },
   ],
   portfolioTitle: 'Selected work',
-  portfolioSub: "Two projects I've spent the last year on. Both shipped, both for real businesses.",
-  torkisTitle: 'TORKIS — vehicle records for auto service shops',
-  torkisDesc: 'An app for car mechanics. Scan a license plate or VIN, auto-fetch the vehicle, open a job. Photo documentation, service history, client signature — all on one tablet in the shop.',
-  torkisFeatures: ['license plate & VIN OCR via Google ML Kit', 'in-photo annotations on damage shots', 'offline-first: works without signal in the garage', 'PDF export with client signature'],
+  portfolioSub: 'Two projects from the past year – an in-house app for a BMW dealership wired into its ERP, and my own app for small businesses.',
+  rwTitle: 'RenoWorkshop — workshop app for a BMW dealer',
+  rwDesc: 'In-house app for vehicle intake and the service workshop of a BMW dealership. A technician scans the plate or VIN and the app pulls the job straight from the Helios Nephrite ERP. Intake with checklist and photos, repair progress, work notes and key envelopes — no more paper job sheets in folders.',
+  rwFeatures: ['on-device plate, VIN & QR recognition (ML Kit)', 'Helios Nephrite ERP integration via a custom API', 'vehicle intake with checklist and photo documentation', 'workshop status, assignee and work notes', 'key envelopes with QR labels', 'PDF job report'],
+  rwNote: 'internal distribution via MDM – not in the stores',
   qrkniTitle: 'QRkni — QR payments for micro-businesses',
   qrkniDesc: 'QR-code generator for bank transfers, made for small businesses paying out to staff and contractors. Instead of texting an IBAN, the employee scans a QR and the money lands exactly where it should — with variable symbol and note.',
   qrkniFeatures: ['SPAYD spec — works with every Czech bank', 'offline generation — no backend dependency', 'payment templates for recurring transfers', 'share QR as image or direct link'],
