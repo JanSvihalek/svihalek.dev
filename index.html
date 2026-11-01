@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jan Švihálek — Mobile App/Web Developer</title>
+<title>svihalek.dev — Jan Švihálek</title>
 <meta name="description" content="Vývoj mobilních aplikací pro iPhone i Android na míru malým a středním firmám. Flutter, napojení na ERP, interní firemní aplikace.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://svihalek.dev/">
@@ -11,6 +11,8 @@
 <meta property="og:description" content="Vývoj mobilních aplikací pro iPhone i Android na míru malým a středním firmám.">
 <meta property="og:image" content="https://svihalek.dev/images/renoworkshop_seznam.png">
 <meta name="theme-color" content="#0a0a0c">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script>(function(){var t=localStorage.getItem('sv-theme');if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,8 +33,10 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 /* header */
 .hdr{position:sticky;top:0;z-index:50;background:var(--header);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .hdr-in{height:var(--hh);display:flex;align-items:center;gap:28px}
-.logo{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px;white-space:nowrap}
-.logo:hover{text-decoration:none}.logo .p{color:var(--ink-4)}.logo .d{color:var(--accent)}
+.logo{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo img{width:26px;height:26px;border-radius:6px;display:block}
+[data-theme="dark"] .logo img{box-shadow:0 0 0 1px var(--line-2)}
+.logo:hover{text-decoration:none}.logo .d{color:var(--accent)}
 .nav{display:flex;gap:4px;margin:0 auto 0 8px}
 .nav a{font-family:var(--mono);font-size:13px;color:var(--ink-3);padding:8px 12px;border-radius:6px;position:relative;transition:color .15s,background .15s}
 .nav a:hover{color:var(--ink);background:var(--bg-3);text-decoration:none}
@@ -70,7 +74,6 @@ h1{font-weight:800;font-size:clamp(64px,10vw,140px);line-height:.92;letter-spaci
 .role .a{color:var(--accent);font-weight:500}.role .m{color:var(--ink-3)}.role .sep{color:var(--ink-4);letter-spacing:0}
 .lead{margin:28px 0 0;font-size:18px;line-height:1.65;color:var(--ink-2);max-width:660px;text-wrap:pretty}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px;align-items:center}
-.loc{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--ink-4)}
 
 /* sections */
 section.sec{padding:112px 0;border-bottom:1px solid var(--line)}
@@ -190,7 +193,7 @@ footer{padding:40px 0 56px}
 h1{font-size:clamp(44px,15vw,64px)}
 .cmt{font-size:13px;line-height:1.5}
 .role{font-size:12px;gap:8px 12px;letter-spacing:.12em}
-.lead{font-size:16.5px}.cta .btn{flex:1;justify-content:center}.loc{margin-left:0;width:100%}
+.lead{font-size:16.5px}.cta .btn{flex:1;justify-content:center}
 .card{padding:26px 20px}.case{padding:18px;gap:24px}.box{padding:22px}.stack{padding:4px 18px}
 .srow{grid-template-columns:minmax(0,1fr);gap:10px}.meta{grid-template-columns:80px minmax(0,1fr)}
 .feat{padding:16px}
@@ -201,7 +204,7 @@ h1{font-size:clamp(44px,15vw,64px)}
 <body>
 <header class="hdr" id="hdr">
 <div class="wrap hdr-in">
-<a class="logo" href="#o-mne"><span class="p">~/</span><span>svihalek<span class="d">.dev</span></span></a>
+<a class="logo" href="#o-mne"><img src="favicon.svg" alt=""><span>svihalek<span class="d">.dev</span></span></a>
 <nav class="nav" aria-label="Hlavní navigace">
 <a href="#o-mne" data-s="o-mne">o mně</a>
 <a href="#sluzby" data-s="sluzby">služby</a>
@@ -243,7 +246,6 @@ h1{font-size:clamp(44px,15vw,64px)}
 <a class="btn btn-p" href="#kontakt" data-kind="projekt"><span class="s">$</span>nezávazně poptat</a>
 <a class="btn btn-g" href="#zkusenosti"><span class="s">&gt;</span>hledáte vývojáře do týmu?</a>
 <a class="btn btn-g" href="#portfolio"><span class="s">&gt;</span>portfolio</a>
-<span class="loc">Praha, CZ · remote</span>
 </div>
 <div class="open"><span class="dot"></span><span>Otevřený freelance projektům i pracovní nabídce</span><span class="tags"><span>HPP</span><span>částečný úvazek</span><span>IČO / kontrakt</span><span>remote</span></span></div>
 </div>
