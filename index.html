@@ -141,8 +141,8 @@ textarea{min-height:130px;resize:vertical;line-height:1.55}
 .sent .c{font-family:var(--mono);font-size:13px;color:var(--ok);margin-bottom:10px}
 .sent .t{font-size:19px;font-weight:600;margin-bottom:6px}.sent .b{color:var(--ink-3);font-size:15px}
 .dl-h{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-4);margin-bottom:8px}
-.drow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
-.drow .k{grid-column:1/-1}
+.drow{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"k c" "v v";gap:6px 12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.drow .k{grid-area:k}.drow a{grid-area:v}.drow .copy{grid-area:c}
 .drow:last-of-type{border-bottom:0}
 .drow .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-4)}
 .drow a{font-family:var(--mono);font-size:14.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -194,7 +194,6 @@ h1{font-size:clamp(44px,15vw,64px)}
 .card{padding:26px 20px}.case{padding:18px;gap:24px}.box{padding:22px}.stack{padding:4px 18px}
 .srow{grid-template-columns:minmax(0,1fr);gap:10px}.meta{grid-template-columns:80px minmax(0,1fr)}
 .feat{padding:16px}
-.drow{grid-template-columns:minmax(0,1fr) auto}.drow .k{grid-column:1/-1}
 .ft .sp{margin-left:0}
 }
 </style>
