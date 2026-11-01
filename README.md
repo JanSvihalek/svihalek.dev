@@ -4,64 +4,45 @@ Developer portfolio web ve stylu IDE / terminal. Multiplatformní mobilní aplik
 
 ## Struktura
 
-- `index.html` — hlavní soubor, načítá React, Babel, fonty a komponenty
-- `variant-a-terminal.jsx` — celá UI komponenta webu (hero, služby, portfolio, stack, kontakt)
-- `tweaks-panel.jsx` — in-page Tweaks panel (akcentová barva, indikátor dostupnosti)
+- `index.html` — celý web v jednom souboru (HTML + CSS + JS), bez závislostí a bez build stepu
+- `images/` — screenshoty a ikony projektů
 
 ## Lokální spuštění
 
-Soubor `index.html` používá inline JSX přes `@babel/standalone`. Stačí ho otevřít přes lokální HTTP server, **ne přímo souborem `file://`** (kvůli CORS pravidlům prohlížeče pro JSX moduly).
-
-### Nejjednodušší způsoby:
-
 ```bash
-# Pythonem
-python3 -m http.server 8080
-
-# Node.jsem
+firebase serve
+# nebo
 npx serve .
-
-# PHP
-php -S localhost:8080
 ```
 
-Pak otevři `http://localhost:8080/index.html`.
+Pak otevři `http://localhost:5000` (resp. port, který vypíše server).
 
 ## Deploy
 
-Stačí nahrát všechny 3 soubory na statický hosting (Vercel, Netlify, GitHub Pages, FTP).
-Žádný build step není potřeba.
+```bash
+firebase deploy --only hosting
+```
 
-### Doporučená optimalizace pro produkci
-
-Pro lepší výkon doporučuju před deployem:
-1. Pre-transpilovat JSX přes Vite / esbuild → vyhneš se runtime Babel transformaci v prohlížeči
-2. Stáhnout fonty (JetBrains Mono, Archivo) lokálně místo Google Fonts CDN
-3. Přidat OG tagy a favicon
+Projekt `svihalek-dev-web` (viz `.firebaserc`). Skryté soubory (`.git` apod.) se nenahrávají, viz `firebase.json`.
 
 ## Co web obsahuje
 
+- **Header** — sticky navigace se scroll-spy, přepínač světlý / tmavý režim, na mobilu hamburger menu
 - **Hero** — `$ whoami` prompt + velký nápis Jan Švihálek + role + bio
 - **Služby** — 4 karty (Vývoj aplikací, Konzultace, UI/UX, Údržba)
-- **Portfolio** — TORKIS + QRkni s vlastními mock UI (žádné externí obrázky)
-- **Stack** — YAML-style výpis core / backend / native / tooling
-- **Kontakt** — formulář + přímé údaje (email, telefon, web, LinkedIn, GitHub)
+- **Portfolio** — RenoWorkshop + RenoEnergy
+- **Stack** — mobile / backend / data / integrace
+- **Kontakt** — formulář s validací (odesílá přes Web3Forms) + přímé údaje s kopírováním
 
-## Tweaks
+## Téma
 
-Stránka obsahuje skrytý Tweaks panel s in-page editingem (akcentová barva, viditelnost stavu).
-Pro produkci je možné Tweaks komponentu vyhodit — odstraň `<script src="tweaks-panel.jsx">` z indexu a celý `<TweaksPanel>` blok z `variant-a-terminal.jsx`.
-
-## Lokalizace
-
-Web podporuje CS / EN přepnutí. Texty jsou v objektech `cs` a `en` na konci `variant-a-terminal.jsx`.
+`data-theme="dark|light"` na `<html>`. Volba se ukládá do `localStorage['sv-theme']`, jinak se řídí `prefers-color-scheme`. Barvy jsou CSS proměnné na začátku `<style>`.
 
 ## Responzivita
 
-Breakpointy v `index.html`:
-- `< 1100px` — portfolio / services / contact do 1 sloupce
-- `< 900px` — sidebar skrytý
-- `< 640px` — mobilní layout, tab bar horizontálně scrollable
+- `≤ 1080px` — portfolio a kontakt do 1 sloupce
+- `≤ 860px` — hamburger menu, služby do 1 sloupce
+- `≤ 640px` — mobilní layout
 
 ## Kontakt
 

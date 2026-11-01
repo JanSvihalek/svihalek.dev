@@ -1,146 +1,363 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="cs" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>svihalek.dev — Mobile App Developer</title>
-
+<title>Jan Švihálek — Mobile App/Web Developer</title>
+<meta name="description" content="Vývoj mobilních aplikací pro iPhone i Android na míru malým a středním firmám. Flutter, napojení na ERP, interní firemní aplikace.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://svihalek.dev/">
+<meta property="og:title" content="Jan Švihálek — Mobile App/Web Developer">
+<meta property="og:description" content="Vývoj mobilních aplikací pro iPhone i Android na míru malým a středním firmám.">
+<meta property="og:image" content="https://svihalek.dev/images/renoworkshop_seznam.png">
+<meta name="theme-color" content="#0a0a0c">
+<script>(function(){var t=localStorage.getItem('sv-theme');if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  html, body { margin: 0; padding: 0; min-height: 100%; font-family: 'IBM Plex Sans', -apple-system, sans-serif; background: #0a0a0c; color: #e8e6e0; }
-  *, *::before, *::after { box-sizing: border-box; }
+:root{--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'Archivo',-apple-system,sans-serif;--max:1200px;--hh:64px}
+[data-theme="dark"]{--bg:#0a0a0c;--bg-2:#121217;--bg-3:#18181e;--line:#1f1f26;--line-2:#2a2a32;--ink:#f2efe8;--ink-2:#b4b4bc;--ink-3:#7f7f8a;--ink-4:#55555e;--accent:#4f8aff;--accent-ink:#fff;--accent-soft:rgba(79,138,255,.08);--accent-line:rgba(79,138,255,.2);--key:#ff79c6;--ok:#28c840;--header:rgba(10,10,12,.82);--shot:#0d1b33;color-scheme:dark}
+[data-theme="light"]{--bg:#f5f4f0;--bg-2:#ffffff;--bg-3:#efede7;--line:#e3e1da;--line-2:#d3d0c7;--ink:#141417;--ink-2:#3d3d45;--ink-3:#62626c;--ink-4:#8a8a93;--accent:#2a62d9;--accent-ink:#fff;--accent-soft:rgba(42,98,217,.06);--accent-line:rgba(42,98,217,.2);--key:#b8327f;--ok:#1a9a33;--header:rgba(245,244,240,.85);--shot:#0d1b33;color-scheme:light}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 24px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;transition:background .25s,color .25s;overflow-x:hidden}
+::selection{background:var(--accent);color:#fff}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+.mono{font-family:var(--mono)}
 
-  :root {
-    --blue: #4f8aff;
-    --blue-deep: #2a6df0;
-    --ink: #0d0d0f;
-    --cream: #f6f3eb;
-    --dark: #0a0a0c;
-    --dark-2: #131318;
-    --dark-3: #1c1c22;
-    --mono: 'IBM Plex Mono', ui-monospace, monospace;
-    --sans: 'IBM Plex Sans', -apple-system, sans-serif;
-  }
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:var(--header);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hdr-in{height:var(--hh);display:flex;align-items:center;gap:28px}
+.logo{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.logo:hover{text-decoration:none}.logo .p{color:var(--ink-4)}.logo .d{color:var(--accent)}
+.nav{display:flex;gap:4px;margin:0 auto 0 8px}
+.nav a{font-family:var(--mono);font-size:13px;color:var(--ink-3);padding:8px 12px;border-radius:6px;position:relative;transition:color .15s,background .15s}
+.nav a:hover{color:var(--ink);background:var(--bg-3);text-decoration:none}
+.nav a.on{color:var(--ink)}
+.nav a.on::after{content:"";position:absolute;left:12px;right:12px;bottom:-13px;height:2px;background:var(--accent)}
+.hdr-r{display:flex;align-items:center;gap:10px}
+.status{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--ink-3);padding:0 6px;white-space:nowrap}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px color-mix(in oklab,var(--ok) 20%,transparent)}
+.icon-btn{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--line);background:transparent;color:var(--ink-2);border-radius:8px;cursor:pointer;transition:border-color .15s,color .15s,background .15s}
+.icon-btn:hover{border-color:var(--line-2);color:var(--ink);background:var(--bg-3)}
+.theme-ic{width:16px;height:16px;border-radius:50%;position:relative;border:2px solid currentColor;overflow:hidden}
+.theme-ic::after{content:"";position:absolute;inset:0;width:50%;background:currentColor}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;font-weight:600;padding:12px 20px;border-radius:6px;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .15s,border-color .15s,opacity .15s;white-space:nowrap}
+.btn:hover{text-decoration:none}.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.6;cursor:default;transform:none}
+.btn-p{background:var(--accent);color:var(--accent-ink)}.btn-p:hover{background:color-mix(in oklab,var(--accent) 88%,#000)}
+.btn-p .s{opacity:.6}
+.btn-g{border-color:var(--line-2);color:var(--ink)}.btn-g:hover{background:var(--bg-3)}.btn-g .s{color:var(--accent)}
+.btn-sm{padding:9px 14px;font-size:12px}
+.menu-btn{display:none}
+.menu-ic{width:16px;height:10px;border-top:2px solid currentColor;border-bottom:2px solid currentColor;position:relative}
+.menu-ic::after{content:"";position:absolute;left:0;right:0;top:2px;border-top:2px solid currentColor}
+.mnav{display:none}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--accent);width:0;transition:width .1s linear}
 
-  html { scroll-behavior: smooth; }
-  ::selection { background: var(--blue); color: #fff; }
+/* hero */
+.hero{padding:112px 0 120px;border-bottom:1px solid var(--line)}
+.cmt{font-family:var(--mono);font-size:14px;color:var(--ink-4);margin-bottom:6px}
+.prompt{font-family:var(--mono);font-size:15px;display:flex;gap:10px;align-items:center;margin-bottom:28px}
+.prompt .t{color:var(--ink-4)}.prompt .a{color:var(--accent)}
+.cur{display:inline-block;width:8px;height:18px;background:var(--accent);animation:blink 1.06s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+h1{font-weight:800;font-size:clamp(64px,10vw,140px);line-height:.92;letter-spacing:-.035em;margin:0;color:var(--ink)}
+.role{margin-top:32px;font-family:var(--mono);font-size:13px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;letter-spacing:.16em}
+.role .a{color:var(--accent);font-weight:500}.role .m{color:var(--ink-3)}.role .sep{color:var(--ink-4);letter-spacing:0}
+.lead{margin:28px 0 0;font-size:18px;line-height:1.65;color:var(--ink-2);max-width:660px;text-wrap:pretty}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px;align-items:center}
+.loc{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--ink-4)}
 
-  /* Scroll-reveal */
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.in { opacity: 1; transform: translateY(0); }
+/* sections */
+section.sec{padding:112px 0;border-bottom:1px solid var(--line)}
+.sh{margin-bottom:48px}
+.crumb{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-bottom:20px}
+.crumb .n{color:var(--accent)}.crumb .sl{color:var(--ink-4)}.crumb .ln{flex:1;height:1px;background:var(--line)}
+h2{font-weight:700;font-size:clamp(40px,5vw,60px);line-height:1;letter-spacing:-.025em;margin:0}
+.sub{font-size:17px;line-height:1.6;color:var(--ink-3);margin:16px 0 0;max-width:640px;text-wrap:pretty}
 
-  /* Custom scrollbar (subtle) */
-  ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { background: var(--dark); }
-  ::-webkit-scrollbar-thumb { background: #1f1f26; border-radius: 0; }
-  ::-webkit-scrollbar-thumb:hover { background: #2a2a32; }
+/* services */
+.svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.card{background:var(--bg-2);padding:36px 34px;display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px 12px;transition:background .2s}
+.card:hover{background:var(--bg-3)}
+.card .i{font-family:var(--mono);font-size:12px;color:var(--ink-4);padding-top:3px}
+.card .m{font-family:var(--mono);font-size:13px;color:var(--accent)}
+.card h3{font-size:24px;font-weight:600;letter-spacing:-.015em;margin:6px 0 12px}
+.card p{font-size:15px;line-height:1.6;color:var(--ink-2);margin:0 0 18px;text-wrap:pretty}
+.ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
+.ul li{display:flex;gap:10px}.ul li::before{content:"→";color:var(--accent)}
 
-  /* Section anchor offset so sticky chrome doesn't cover the heading */
-  section[id^="ts-"] { scroll-margin-top: 100px; }
+/* portfolio */
+.cases{display:flex;flex-direction:column;gap:32px}
+.case{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:44px;padding:32px;background:var(--bg-2);border:1px solid var(--line);border-radius:8px}
+.shot{border-radius:6px;overflow:hidden;background:radial-gradient(120% 90% at 30% 20%,#13284a 0%,var(--shot) 60%);aspect-ratio:1/1;align-self:start;display:flex;align-items:center;justify-content:center;gap:5%}
+.shot img{width:42%;height:auto;display:block;border-radius:clamp(10px,2.4vw,20px);box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.shot img:first-child{transform:rotate(-3deg) translateY(2%)}
+.shot img:last-child{transform:rotate(3deg) translateY(-2%)}
+.tag{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.tag img{width:40px;height:40px;border-radius:9px;display:block}
+.tag span{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.18em;color:var(--accent);display:flex;align-items:center;gap:10px}
+.tag span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.case h3{font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-.02em;line-height:1.12;margin:0 0 16px;text-wrap:balance}
+.case p{font-size:15.5px;line-height:1.65;color:var(--ink-2);margin:0 0 26px;text-wrap:pretty}
+.meta{display:grid;grid-template-columns:96px minmax(0,1fr);gap:7px 16px;font-family:var(--mono);font-size:12.5px;margin:0 0 24px}
+.meta dt{color:var(--ink-4)}.meta dd{margin:0;color:var(--ink-2)}
+.pill{display:inline-flex;align-items:center;gap:7px}.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.pill.prod{color:var(--ok)}.pill.pilot{color:#e0a21a}
+.feat{list-style:none;margin:0;padding:18px 20px;display:flex;flex-direction:column;gap:8px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:6px;font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
+.feat li{display:flex;gap:12px}.feat li::before{content:"✓";color:var(--accent)}
+.note{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:20px}.note b{color:var(--accent);font-weight:400}
 
-  /* === Responsive (mobile + tablet) === */
-  @media (max-width: 1100px) {
-    .ts-services-grid { grid-template-columns: minmax(0, 1fr) !important; }
-    .ts-portfolio-case { grid-template-columns: minmax(0, 1fr) !important; }
-    .ts-portfolio-mockup { height: 380px !important; }
-    .ts-contact-row { grid-template-columns: minmax(0, 1fr) !important; }
-  }
+/* stack */
+.stack{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:12px 32px;font-family:var(--mono);font-size:14px}
+.srow{display:grid;grid-template-columns:140px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.srow:last-child{border-bottom:0}
+.srow .k{color:var(--key)}
+.srow .v{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:4px 10px;border:1px solid var(--line-2);border-radius:4px;color:var(--ink);font-size:13px}
 
-  @media (max-width: 900px) {
-    /* Hide sidebar on tablet — content gets full width */
-    .ts-sidebar { display: none !important; }
-    .ts-section { padding: 64px 32px !important; }
-    .ts-hero { padding: 56px 0 80px !important; }
-    .ts-hero-code { padding: 0 32px !important; }
-    .ts-line-numbers { display: none !important; }
-    .ts-stack-block { font-size: 12px !important; padding: 22px 20px !important; }
-    .ts-footer { padding: 36px 32px 40px !important; }
-  }
+/* contact */
+.crow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:32px;align-items:start}
+.box{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:32px}
+.box h3{font-size:20px;font-weight:600;margin:0 0 24px}
+form{display:flex;flex-direction:column;gap:20px}
+label{display:flex;flex-direction:column;gap:8px}
+.lbl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px}
+.lbl .err{color:#e5484d;letter-spacing:0;display:none}
+label.bad .err{display:inline}label.bad input,label.bad textarea{border-color:#e5484d}
+input,textarea{width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:6px;padding:13px 14px;font-family:var(--mono);font-size:14px;color:var(--ink);outline:none;transition:border-color .15s,box-shadow .15s}
+input::placeholder,textarea::placeholder{color:var(--ink-4)}
+input:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+textarea{min-height:130px;resize:vertical;line-height:1.55}
+.form-f{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.form-f small{font-family:var(--mono);font-size:12px;color:var(--ink-4)}
+.form-err{font-family:var(--mono);font-size:12.5px;line-height:1.55;color:#e5484d;margin:0}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.sent{padding:28px;border:1px solid color-mix(in oklab,var(--ok) 35%,transparent);background:color-mix(in oklab,var(--ok) 7%,transparent);border-radius:6px}
+.sent .c{font-family:var(--mono);font-size:13px;color:var(--ok);margin-bottom:10px}
+.sent .t{font-size:19px;font-weight:600;margin-bottom:6px}.sent .b{color:var(--ink-3);font-size:15px}
+.dl-h{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-4);margin-bottom:8px}
+.drow{display:grid;grid-template-columns:70px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.drow:last-of-type{border-bottom:0}
+.drow .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-4)}
+.drow a{font-family:var(--mono);font-size:14.5px;color:var(--ink);overflow-wrap:anywhere}
+.drow a:hover{color:var(--accent);text-decoration:none}
+.drow a .d{color:var(--accent)}
+.copy{font-family:var(--mono);font-size:11px;color:var(--ink-3);background:transparent;border:1px solid var(--line);border-radius:4px;padding:5px 8px;cursor:pointer;min-width:62px}
+.copy:hover{color:var(--ink);border-color:var(--line-2)}.copy.ok{color:var(--ok);border-color:color-mix(in oklab,var(--ok) 40%,transparent)}
 
-  @media (max-width: 640px) {
-    /* Mobile */
-    .ts-chrome { padding: 10px 12px !important; gap: 10px !important; }
-    .ts-url { padding: 6px 10px !important; font-size: 11px !important; }
-    .ts-tabbar { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; scrollbar-width: none; }
-    .ts-tabbar::-webkit-scrollbar { display: none; }
-    .ts-tabbar > * { flex-shrink: 0 !important; }
-    .ts-section { padding: 56px 20px !important; }
-    .ts-hero { padding: 40px 0 64px !important; }
-    .ts-hero-code { padding: 0 20px !important; }
-    .ts-footer { padding: 32px 20px 36px !important; }
-    .ts-footer-meta { flex-direction: column !important; align-items: flex-start !important; gap: 6px !important; }
-    .ts-portfolio-case { padding: 20px !important; gap: 24px !important; }
-    .ts-portfolio-mockup { height: 320px !important; }
-    .ts-contact-row { gap: 28px !important; }
-    .ts-stack-block { padding: 18px 16px !important; font-size: 11px !important; }
-    .ts-stack-block .ts-stack-row,
-    .ts-stack-block { word-break: break-word; }
+/* footer */
+footer{padding:40px 0 56px}
+.ft{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;font-family:var(--mono);font-size:12px;color:var(--ink-4)}
+.ft .d{color:var(--accent)}.ft a{color:var(--ink-3)}.ft .sp{margin-left:auto}
 
-    /* CTA row: stack and full width */
-    .ts-cta-row { flex-direction: column !important; align-items: stretch !important; }
-    .ts-cta-row > a { justify-content: center !important; }
-    .ts-cta-row > div { display: none !important; }
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.cur{animation:none}}
 
-    /* Hamburger: hide tabs, show burger */
-    .ts-tab-btns { display: none !important; }
-    .ts-hamburger { display: flex !important; }
-  }
-
-  /* Desktop: show tabs, hide burger */
-  .ts-tab-btns { display: flex; flex: 1; }
-  .ts-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 12px 16px; color: #e8e6e0; align-items: center; justify-content: center; }
-  .ts-hamburger:hover { color: var(--blue); }
-
-  /* Mobile: hide chrome version label, IDE branding */
-  @media (max-width: 720px) {
-    .ts-tabbar > div:last-child { display: none !important; }
-  }
+@media (max-width:1080px){.case{grid-template-columns:minmax(0,1fr)}.shot{max-width:520px;width:100%}.crow{grid-template-columns:minmax(0,1fr)}.status{display:none}}
+@media (max-width:860px){
+.nav,.hdr-r .btn{display:none}.menu-btn{display:grid}.hdr-r{margin-left:auto}
+.mnav{display:block;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px 24px;transform-origin:top;transition:opacity .18s,transform .18s,visibility .18s;opacity:0;visibility:hidden;transform:translateY(-6px);pointer-events:none}
+.hdr.open .mnav{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+.mnav a{display:flex;justify-content:space-between;font-family:var(--mono);font-size:15px;color:var(--ink-2);padding:15px 0;border-bottom:1px solid var(--line)}
+.mnav a.on{color:var(--ink)}.mnav a.on::after{content:"●";color:var(--accent);font-size:10px}
+.mnav a:hover{text-decoration:none}
+.mnav .btn{margin-top:20px;width:100%;justify-content:center;border-bottom:0;color:var(--accent-ink);font-size:14px}
+.mnav .btn.on::after{content:none}
+.mnav .st{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:16px;justify-content:center}
+.svc{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+.wrap{padding:0 20px}.hero{padding:64px 0 80px}section.sec{padding:72px 0}
+h1{font-size:clamp(44px,15vw,64px)}
+.cmt{font-size:13px;line-height:1.5}
+.role{font-size:12px;gap:8px 12px;letter-spacing:.12em}
+.lead{font-size:16.5px}.cta .btn{flex:1;justify-content:center}.loc{margin-left:0;width:100%}
+.card{padding:26px 20px}.case{padding:18px;gap:24px}.box{padding:22px}.stack{padding:4px 18px}
+.srow{grid-template-columns:minmax(0,1fr);gap:10px}.meta{grid-template-columns:80px minmax(0,1fr)}
+.feat{padding:16px}
+.drow{grid-template-columns:minmax(0,1fr) auto}.drow .k{grid-column:1/-1}
+.ft .sp{margin-left:0}
+}
 </style>
 </head>
 <body>
-  <div id="root"></div>
+<header class="hdr" id="hdr">
+<div class="wrap hdr-in">
+<a class="logo" href="#o-mne"><span class="p">~/</span><span>svihalek<span class="d">.dev</span></span></a>
+<nav class="nav" aria-label="Hlavní navigace">
+<a href="#o-mne" data-s="o-mne">o mně</a>
+<a href="#sluzby" data-s="sluzby">služby</a>
+<a href="#portfolio" data-s="portfolio">portfolio</a>
+<a href="#stack" data-s="stack">stack</a>
+<a href="#kontakt" data-s="kontakt">kontakt</a>
+</nav>
+<div class="hdr-r">
+<div class="status"><span class="dot"></span>přijímám projekty</div>
+<button class="icon-btn" id="theme" type="button" aria-label="Přepnout světlý / tmavý režim" title="Světlý / tmavý režim"><span class="theme-ic"></span></button>
+<a class="btn btn-p btn-sm" href="#kontakt">Napsat mi</a>
+<button class="icon-btn menu-btn" id="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><span class="menu-ic"></span></button>
+</div>
+</div>
+<nav class="mnav" id="mnav" aria-label="Mobilní navigace">
+<a href="#o-mne" data-s="o-mne">o mně</a>
+<a href="#sluzby" data-s="sluzby">služby</a>
+<a href="#portfolio" data-s="portfolio">portfolio</a>
+<a href="#stack" data-s="stack">stack</a>
+<a href="#kontakt" data-s="kontakt">kontakt</a>
+<a class="btn btn-p" href="#kontakt">$ nezávazně poptat</a>
+<div class="st"><span class="dot"></span>Online — přijímám projekty</div>
+</nav>
+<div class="progress" id="progress"></div>
+</header>
 
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<main>
+<section class="hero" id="o-mne" data-screen-label="O mně">
+<div class="wrap">
+<div class="cmt">// Multiplatformní mobilní aplikace ve Flutteru. Od návrhu po App Store/Google Play.</div>
+<div class="prompt"><span class="t">~</span><span class="a">$</span><span>whoami</span><span class="cur"></span></div>
+<h1>Jan Švihálek</h1>
+<div class="role"><span class="a">▸ MOBILE APP/WEB DEVELOPER</span><span class="sep">/</span><span class="m">FLUTTER · CROSS-PLATFORM</span></div>
+<p class="lead">Vyvíjím mobilní aplikace pro iPhone i Android na míru malým a středním firmám. Díky jednomu společnému kódu pro obě platformy je vývoj rychlejší a levnější, a přitom aplikace na obou telefonech vypadá a funguje stejně dobře.</p>
+<p class="lead">Zakládám si na rychlém dodání, kódu, který se dá dlouhodobě rozvíjet, a aplikacích, které lidi baví používat.</p>
+<div class="cta">
+<a class="btn btn-p" href="#kontakt"><span class="s">$</span>nezávazně poptat</a>
+<a class="btn btn-g" href="#portfolio"><span class="s">&gt;</span>portfolio</a>
+<span class="loc">Praha, CZ</span>
+</div>
+</div>
+</section>
 
-  <script type="text/babel" src="tweaks-panel.jsx"></script>
-  <script type="text/babel" src="variant-a-terminal.jsx"></script>
+<section class="sec" id="sluzby" data-screen-label="Služby">
+<div class="wrap">
+<div class="sh reveal"><div class="crumb"><span class="n">01</span><span class="sl">/</span><span>služby</span><span class="ln"></span></div><h2>Co dělám</h2><p class="sub">Čtyři způsoby, jakými s vámi mohu pracovat. Od nové aplikace na zelené louce po dlouhodobou údržbu.</p></div>
+<div class="svc reveal">
+<article class="card"><span class="i">01</span><div><div class="m">.buildApp()</div><h3>Vývoj aplikací</h3><p>Návrh a vývoj produkční Flutter aplikace pro iOS a Android. Od architektury přes integrace až po publikaci ve storech.</p><ul class="ul"><li>nová aplikace za 6–12 týdnů</li><li>cross-platform: iOS, Android, web, Windows</li><li>CI/CD, testy, monitoring od dne 1</li><li>publikace v App Store i Google Play</li></ul></div></article>
+<article class="card"><span class="i">02</span><div><div class="m">.consult()</div><h3>Konzultace</h3><p>Diskuze nad architekturou, technologickými volbami, výběrem stacku. Hodinová sazba nebo balíček dní.</p><ul class="ul"><li>výběr stack &amp; architektura</li><li>audit existující codebase</li><li>odhady, roadmapa, rizika</li><li>review PR / mentoring týmu</li></ul></div></article>
+<article class="card"><span class="i">03</span><div><div class="m">.designUI()</div><h3>UI / UX</h3><p>Návrh rozhraní s ohledem na to, kdo ho bude používat. Jeden člověk od skici po build.</p><ul class="ul"><li>design system &amp; komponenty</li><li>user flows a prototypy</li><li>iOS &amp; Material guidelines</li><li>hand-off rovnou do Flutteru</li></ul></div></article>
+<article class="card"><span class="i">04</span><div><div class="m">.maintain()</div><h3>Údržba</h3><p>Dlouhodobá péče o aplikaci, kterou jste si nechali postavit jinde nebo se mnou. Aktualizace, opravy chyb, drobné nové funkce.</p><ul class="ul"><li>měsíční retainer (8–24 h)</li><li>aktualizace Flutteru a knihoven</li><li>sledování crash reportů</li><li>drobné funkce bez čekání ve frontě</li></ul></div></article>
+</div>
+</div>
+</section>
 
-  <script type="text/babel" data-presets="env,react">
-    const { TerminalSite, useTweaks } = window;
+<section class="sec" id="portfolio" data-screen-label="Portfolio">
+<div class="wrap">
+<div class="sh reveal"><div class="crumb"><span class="n">02</span><span class="sl">/</span><span>portfolio</span><span class="ln"></span></div><h2>Vybrané projekty</h2><p class="sub">Dvě interní aplikace z posledního roku, obě pro dealera BMW a jeho zaměstnance.</p></div>
+<div class="cases">
+<article class="case reveal">
+<div class="shot"><img src="images/renoworkshop_seznam.png" alt="RenoWorkshop — zakázky na dílně" loading="lazy"><img src="images/renoworkshop_detail.png" alt="RenoWorkshop — detail zakázky s obálkou klíče" loading="lazy"></div>
+<div>
+<div class="tag"><img src="images/renoworkshop-app-icon-192.png" alt=""><span>RENOWORKSHOP</span></div>
+<h3>RenoWorkshop — dílenská aplikace pro servis BMW</h3>
+<p>Interní aplikace pro příjem vozidel a dílnu dealera BMW. Technik naskenuje SPZ nebo VIN a aplikace dohledá zakázku přímo v ERP Helios Nephrite. Příjem vozu s kontrolou a fotodokumentací, průběh opravy, pracovní list i obálky s klíči – papírový zakázkový list v deskách už není potřeba.</p>
+<dl class="meta"><dt>client:</dt><dd>Dealer BMW · interní</dd><dt>platform:</dt><dd>iOS · iPadOS · Android</dd><dt>stack:</dt><dd>Flutter · Node.js · MS SQL · ML Kit</dd><dt>erp:</dt><dd>Helios Nephrite</dd><dt>status:</dt><dd><span class="pill pilot">pilot</span></dd></dl>
+<ul class="feat"><li>rozpoznání SPZ, VIN a QR přímo v zařízení (ML Kit)</li><li>napojení na ERP Helios Nephrite přes vlastní API</li><li>příjem vozidla s kontrolou a fotodokumentací</li><li>dílenský stav, zpracovatel a pracovní list</li><li>obálky na klíče s QR štítky</li><li>PDF protokol zakázky</li></ul>
+<div class="note"><b>//</b> interní distribuce přes MDM – není v obchodech</div>
+</div>
+</article>
+<article class="case reveal">
+<div class="shot"><img src="images/renoenergy_nabijeni_light.png" alt="RenoEnergy — přehled nabíjení" loading="lazy"><img src="images/renoenergy_mista.png" alt="RenoEnergy — odběrná místa" loading="lazy"></div>
+<div>
+<div class="tag"><span>RENOENERGY</span></div>
+<h3>RenoEnergy — evidence nabíjení elektromobilů a odečtů měřidel</h3>
+<p>Interní aplikace pro dealera BMW. Zaměstnanci v ní evidují nabíjení elektromobilů na firemních nabíječkách: vyfotí počítadlo před nabíjením a po něm a aplikace spočítá spotřebu i orientační cenu jako podklad pro fakturaci. Zároveň slouží technikům při obchůzkách, kdy pomáhá s odečty elektroměrů, plynoměrů a dalších měřidel v areálech.</p>
+<dl class="meta"><dt>client:</dt><dd>Dealer BMW · interní</dd><dt>platform:</dt><dd>iOS · Android</dd><dt>stack:</dt><dd>Flutter</dd><dt>status:</dt><dd><span class="pill prod">in production</span></dd></dl>
+<ul class="feat"><li>fotka počítadla před a po nabíjení jako doklad pro fakturaci</li><li>automatický výpočet spotřeby v kWh a orientační ceny</li><li>měsíční souhrny nabíjení za každého zaměstnance</li><li>obchůzky odběrných míst s načtením měřidla přes QR kód</li></ul>
+<div class="note"><b>//</b> interní distribuce pro zaměstnance – není v obchodech</div>
+</div>
+</article>
+</div>
+</div>
+</section>
 
-    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-      "showAvailability": true,
-      "accentColor": "#4f8aff"
-    }/*EDITMODE-END*/;
+<section class="sec" id="stack" data-screen-label="Stack">
+<div class="wrap">
+<div class="sh reveal"><div class="crumb"><span class="n">03</span><span class="sl">/</span><span>stack</span><span class="ln"></span></div><h2>Tech stack</h2><p class="sub">S čím dnes pracuji. Volba stacku není dogma — beru nástroj, který se k problému hodí.</p></div>
+<div class="stack reveal">
+<div class="srow"><span class="k">mobile</span><div class="v"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Riverpod</span><span class="chip">ML Kit</span></div></div>
+<div class="srow"><span class="k">backend</span><div class="v"><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Fastify</span><span class="chip">Firebase</span></div></div>
+<div class="srow"><span class="k">data</span><div class="v"><span class="chip">SQL Server</span><span class="chip">PostgreSQL</span><span class="chip">Firestore</span></div></div>
+<div class="srow"><span class="k">integrace</span><div class="v"><span class="chip">Helios Nephrite</span><span class="chip">Entra ID (SSO)</span><span class="chip">REST API</span></div></div>
+</div>
+</div>
+</section>
 
-    function App() {
-      const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+<section class="sec" id="kontakt" data-screen-label="Kontakt" style="border-bottom:0">
+<div class="wrap">
+<div class="sh reveal"><div class="crumb"><span class="n">04</span><span class="sl">/</span><span>kontakt</span><span class="ln"></span></div><h2>Napište mi</h2><p class="sub">Aktuálně mám kapacitu na nové projekty. Napište pár řádků o tom, co potřebujete, a do jednoho pracovního dne se ozvu.</p></div>
+<div class="crow reveal">
+<div class="box" id="formbox">
+<h3>Nová zpráva</h3>
+<form id="form" novalidate>
+<label data-f="name"><span class="lbl">JMÉNO<span class="err">vyplňte jméno</span></span><input name="name" autocomplete="name" placeholder="Jan Novák"></label>
+<label data-f="email"><span class="lbl">E-MAIL<span class="err">zadejte platný e-mail</span></span><input name="email" type="email" autocomplete="email" placeholder="jan@firma.cz"></label>
+<label data-f="msg"><span class="lbl">ZPRÁVA<span class="err">napište pár slov</span></span><textarea name="msg" placeholder="O co jde, jaký rozsah, kdy by to mělo být hotové…"></textarea></label>
+<input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+<p class="form-err" id="form-err" role="alert" hidden>Odeslání selhalo. Zkuste to prosím znovu, nebo napište přímo na <a href="mailto:jan.svihalek00@gmail.com">jan.svihalek00@gmail.com</a>.</p>
+<div class="form-f"><button class="btn btn-p" type="submit" id="send"><span class="s">$</span>odeslat zprávu</button><small>odpověď do 1 pracovního dne</small></div>
+</form>
+</div>
+<aside class="box">
+<div class="dl-h">// PŘÍMÝ KONTAKT</div>
+<div class="drow"><span class="k">EMAIL</span><a href="mailto:jan.svihalek00@gmail.com">jan.svihalek00@gmail.com</a><button class="copy" type="button" data-copy="jan.svihalek00@gmail.com">kopírovat</button></div>
+<div class="drow"><span class="k">PHONE</span><a href="tel:+420731901003">+420 731 901 003</a><button class="copy" type="button" data-copy="+420731901003">kopírovat</button></div>
+<div class="drow"><span class="k">LINKEDIN</span><a href="https://www.linkedin.com/in/jan-%C5%A1vih%C3%A1lek-526627170/" target="_blank" rel="noopener noreferrer">/in/jan-švihálek</a><span></span></div>
+<div class="drow"><span class="k">WEB</span><a href="https://svihalek.dev">svihalek<span class="d">.dev</span></a><span></span></div>
+</aside>
+</div>
+</div>
+</section>
+</main>
 
-      // Apply accent color CSS variable
-      React.useEffect(() => {
-        document.documentElement.style.setProperty('--blue', tweaks.accentColor);
-      }, [tweaks.accentColor]);
+<footer>
+<div class="wrap ft"><span>svihalek<span class="d">.dev</span></span><span>© 2026 Jan Švihálek</span><a class="sp" href="#o-mne">nahoru ↑</a></div>
+</footer>
 
-      // Scroll-reveal observer
-      React.useEffect(() => {
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) e.target.classList.add('in');
-          });
-        }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
-        document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-        return () => io.disconnect();
-      }, []);
+<script>
+(function(){
+var root=document.documentElement,hdr=document.getElementById('hdr');
+document.getElementById('theme').onclick=function(){var t=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',t);localStorage.setItem('sv-theme',t);};
+var mb=document.getElementById('menu');
+function setMenu(o){hdr.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);}
+mb.onclick=function(){setMenu(!hdr.classList.contains('open'));};
+document.querySelectorAll('.mnav a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
+document.addEventListener('click',function(e){if(hdr.classList.contains('open')&&!hdr.contains(e.target))setMenu(false);});
+matchMedia('(min-width:861px)').addEventListener('change',function(m){if(m.matches)setMenu(false);});
 
-      return <TerminalSite tweaks={tweaks} setTweak={setTweak} />;
-    }
+var ids=['o-mne','sluzby','portfolio','stack','kontakt'],links=document.querySelectorAll('[data-s]'),prog=document.getElementById('progress');
+function spy(){var y=window.scrollY+window.innerHeight*0.35,cur=ids[0];
+ids.forEach(function(id){var el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id;});
+if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4)cur=ids[ids.length-1];
+links.forEach(function(l){l.classList.toggle('on',l.dataset.s===cur);});
+var h=document.body.scrollHeight-window.innerHeight;prog.style.width=(h>0?window.scrollY/h*100:0)+'%';}
+window.addEventListener('scroll',spy,{passive:true});window.addEventListener('resize',spy);spy();
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-  </script>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+document.querySelectorAll('.copy').forEach(function(b){b.onclick=function(){navigator.clipboard&&navigator.clipboard.writeText(b.dataset.copy);b.textContent='✓ hotovo';b.classList.add('ok');setTimeout(function(){b.textContent='kopírovat';b.classList.remove('ok');},1600);};});
+
+var form=document.getElementById('form'),send=document.getElementById('send'),ferr=document.getElementById('form-err');
+function check(lab){var i=lab.querySelector('input,textarea'),v=i.value.trim(),ok=lab.dataset.f==='email'?/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v):v.length>1;lab.classList.toggle('bad',!ok);return ok;}
+form.querySelectorAll('label').forEach(function(l){l.querySelector('input,textarea').addEventListener('blur',function(){if(this.value)check(l);});l.querySelector('input,textarea').addEventListener('input',function(){if(l.classList.contains('bad'))check(l);});});
+form.onsubmit=function(e){e.preventDefault();var ok=true,first=null;form.querySelectorAll('label').forEach(function(l){if(!check(l)){ok=false;first=first||l;}});
+if(!ok){first.querySelector('input,textarea').focus();return;}
+var f=form.elements,name=f.name.value.trim();
+send.disabled=true;send.innerHTML='<span class="s">$</span>odesílám…';ferr.hidden=true;
+fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({
+access_key:'1dd3b7ad-5611-48bf-bdcf-59ed78e807a9',
+subject:'[svihalek.dev] Nová zpráva od '+name,
+from_name:name,email:f.email.value.trim(),message:f.msg.value.trim(),botcheck:f.botcheck.checked})})
+.then(function(r){return r.json();})
+.then(function(d){if(!d.success)throw new Error(d.message);
+document.getElementById('formbox').innerHTML='<h3>Nová zpráva</h3><div class="sent" role="status"><div class="c">→ 200 OK</div><div class="t">Díky, zprávu mám.</div><div class="b">Ozvu se do jednoho pracovního dne na uvedený e-mail.</div></div>';})
+.catch(function(){ferr.hidden=false;send.disabled=false;send.innerHTML='<span class="s">$</span>odeslat zprávu';});};
+})();
+</script>
 </body>
 </html>

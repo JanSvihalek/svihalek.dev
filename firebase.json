@@ -2,19 +2,13 @@
   "hosting": {
     "public": ".",
     "ignore": [
+      "**/.*",
+      "**/node_modules/**",
       "firebase.json",
       ".firebaserc",
       ".firebaseignore",
       "README.md",
       "svihalek.dev.html"
-    ],
-    "headers": [
-      {
-        "source": "**/*.jsx",
-        "headers": [
-          { "key": "Content-Type", "value": "text/javascript" }
-        ]
-      }
     ]
   }
 }
