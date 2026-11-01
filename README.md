@@ -31,8 +31,9 @@ Projekt `svihalek-dev-web` (viz `.firebaserc`). Skryté soubory (`.git` apod.) s
 - **Hero** — `$ whoami` prompt + velký nápis Jan Švihálek + role + bio
 - **Služby** — 4 karty (Vývoj aplikací, Konzultace, UI/UX, Údržba)
 - **Portfolio** — RenoWorkshop + RenoEnergy
-- **Stack** — mobile / backend / data / integrace
-- **Kontakt** — formulář s validací (odesílá přes Web3Forms) + přímé údaje s kopírováním
+- **Zkušenosti** — praxe + forma spolupráce (HPP, částečný úvazek, IČO, remote)
+- **Stack** — mobile / backend / data / integrace / infrastruktura / jazyky
+- **Kontakt** — formulář s přepínačem „Mám projekt / Pracovní nabídka“ a validací (odesílá přes Web3Forms) + přímé údaje s kopírováním
 
 ## Téma
 

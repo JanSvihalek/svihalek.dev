@@ -141,14 +141,28 @@ textarea{min-height:130px;resize:vertical;line-height:1.55}
 .sent .c{font-family:var(--mono);font-size:13px;color:var(--ok);margin-bottom:10px}
 .sent .t{font-size:19px;font-weight:600;margin-bottom:6px}.sent .b{color:var(--ink-3);font-size:15px}
 .dl-h{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-4);margin-bottom:8px}
-.drow{display:grid;grid-template-columns:70px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.drow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.drow .k{grid-column:1/-1}
 .drow:last-of-type{border-bottom:0}
 .drow .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-4)}
-.drow a{font-family:var(--mono);font-size:14.5px;color:var(--ink);overflow-wrap:anywhere}
+.drow a{font-family:var(--mono);font-size:14.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .drow a:hover{color:var(--accent);text-decoration:none}
 .drow a .d{color:var(--accent)}
 .copy{font-family:var(--mono);font-size:11px;color:var(--ink-3);background:transparent;border:1px solid var(--line);border-radius:4px;padding:5px 8px;cursor:pointer;min-width:62px}
 .copy:hover{color:var(--ink);border-color:var(--line-2)}.copy.ok{color:var(--ok);border-color:color-mix(in oklab,var(--ok) 40%,transparent)}
+
+.open{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
+.open>span:nth-child(2){flex:0 1 auto;min-width:0}
+@media (max-width:640px){.open>span:nth-child(2){flex:1 1 200px}}
+.open .tags{display:flex;flex-wrap:wrap;gap:6px}.open .tags span{padding:3px 8px;border:1px solid var(--line-2);border-radius:4px;color:var(--ink-3);font-size:11.5px}
+.xp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:32px;align-items:start}
+.job{padding:20px 0;border-bottom:1px solid var(--line)}.job:last-child{border-bottom:0;padding-bottom:0}
+.job-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:12px}.job-h h3{margin:0;font-size:21px;font-weight:600;letter-spacing:-.01em}
+.co{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+.tagset{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono)}
+.seg{display:grid;grid-template-columns:1fr 1fr;padding:4px;gap:4px;background:var(--bg);border:1px solid var(--line-2);border-radius:8px}
+.seg button{font-family:var(--mono);font-size:13px;padding:10px;border:0;border-radius:5px;background:transparent;color:var(--ink-3);cursor:pointer;transition:background .15s,color .15s}
+.seg button:hover{color:var(--ink)}.seg button.on{background:var(--bg-3);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
 
 /* footer */
 footer{padding:40px 0 56px}
@@ -158,7 +172,7 @@ footer{padding:40px 0 56px}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.cur{animation:none}}
 
-@media (max-width:1080px){.case{grid-template-columns:minmax(0,1fr)}.shot{max-width:520px;width:100%}.crow{grid-template-columns:minmax(0,1fr)}.status{display:none}}
+@media (max-width:1080px){.xp{grid-template-columns:minmax(0,1fr)}.case{grid-template-columns:minmax(0,1fr)}.shot{max-width:520px;width:100%}.crow{grid-template-columns:minmax(0,1fr)}.status{display:none}}
 @media (max-width:860px){
 .nav,.hdr-r .btn{display:none}.menu-btn{display:grid}.hdr-r{margin-left:auto}
 .mnav{display:block;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px 24px;transform-origin:top;transition:opacity .18s,transform .18s,visibility .18s;opacity:0;visibility:hidden;transform:translateY(-6px);pointer-events:none}
@@ -193,11 +207,12 @@ h1{font-size:clamp(44px,15vw,64px)}
 <a href="#o-mne" data-s="o-mne">o mně</a>
 <a href="#sluzby" data-s="sluzby">služby</a>
 <a href="#portfolio" data-s="portfolio">portfolio</a>
+<a href="#zkusenosti" data-s="zkusenosti">zkušenosti</a>
 <a href="#stack" data-s="stack">stack</a>
 <a href="#kontakt" data-s="kontakt">kontakt</a>
 </nav>
 <div class="hdr-r">
-<div class="status"><span class="dot"></span>přijímám projekty</div>
+<div class="status"><span class="dot"></span>otevřený nabídkám</div>
 <button class="icon-btn" id="theme" type="button" aria-label="Přepnout světlý / tmavý režim" title="Světlý / tmavý režim"><span class="theme-ic"></span></button>
 <a class="btn btn-p btn-sm" href="#kontakt">Napsat mi</a>
 <button class="icon-btn menu-btn" id="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><span class="menu-ic"></span></button>
@@ -207,10 +222,11 @@ h1{font-size:clamp(44px,15vw,64px)}
 <a href="#o-mne" data-s="o-mne">o mně</a>
 <a href="#sluzby" data-s="sluzby">služby</a>
 <a href="#portfolio" data-s="portfolio">portfolio</a>
+<a href="#zkusenosti" data-s="zkusenosti">zkušenosti</a>
 <a href="#stack" data-s="stack">stack</a>
 <a href="#kontakt" data-s="kontakt">kontakt</a>
-<a class="btn btn-p" href="#kontakt">$ nezávazně poptat</a>
-<div class="st"><span class="dot"></span>Online — přijímám projekty</div>
+<a class="btn btn-p" href="#kontakt">$ napsat mi</a>
+<div class="st"><span class="dot"></span>Otevřený projektům i pracovním nabídkám</div>
 </nav>
 <div class="progress" id="progress"></div>
 </header>
@@ -225,10 +241,12 @@ h1{font-size:clamp(44px,15vw,64px)}
 <p class="lead">Vyvíjím mobilní aplikace pro iPhone i Android na míru malým a středním firmám. Díky jednomu společnému kódu pro obě platformy je vývoj rychlejší a levnější, a přitom aplikace na obou telefonech vypadá a funguje stejně dobře.</p>
 <p class="lead">Zakládám si na rychlém dodání, kódu, který se dá dlouhodobě rozvíjet, a aplikacích, které lidi baví používat.</p>
 <div class="cta">
-<a class="btn btn-p" href="#kontakt"><span class="s">$</span>nezávazně poptat</a>
+<a class="btn btn-p" href="#kontakt" data-kind="projekt"><span class="s">$</span>nezávazně poptat</a>
+<a class="btn btn-g" href="#zkusenosti"><span class="s">&gt;</span>hledáte vývojáře do týmu?</a>
 <a class="btn btn-g" href="#portfolio"><span class="s">&gt;</span>portfolio</a>
-<span class="loc">Praha, CZ</span>
+<span class="loc">Praha, CZ · remote</span>
 </div>
+<div class="open"><span class="dot"></span><span>Otevřený freelance projektům i pracovní nabídce</span><span class="tags"><span>HPP</span><span>částečný úvazek</span><span>IČO / kontrakt</span><span>remote</span></span></div>
 </div>
 </section>
 
@@ -274,25 +292,46 @@ h1{font-size:clamp(44px,15vw,64px)}
 </div>
 </section>
 
+<section class="sec" id="zkusenosti" data-screen-label="Zkušenosti">
+<div class="wrap">
+<div class="sh reveal"><div class="crumb"><span class="n">03</span><span class="sl">/</span><span>zkušenosti</span><span class="ln"></span></div><h2>Zkušenosti</h2><p class="sub">Vývojář s praxí z firemního IT — rozumím nejen aplikacím, ale i infrastruktuře a procesům, do kterých zapadají.</p></div>
+<div class="xp reveal">
+<div class="box">
+<div class="dl-h">// PRAXE</div>
+<div class="job"><div class="job-h"><h3>IT systémový administrátor</h3><span class="co">Renocar</span></div><ul class="ul"><li>správa firemní sítě</li><li>správa ERP Helios Nephrite</li><li>digitalizace firemních procesů</li></ul></div>
+<div class="job"><div class="job-h"><h3>Mobile app / web developer</h3><span class="co">freelance</span></div><ul class="ul"><li>Flutter aplikace pro iOS, Android a web</li><li>návrh UI, backend, integrace na ERP a SSO</li></ul></div>
+</div>
+<div class="box">
+<div class="dl-h">// FORMA SPOLUPRÁCE</div>
+<div class="tagset"><span class="chip">HPP</span><span class="chip">částečný úvazek</span><span class="chip">IČO / kontrakt</span><span class="chip">remote</span></div>
+<a class="btn btn-p" href="#kontakt" data-kind="prace" style="margin-top:28px;width:100%;justify-content:center"><span class="s">$</span>poslat pracovní nabídku</a>
+</div>
+</div>
+</div>
+</section>
+
 <section class="sec" id="stack" data-screen-label="Stack">
 <div class="wrap">
-<div class="sh reveal"><div class="crumb"><span class="n">03</span><span class="sl">/</span><span>stack</span><span class="ln"></span></div><h2>Tech stack</h2><p class="sub">S čím dnes pracuji. Volba stacku není dogma — beru nástroj, který se k problému hodí.</p></div>
+<div class="sh reveal"><div class="crumb"><span class="n">04</span><span class="sl">/</span><span>stack</span><span class="ln"></span></div><h2>Tech stack</h2><p class="sub">S čím dnes pracuji. Volba stacku není dogma — beru nástroj, který se k problému hodí.</p></div>
 <div class="stack reveal">
 <div class="srow"><span class="k">mobile</span><div class="v"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Riverpod</span><span class="chip">ML Kit</span></div></div>
 <div class="srow"><span class="k">backend</span><div class="v"><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Fastify</span><span class="chip">Firebase</span></div></div>
 <div class="srow"><span class="k">data</span><div class="v"><span class="chip">SQL Server</span><span class="chip">PostgreSQL</span><span class="chip">Firestore</span></div></div>
 <div class="srow"><span class="k">integrace</span><div class="v"><span class="chip">Helios Nephrite</span><span class="chip">Entra ID (SSO)</span><span class="chip">REST API</span></div></div>
+<div class="srow"><span class="k">infrastruktura</span><div class="v"><span class="chip">Windows Server</span><span class="chip">Active Directory</span><span class="chip">Azure</span><span class="chip">Jamf Pro</span><span class="chip">LAN / WAN</span><span class="chip">bezdrátové sítě</span></div></div>
+<div class="srow"><span class="k">jazyky</span><div class="v"><span class="chip">angličtina B2</span><span class="chip">španělština A2</span></div></div>
 </div>
 </div>
 </section>
 
 <section class="sec" id="kontakt" data-screen-label="Kontakt" style="border-bottom:0">
 <div class="wrap">
-<div class="sh reveal"><div class="crumb"><span class="n">04</span><span class="sl">/</span><span>kontakt</span><span class="ln"></span></div><h2>Napište mi</h2><p class="sub">Aktuálně mám kapacitu na nové projekty. Napište pár řádků o tom, co potřebujete, a do jednoho pracovního dne se ozvu.</p></div>
+<div class="sh reveal"><div class="crumb"><span class="n">05</span><span class="sl">/</span><span>kontakt</span><span class="ln"></span></div><h2>Napište mi</h2><p class="sub">Aktuálně mám kapacitu na nové projekty a jsem otevřený i pracovním nabídkám. Napište pár řádků o tom, co potřebujete, a do jednoho pracovního dne se ozvu.</p></div>
 <div class="crow reveal">
 <div class="box" id="formbox">
 <h3>Nová zpráva</h3>
 <form id="form" novalidate>
+<div class="seg" role="radiogroup" aria-label="Typ zprávy"><button type="button" class="on" data-k="projekt" role="radio" aria-checked="true">Mám projekt</button><button type="button" data-k="prace" role="radio" aria-checked="false">Pracovní nabídka</button></div>
 <label data-f="name"><span class="lbl">JMÉNO<span class="err">vyplňte jméno</span></span><input name="name" autocomplete="name" placeholder="Jan Novák"></label>
 <label data-f="email"><span class="lbl">E-MAIL<span class="err">zadejte platný e-mail</span></span><input name="email" type="email" autocomplete="email" placeholder="jan@firma.cz"></label>
 <label data-f="msg"><span class="lbl">ZPRÁVA<span class="err">napište pár slov</span></span><textarea name="msg" placeholder="O co jde, jaký rozsah, kdy by to mělo být hotové…"></textarea></label>
@@ -329,7 +368,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(fals
 document.addEventListener('click',function(e){if(hdr.classList.contains('open')&&!hdr.contains(e.target))setMenu(false);});
 matchMedia('(min-width:861px)').addEventListener('change',function(m){if(m.matches)setMenu(false);});
 
-var ids=['o-mne','sluzby','portfolio','stack','kontakt'],links=document.querySelectorAll('[data-s]'),prog=document.getElementById('progress');
+var ids=['o-mne','sluzby','portfolio','zkusenosti','stack','kontakt'],links=document.querySelectorAll('[data-s]'),prog=document.getElementById('progress');
 function spy(){var y=window.scrollY+window.innerHeight*0.35,cur=ids[0];
 ids.forEach(function(id){var el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id;});
 if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4)cur=ids[ids.length-1];
@@ -342,7 +381,11 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 
 document.querySelectorAll('.copy').forEach(function(b){b.onclick=function(){navigator.clipboard&&navigator.clipboard.writeText(b.dataset.copy);b.textContent='✓ hotovo';b.classList.add('ok');setTimeout(function(){b.textContent='kopírovat';b.classList.remove('ok');},1600);};});
 
-var form=document.getElementById('form'),send=document.getElementById('send'),ferr=document.getElementById('form-err');
+var form=document.getElementById('form'),send=document.getElementById('send'),ferr=document.getElementById('form-err'),msg=form.querySelector('textarea'),
+ph={projekt:'O co jde, jaký rozsah, kdy by to mělo být hotové…',prace:'Firma, pozice, úvazek, remote/onsite, odkaz na inzerát…'},kind='projekt';
+function setKind(k){kind=k;form.querySelectorAll('.seg button').forEach(function(b){var on=b.dataset.k===k;b.classList.toggle('on',on);b.setAttribute('aria-checked',on);});msg.placeholder=ph[k];}
+form.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){setKind(b.dataset.k);};});
+document.querySelectorAll('a[data-kind]').forEach(function(a){a.addEventListener('click',function(){setKind(a.dataset.kind);});});
 function check(lab){var i=lab.querySelector('input,textarea'),v=i.value.trim(),ok=lab.dataset.f==='email'?/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v):v.length>1;lab.classList.toggle('bad',!ok);return ok;}
 form.querySelectorAll('label').forEach(function(l){l.querySelector('input,textarea').addEventListener('blur',function(){if(this.value)check(l);});l.querySelector('input,textarea').addEventListener('input',function(){if(l.classList.contains('bad'))check(l);});});
 form.onsubmit=function(e){e.preventDefault();var ok=true,first=null;form.querySelectorAll('label').forEach(function(l){if(!check(l)){ok=false;first=first||l;}});
@@ -351,11 +394,12 @@ var f=form.elements,name=f.name.value.trim();
 send.disabled=true;send.innerHTML='<span class="s">$</span>odesílám…';ferr.hidden=true;
 fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({
 access_key:'1dd3b7ad-5611-48bf-bdcf-59ed78e807a9',
-subject:'[svihalek.dev] Nová zpráva od '+name,
+subject:'[svihalek.dev] '+(kind==='prace'?'Pracovní nabídka':'Projekt')+' od '+name,
+typ:kind==='prace'?'Pracovní nabídka':'Mám projekt',
 from_name:name,email:f.email.value.trim(),message:f.msg.value.trim(),botcheck:f.botcheck.checked})})
 .then(function(r){return r.json();})
 .then(function(d){if(!d.success)throw new Error(d.message);
-document.getElementById('formbox').innerHTML='<h3>Nová zpráva</h3><div class="sent" role="status"><div class="c">→ 200 OK</div><div class="t">Díky, zprávu mám.</div><div class="b">Ozvu se do jednoho pracovního dne na uvedený e-mail.</div></div>';})
+document.getElementById('formbox').innerHTML='<h3>Nová zpráva</h3><div class="sent" role="status"><div class="c">→ 200 OK</div><div class="t">'+(kind==='prace'?'Díky za nabídku.':'Díky, zprávu mám.')+'</div><div class="b">Ozvu se do jednoho pracovního dne na uvedený e-mail.</div></div>';})
 .catch(function(){ferr.hidden=false;send.disabled=false;send.innerHTML='<span class="s">$</span>odeslat zprávu';});};
 })();
 </script>
