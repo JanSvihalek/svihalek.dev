@@ -3,11 +3,13 @@
     "public": ".",
     "ignore": [
       "**/.*",
+      "**/.*/**",
       "**/node_modules/**",
       "firebase.json",
       ".firebaserc",
       ".firebaseignore",
       "README.md",
+      "PRODUCT.md",
       "svihalek.dev.html"
     ]
   }

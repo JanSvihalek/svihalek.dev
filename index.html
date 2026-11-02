@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>svihalek.dev — Jan Švihálek</title>
-<meta name="description" content="Vývoj mobilních aplikací pro iPhone i Android na míru malým a středním firmám. Flutter, napojení na ERP, interní firemní aplikace.">
+<title>Jan Švihálek — Flutter vývojář | svihalek.dev</title>
+<meta name="description" content="Jan Švihálek, vývojář mobilních aplikací ve Flutteru. Celý vývoj od návrhu rozhraní přes backend a integrace až po nasazení do provozu. Hledám pozici na HPP v Brně nebo remote.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://svihalek.dev/">
 <meta property="og:title" content="Jan Švihálek — Mobile App/Web Developer">
-<meta property="og:description" content="Vývoj mobilních aplikací pro iPhone i Android na míru malým a středním firmám.">
+<meta property="og:description" content="Celý vývoj mobilních aplikací od návrhu rozhraní po nasazení do provozu. Hledám pozici na HPP v Brně nebo remote.">
 <meta property="og:image" content="https://svihalek.dev/images/renoworkshop_seznam.png">
 <meta name="theme-color" content="#0a0a0c">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -154,15 +154,16 @@ textarea{min-height:130px;resize:vertical;line-height:1.55}
 .copy{font-family:var(--mono);font-size:11px;color:var(--ink-3);background:transparent;border:1px solid var(--line);border-radius:4px;padding:5px 8px;cursor:pointer;min-width:62px}
 .copy:hover{color:var(--ink);border-color:var(--line-2)}.copy.ok{color:var(--ok);border-color:color-mix(in oklab,var(--ok) 40%,transparent)}
 
-.open{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
-.open>span:nth-child(2){flex:0 1 auto;min-width:0}
-@media (max-width:640px){.open>span:nth-child(2){flex:1 1 200px}}
-.open .tags{display:flex;flex-wrap:wrap;gap:6px}.open .tags span{padding:3px 8px;border:1px solid var(--line-2);border-radius:4px;color:var(--ink-3);font-size:11.5px}
+.avail{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
+.avail>span:nth-child(2){flex:0 1 auto;min-width:0}
+@media (max-width:640px){.avail>span:nth-child(2){flex:1 1 200px}}
+.avail .tags{display:flex;flex-wrap:wrap;gap:6px}.avail .tags span{padding:3px 8px;border:1px solid var(--line-2);border-radius:4px;color:var(--ink-3);font-size:11.5px}
 .xp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:32px;align-items:start}
 .job{padding:20px 0;border-bottom:1px solid var(--line)}.job:last-child{border-bottom:0;padding-bottom:0}
 .job-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:12px}.job-h h3{margin:0;font-size:21px;font-weight:600;letter-spacing:-.01em}
 .co{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
 .tagset{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono)}
+.want{font-size:17px;line-height:1.5;color:var(--ink);margin:0 0 16px;text-wrap:pretty}
 .seg{display:grid;grid-template-columns:1fr 1fr;padding:4px;gap:4px;background:var(--bg);border:1px solid var(--line-2);border-radius:8px}
 .seg button{font-family:var(--mono);font-size:13px;padding:10px;border:0;border-radius:5px;background:transparent;color:var(--ink-3);cursor:pointer;transition:background .15s,color .15s}
 .seg button:hover{color:var(--ink)}.seg button.on{background:var(--bg-3);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
@@ -216,7 +217,7 @@ h1{font-size:clamp(44px,15vw,64px)}
 <div class="hdr-r">
 <div class="status"><span class="dot"></span>otevřený nabídkám</div>
 <button class="icon-btn" id="theme" type="button" aria-label="Přepnout světlý / tmavý režim" title="Světlý / tmavý režim"><span class="theme-ic"></span></button>
-<a class="btn btn-p btn-sm" href="#kontakt">Napsat mi</a>
+<a class="btn btn-p btn-sm" href="#kontakt">napsat mi</a>
 <button class="icon-btn menu-btn" id="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><span class="menu-ic"></span></button>
 </div>
 </div>
@@ -227,8 +228,8 @@ h1{font-size:clamp(44px,15vw,64px)}
 <a href="#zkusenosti" data-s="zkusenosti">zkušenosti</a>
 <a href="#stack" data-s="stack">stack</a>
 <a href="#kontakt" data-s="kontakt">kontakt</a>
-<a class="btn btn-p" href="#kontakt">$ napsat mi</a>
-<div class="st"><span class="dot"></span>Otevřený projektům i pracovním nabídkám</div>
+<a class="btn btn-p" href="#kontakt">napsat mi</a>
+<div class="st"><span class="dot"></span>Otevřený pracovním nabídkám i projektům</div>
 </nav>
 <div class="progress" id="progress"></div>
 </header>
@@ -236,29 +237,29 @@ h1{font-size:clamp(44px,15vw,64px)}
 <main>
 <section class="hero" id="o-mne" data-screen-label="O mně">
 <div class="wrap">
-<div class="cmt">// Multiplatformní mobilní aplikace ve Flutteru. Od návrhu po App Store/Google Play.</div>
+<div class="cmt">// Mobilní aplikace pro iPhone i Android ve Flutteru.</div>
 <div class="prompt"><span class="t">~</span><span class="a">$</span><span>whoami</span><span class="cur"></span></div>
 <h1>Jan Švihálek</h1>
 <div class="role"><span class="a">▸ MOBILE APP/WEB DEVELOPER</span><span class="sep">/</span><span class="m">FLUTTER · CROSS-PLATFORM</span></div>
-<p class="lead">Vyvíjím mobilní aplikace pro iPhone i Android na míru malým a středním firmám. Díky jednomu společnému kódu pro obě platformy je vývoj rychlejší a levnější, a přitom aplikace na obou telefonech vypadá a funguje stejně dobře.</p>
-<p class="lead">Zakládám si na rychlém dodání, kódu, který se dá dlouhodobě rozvíjet, a aplikacích, které lidi baví používat.</p>
+<p class="lead">Pokrývám celý vývoj aplikace, od návrhu rozhraní přes backend a integrace s&nbsp;firemními systémy až po nasazení do provozu.</p>
+<p class="lead">Aktuálně hledám pozici vývojáře na HPP, v&nbsp;Brně nebo remote.</p>
 <div class="cta">
-<a class="btn btn-p" href="#kontakt" data-kind="projekt"><span class="s">$</span>nezávazně poptat</a>
-<a class="btn btn-g" href="#zkusenosti"><span class="s">&gt;</span>hledáte vývojáře do týmu?</a>
+<a class="btn btn-p" href="#kontakt" data-kind="prace"><span class="s">$</span>poslat pracovní nabídku</a>
 <a class="btn btn-g" href="#portfolio"><span class="s">&gt;</span>portfolio</a>
+<a class="btn btn-g" href="#kontakt" data-kind="projekt"><span class="s">&gt;</span>nezávazně poptat projekt</a>
 </div>
-<div class="open"><span class="dot"></span><span>Otevřený freelance projektům i pracovní nabídce</span><span class="tags"><span>HPP</span><span>částečný úvazek</span><span>IČO / kontrakt</span><span>remote</span></span></div>
+<div class="avail"><span class="dot"></span><span>Další možnosti spolupráce</span><span class="tags"><span>částečný úvazek</span><span>IČO / kontrakt</span><span>projekty na míru</span></span></div>
 </div>
 </section>
 
 <section class="sec" id="sluzby" data-screen-label="Služby">
 <div class="wrap">
-<div class="sh reveal"><div class="crumb"><span class="n">01</span><span class="sl">/</span><span>služby</span><span class="ln"></span></div><h2>Co dělám</h2><p class="sub">Čtyři způsoby, jakými s vámi mohu pracovat. Od nové aplikace na zelené louce po dlouhodobou údržbu.</p></div>
+<div class="sh reveal"><div class="crumb"><span class="n">01</span><span class="sl">/</span><span>služby</span><span class="ln"></span></div><h2>Projekty na míru</h2><p class="sub">Pro firmy, které potřebují aplikaci na míru, od vývoje po dlouhodobou údržbu. Díky jednomu společnému kódu pro iPhone i Android je vývoj rychlejší a levnější.</p></div>
 <div class="svc reveal">
-<article class="card"><span class="i">01</span><div><div class="m">.buildApp()</div><h3>Vývoj aplikací</h3><p>Návrh a vývoj produkční Flutter aplikace pro iOS a Android. Od architektury přes integrace až po publikaci ve storech.</p><ul class="ul"><li>nová aplikace za 6–12 týdnů</li><li>cross-platform: iOS, Android, web, Windows</li><li>CI/CD, testy, monitoring od dne 1</li><li>publikace v App Store i Google Play</li></ul></div></article>
-<article class="card"><span class="i">02</span><div><div class="m">.consult()</div><h3>Konzultace</h3><p>Diskuze nad architekturou, technologickými volbami, výběrem stacku. Hodinová sazba nebo balíček dní.</p><ul class="ul"><li>výběr stack &amp; architektura</li><li>audit existující codebase</li><li>odhady, roadmapa, rizika</li><li>review PR / mentoring týmu</li></ul></div></article>
-<article class="card"><span class="i">03</span><div><div class="m">.designUI()</div><h3>UI / UX</h3><p>Návrh rozhraní s ohledem na to, kdo ho bude používat. Jeden člověk od skici po build.</p><ul class="ul"><li>design system &amp; komponenty</li><li>user flows a prototypy</li><li>iOS &amp; Material guidelines</li><li>hand-off rovnou do Flutteru</li></ul></div></article>
-<article class="card"><span class="i">04</span><div><div class="m">.maintain()</div><h3>Údržba</h3><p>Dlouhodobá péče o aplikaci, kterou jste si nechali postavit jinde nebo se mnou. Aktualizace, opravy chyb, drobné nové funkce.</p><ul class="ul"><li>měsíční retainer (8–24 h)</li><li>aktualizace Flutteru a knihoven</li><li>sledování crash reportů</li><li>drobné funkce bez čekání ve frontě</li></ul></div></article>
+<article class="card"><span class="i">01</span><div><div class="m">.buildApp()</div><h3>Vývoj aplikací</h3><p>Návrh a vývoj produkční Flutter aplikace pro iOS a Android. Od architektury přes integrace až po vydání.</p><ul class="ul"><li>nová aplikace za 6–12 týdnů</li><li>cross-platform: iOS, Android, web, Windows</li><li>CI/CD, testy, monitoring od dne 1</li><li>interní distribuce přes MDM</li></ul></div></article>
+<article class="card"><span class="i">02</span><div><div class="m">.consult()</div><h3>Konzultace</h3><p>Diskuze nad architekturou, technologickými volbami, výběrem stacku. Hodinová sazba nebo balíček dní.</p><ul class="ul"><li>výběr stacku a architektura</li><li>audit existující codebase</li><li>odhady, roadmapa, rizika</li><li>review PR / mentoring týmu</li></ul></div></article>
+<article class="card"><span class="i">03</span><div><div class="m">.designUI()</div><h3>UI / UX</h3><p>Návrh rozhraní s ohledem na to, kdo ho bude používat. Jeden člověk od skici po build.</p><ul class="ul"><li>design system &amp; komponenty</li><li>user flows a prototypy</li><li>iOS &amp; Material guidelines</li><li>implementace návrhu přímo ve Flutteru</li></ul></div></article>
+<article class="card"><span class="i">04</span><div><div class="m">.maintain()</div><h3>Údržba</h3><p>Dlouhodobá péče o aplikaci, kterou jste si nechali postavit jinde nebo se mnou. Aktualizace, opravy chyb, drobné nové funkce.</p><ul class="ul"><li>měsíční paušál (8–24 h)</li><li>aktualizace Flutteru a knihoven</li><li>sledování crash reportů</li><li>drobné funkce bez čekání ve frontě</li></ul></div></article>
 </div>
 </div>
 </section>
@@ -295,7 +296,7 @@ h1{font-size:clamp(44px,15vw,64px)}
 
 <section class="sec" id="zkusenosti" data-screen-label="Zkušenosti">
 <div class="wrap">
-<div class="sh reveal"><div class="crumb"><span class="n">03</span><span class="sl">/</span><span>zkušenosti</span><span class="ln"></span></div><h2>Zkušenosti</h2><p class="sub">Vývojář s praxí z firemního IT — rozumím nejen aplikacím, ale i infrastruktuře a procesům, do kterých zapadají.</p></div>
+<div class="sh reveal"><div class="crumb"><span class="n">03</span><span class="sl">/</span><span>zkušenosti</span><span class="ln"></span></div><h2>Zkušenosti</h2><p class="sub">Vývojář s praxí z firemního IT — rozumím nejen aplikacím, ale i infrastruktuře a procesům, do kterých zapadají. Zakládám si na rychlém dodání, kódu, který se dá dlouhodobě rozvíjet, a aplikacích, které lidi baví používat.</p></div>
 <div class="xp reveal">
 <div class="box">
 <div class="dl-h">// PRAXE</div>
@@ -304,7 +305,8 @@ h1{font-size:clamp(44px,15vw,64px)}
 </div>
 <div class="box">
 <div class="dl-h">// FORMA SPOLUPRÁCE</div>
-<div class="tagset"><span class="chip">HPP</span><span class="chip">částečný úvazek</span><span class="chip">IČO / kontrakt</span><span class="chip">remote</span></div>
+<p class="want">Preferuji HPP, v&nbsp;Brně nebo remote. Další možnosti:</p>
+<div class="tagset"><span class="chip">částečný úvazek</span><span class="chip">IČO / kontrakt</span><span class="chip">projekty na míru</span></div>
 <a class="btn btn-p" href="#kontakt" data-kind="prace" style="margin-top:28px;width:100%;justify-content:center"><span class="s">$</span>poslat pracovní nabídku</a>
 </div>
 </div>
@@ -327,15 +329,15 @@ h1{font-size:clamp(44px,15vw,64px)}
 
 <section class="sec" id="kontakt" data-screen-label="Kontakt" style="border-bottom:0">
 <div class="wrap">
-<div class="sh reveal"><div class="crumb"><span class="n">05</span><span class="sl">/</span><span>kontakt</span><span class="ln"></span></div><h2>Napište mi</h2><p class="sub">Aktuálně mám kapacitu na nové projekty a jsem otevřený i pracovním nabídkám. Napište pár řádků o tom, co potřebujete, a do jednoho pracovního dne se ozvu.</p></div>
+<div class="sh reveal"><div class="crumb"><span class="n">05</span><span class="sl">/</span><span>kontakt</span><span class="ln"></span></div><h2>Napište mi</h2><p class="sub">Jsem otevřený pracovním nabídkám i novým projektům. Napište mi pár řádků o tom, co potřebujete.</p></div>
 <div class="crow reveal">
 <div class="box" id="formbox">
 <h3>Nová zpráva</h3>
 <form id="form" novalidate>
-<div class="seg" role="radiogroup" aria-label="Typ zprávy"><button type="button" class="on" data-k="projekt" role="radio" aria-checked="true">Mám projekt</button><button type="button" data-k="prace" role="radio" aria-checked="false">Pracovní nabídka</button></div>
-<label data-f="name"><span class="lbl">JMÉNO<span class="err">vyplňte jméno</span></span><input name="name" autocomplete="name" placeholder="Jan Novák"></label>
+<div class="seg" role="radiogroup" aria-label="Typ zprávy"><button type="button" class="on" data-k="prace" role="radio" aria-checked="true">Pracovní nabídka</button><button type="button" data-k="projekt" role="radio" aria-checked="false">Mám projekt</button></div>
+<label data-f="name"><span class="lbl">JMÉNO<span class="err">vyplňte celé jméno</span></span><input name="name" autocomplete="name" placeholder="Jan Novák"></label>
 <label data-f="email"><span class="lbl">E-MAIL<span class="err">zadejte platný e-mail</span></span><input name="email" type="email" autocomplete="email" placeholder="jan@firma.cz"></label>
-<label data-f="msg"><span class="lbl">ZPRÁVA<span class="err">napište pár slov</span></span><textarea name="msg" placeholder="O co jde, jaký rozsah, kdy by to mělo být hotové…"></textarea></label>
+<label data-f="msg"><span class="lbl">ZPRÁVA<span class="err">napište pár slov</span></span><textarea name="msg" placeholder="Firma, pozice, úvazek, remote/onsite, odkaz na inzerát…"></textarea></label>
 <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
 <p class="form-err" id="form-err" role="alert" hidden>Odeslání selhalo. Zkuste to prosím znovu, nebo napište přímo na <a href="mailto:jan.svihalek00@gmail.com">jan.svihalek00@gmail.com</a>.</p>
 <div class="form-f"><button class="btn btn-p" type="submit" id="send"><span class="s">$</span>odeslat zprávu</button><small>odpověď do 1 pracovního dne</small></div>
@@ -343,8 +345,8 @@ h1{font-size:clamp(44px,15vw,64px)}
 </div>
 <aside class="box">
 <div class="dl-h">// PŘÍMÝ KONTAKT</div>
-<div class="drow"><span class="k">EMAIL</span><a href="mailto:jan.svihalek00@gmail.com">jan.svihalek00@gmail.com</a><button class="copy" type="button" data-copy="jan.svihalek00@gmail.com">kopírovat</button></div>
-<div class="drow"><span class="k">PHONE</span><a href="tel:+420731901003">+420 731 901 003</a><button class="copy" type="button" data-copy="+420731901003">kopírovat</button></div>
+<div class="drow"><span class="k">E-MAIL</span><a href="mailto:jan.svihalek00@gmail.com">jan.svihalek00@gmail.com</a><button class="copy" type="button" data-copy="jan.svihalek00@gmail.com" aria-label="kopírovat e-mail">kopírovat</button></div>
+<div class="drow"><span class="k">TELEFON</span><a href="tel:+420731901003">+420 731 901 003</a><button class="copy" type="button" data-copy="+420731901003" aria-label="kopírovat telefon">kopírovat</button></div>
 <div class="drow"><span class="k">LINKEDIN</span><a href="https://www.linkedin.com/in/jan-%C5%A1vih%C3%A1lek-526627170/" target="_blank" rel="noopener noreferrer">/in/jan-švihálek</a><span></span></div>
 <div class="drow"><span class="k">WEB</span><a href="https://svihalek.dev">svihalek<span class="d">.dev</span></a><span></span></div>
 </aside>
@@ -383,7 +385,7 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 document.querySelectorAll('.copy').forEach(function(b){b.onclick=function(){navigator.clipboard&&navigator.clipboard.writeText(b.dataset.copy);b.textContent='✓ hotovo';b.classList.add('ok');setTimeout(function(){b.textContent='kopírovat';b.classList.remove('ok');},1600);};});
 
 var form=document.getElementById('form'),send=document.getElementById('send'),ferr=document.getElementById('form-err'),msg=form.querySelector('textarea'),
-ph={projekt:'O co jde, jaký rozsah, kdy by to mělo být hotové…',prace:'Firma, pozice, úvazek, remote/onsite, odkaz na inzerát…'},kind='projekt';
+ph={projekt:'O co jde, jaký rozsah, kdy by to mělo být hotové…',prace:'Firma, pozice, úvazek, remote/onsite, odkaz na inzerát…'},kind='prace';
 function setKind(k){kind=k;form.querySelectorAll('.seg button').forEach(function(b){var on=b.dataset.k===k;b.classList.toggle('on',on);b.setAttribute('aria-checked',on);});msg.placeholder=ph[k];}
 form.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){setKind(b.dataset.k);};});
 document.querySelectorAll('a[data-kind]').forEach(function(a){a.addEventListener('click',function(){setKind(a.dataset.kind);});});
