@@ -16,24 +16,23 @@
 <script>(function(){var t=null;try{t=localStorage.getItem('sv-theme');}catch(e){}if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 @font-face{font-family:'Archivo Fallback';src:local('Arial'),local('Arimo'),local('Liberation Sans');font-weight:400 600;size-adjust:97.4%;ascent-override:90.3%;descent-override:21.6%;line-gap-override:0%}
 @font-face{font-family:'Archivo Fallback';src:local('Arial Bold'),local('Arial-BoldMT'),local('Arimo Bold'),local('Liberation Sans Bold');font-weight:700;size-adjust:99.8%;ascent-override:88.2%;descent-override:21%;line-gap-override:0%}
 @font-face{font-family:'Archivo Fallback';src:local('Arial Bold'),local('Arial-BoldMT'),local('Arimo Bold'),local('Liberation Sans Bold');font-weight:800;size-adjust:105.4%;ascent-override:83.5%;descent-override:19.9%;line-gap-override:0%}
 @font-face{font-family:'JetBrains Mono Fallback';src:local('Consolas');font-weight:400 700;size-adjust:109.1%;ascent-override:93.5%;descent-override:27.5%;line-gap-override:0%}
 :root{--mono:'JetBrains Mono','JetBrains Mono Fallback',ui-monospace,monospace;--sans:'Archivo','Archivo Fallback',-apple-system,sans-serif;--max:1200px;--hh:4rem;--sec:96px;--sec-t:56px;--t-label:.75rem;--t-ui:.8125rem;--t-value:.875rem;--t-sm:.9375rem;--t-body:1rem;--t-intro:1.0625rem;--t-sub:1.25rem;--t-lead:1.5rem}
-[data-theme="dark"]{--bg:#0a0a0c;--bg-2:#121217;--bg-3:#18181e;--line:#1f1f26;--line-2:#2a2a32;--ink:#f2efe8;--ink-2:#b4b4bc;--ink-3:#9494a0;--ink-4:#80808b;--accent:#4f8aff;--btn:#2f6bed;--accent-ink:#fff;--accent-soft:rgba(79,138,255,.08);--accent-line:rgba(79,138,255,.2);--ok:#28c840;--warn:#e0a21a;--err:#f0646a;--header:rgba(10,10,12,.82);--shot:#0d1b33;color-scheme:dark}
-[data-theme="light"]{--bg:#f5f4f0;--bg-2:#ffffff;--bg-3:#efede7;--line:#e3e1da;--line-2:#d3d0c7;--ink:#141417;--ink-2:#3d3d45;--ink-3:#585862;--ink-4:#6b6b75;--accent:#2a62d9;--btn:#2a62d9;--accent-ink:#fff;--accent-soft:rgba(42,98,217,.06);--accent-line:rgba(42,98,217,.2);--ok:#157a2a;--warn:#8a5f00;--err:#c9252c;--header:rgba(245,244,240,.85);--shot:#0d1b33;color-scheme:light}
+[data-theme="dark"]{--bg:#0a0a0c;--bg-2:#121217;--bg-3:#18181e;--line:#1f1f26;--line-2:#2a2a32;--ink:#f2efe8;--ink-2:#b4b4bc;--ink-3:#9494a0;--ink-4:#80808b;--accent:#4f8aff;--btn:#2f6bed;--accent-ink:#fff;--accent-soft:rgba(79,138,255,.08);--ok:#28c840;--warn:#e0a21a;--err:#f0646a;--header:rgba(10,10,12,.82);--shot:#0d1b33;color-scheme:dark}
+[data-theme="light"]{--bg:#f5f4f0;--bg-2:#ffffff;--bg-3:#efede7;--line:#e3e1da;--line-2:#d3d0c7;--ink:#141417;--ink-2:#3d3d45;--ink-3:#585862;--ink-4:#6b6b75;--accent:#2a62d9;--btn:#2a62d9;--accent-ink:#fff;--accent-soft:rgba(42,98,217,.06);--ok:#157a2a;--warn:#8a5f00;--err:#c9252c;--header:rgba(245,244,240,.85);--shot:#0d1b33;color-scheme:light}
 *,*::before,*::after{box-sizing:border-box}
 [data-theme="dark"] body{-webkit-font-smoothing:antialiased}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 24px)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow-wrap:break-word;transition:background .25s,color .25s;overflow-x:hidden}
+html{scrollbar-color:var(--line-2) var(--bg);-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 24px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow-wrap:break-word;overflow-x:hidden}
 ::selection{background:var(--btn);color:var(--accent-ink)}
-a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+a{color:var(--accent);text-decoration:none;text-underline-offset:.2em}a:hover{text-decoration:underline}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
-.mono{font-family:var(--mono)}
 .sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .skip{position:absolute;left:16px;top:-64px;z-index:60;padding:12px 16px;border-radius:6px;background:var(--btn);color:var(--accent-ink);font-family:var(--mono);font-size:var(--t-ui);font-weight:600}
 .skip:focus{top:12px}.skip:hover{text-decoration:none}
@@ -50,7 +49,7 @@ main:focus{outline:0}
 .nav a{font-family:var(--mono);font-size:var(--t-ui);color:var(--ink-3);padding:8px 12px;border-radius:6px;position:relative;transition:color .15s,background .15s}
 .nav a:hover{color:var(--ink);background:var(--bg-3);text-decoration:none}
 .nav a.on{color:var(--ink)}
-.nav a.on::after{content:"";position:absolute;left:12px;right:12px;bottom:-13px;height:2px;background:var(--accent)}
+.nav a.on::after{content:"";position:absolute;left:12px;right:12px;bottom:calc((100% - var(--hh))/2 - 1px);height:2px;background:var(--accent)}
 .hdr-r{display:flex;align-items:center;gap:10px}
 .status{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:var(--t-label);color:var(--ink-3);padding:0 6px;white-space:nowrap}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px color-mix(in oklab,var(--ok) 20%,transparent)}
@@ -90,6 +89,7 @@ h1{font-weight:800;font-size:clamp(4rem,10vw,8.75rem);line-height:.92;letter-spa
 
 /* sections */
 section.sec{padding:var(--sec) 0;border-bottom:1px solid var(--line);scroll-margin-top:calc(0px - var(--sec))}
+#kontakt{border-bottom:0}
 section.sec-join-b{padding-bottom:var(--sec-t)}
 section.sec-join-t{padding-top:var(--sec-t);scroll-margin-top:calc(0px - var(--sec-t))}
 .sh{margin-bottom:40px}
@@ -145,15 +145,16 @@ h2{font-weight:700;font-size:clamp(2.5rem,5vw,3.75rem);line-height:1;letter-spac
 .crow{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
 .crail{display:flex;flex-direction:column;gap:40px}
 .crail .sh{margin:0}
-.box{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:32px;scroll-margin-top:0}
+.box{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:32px}
 .box h3{font-size:var(--t-sub);font-weight:600;line-height:1.25;letter-spacing:-.01em;margin:0 0 24px}
 form{display:flex;flex-direction:column;gap:20px}
 label{display:flex;flex-direction:column;gap:8px}
 .lbl{font-family:var(--mono);font-size:var(--t-label);letter-spacing:.14em;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px}
 .lbl .err{color:var(--err);letter-spacing:0;display:none}
 label.bad .err{display:inline}label.bad input,label.bad textarea{border-color:var(--err)}
-input,textarea{width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:6px;padding:13px 14px;font-family:var(--mono);font-size:var(--t-value);color:var(--ink);outline:none;transition:border-color .15s,box-shadow .15s}
+input,textarea{width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:6px;padding:13px 14px;font-family:var(--mono);font-size:var(--t-value);color:var(--ink);caret-color:var(--accent);outline:none;transition:border-color .15s,box-shadow .15s}
 input::placeholder,textarea::placeholder{color:var(--ink-4)}
+input:-webkit-autofill{-webkit-text-fill-color:var(--ink);-webkit-box-shadow:inset 0 0 0 100px var(--bg);caret-color:var(--accent)}
 input:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 textarea{min-height:130px;resize:vertical;line-height:1.55}
 .form-f{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
@@ -176,7 +177,7 @@ textarea{min-height:130px;resize:vertical;line-height:1.55}
 
 .want{font-size:var(--t-intro);line-height:1.5;color:var(--ink);margin:8px 0 16px;text-wrap:pretty}
 .job{padding:20px 0;border-bottom:1px solid var(--line)}
-.dl-h+.job{padding-top:8px}
+.xp .job:first-child{padding-top:0}
 .job-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:12px}.job-h h3{margin:0;font-size:var(--t-sub);font-weight:600;line-height:1.25;letter-spacing:-.01em}
 .co{font-family:var(--mono);font-size:var(--t-ui);color:var(--accent)}
 .xp-lang{margin-top:24px;margin-bottom:12px}
@@ -193,7 +194,7 @@ footer{padding:40px 0 56px}
 h1,h2,.card h3,.job-h h3,.cmt{text-wrap:balance}
 .meta dd,.feat li,.ul li,.hire span,.form-err,.sent .b{text-wrap:pretty}
 
-.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}.js .reveal.in{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}.js .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}.cur{animation:none}}
 @media (forced-colors:active){.seg button.on{outline:2px solid Highlight;outline-offset:-2px}.nav a.on::after,.progress,.cur,.dot,.pill::before,.tag span::before{forced-color-adjust:none;background:Highlight}}
 @media (max-width:53.75em),(pointer:coarse){
@@ -201,7 +202,7 @@ input,textarea{font-size:var(--t-body)}
 a,button{touch-action:manipulation}
 .icon-btn{width:44px;height:44px}
 .btn,.logo,.seg button{min-height:44px}
-.nav a{display:inline-flex;align-items:center;min-height:44px}.nav a.on::after{bottom:-10px}
+.nav a{display:inline-flex;align-items:center;min-height:44px}
 .cta-link{display:inline-block;padding:14px 4px}
 .ft .sp{display:inline-block;padding:14px 0}
 .drow{gap:0 12px;padding:8px 0}.drow a{padding:13px 0;margin-top:-6px}
@@ -298,7 +299,7 @@ h1{font-size:44pt}
 </header>
 
 <main id="main" tabindex="-1">
-<section class="hero" id="o-mne" data-screen-label="O mně">
+<section class="hero" id="o-mne">
 <div class="wrap">
 <div class="cmt">// Mobilní aplikace pro iPhone i&nbsp;Android ve Flutteru.</div>
 <div class="prompt"><span class="t">~</span><span class="a">$</span><span>whoami</span><span class="cur"></span></div>
@@ -314,7 +315,7 @@ h1{font-size:44pt}
 </div>
 </section>
 
-<section class="sec" id="portfolio" data-screen-label="Portfolio">
+<section class="sec" id="portfolio">
 <div class="wrap">
 <div class="sh reveal"><div class="crumb"><span class="n">01</span><span class="sl">/</span><span>portfolio</span><span class="ln"></span></div><h2>Vybrané projekty</h2><p class="sub">Dvě interní aplikace z&nbsp;posledního roku, obě pro dealera&nbsp;BMW a&nbsp;jeho zaměstnance.</p></div>
 <div class="cases">
@@ -342,11 +343,10 @@ h1{font-size:44pt}
 </div>
 </section>
 
-<section class="sec sec-join-b" id="zkusenosti" data-screen-label="Zkušenosti">
+<section class="sec sec-join-b" id="zkusenosti">
 <div class="wrap split reveal">
 <div class="sh"><div class="crumb"><span class="n">02</span><span class="sl">/</span><span>zkušenosti</span><span class="ln"></span></div><h2>Zkušenosti</h2><p class="sub">Vývojář s&nbsp;praxí z&nbsp;firemního IT — rozumím nejen aplikacím, ale i&nbsp;infrastruktuře a&nbsp;procesům, do kterých zapadají. Zakládám si na rychlém dodání, kódu, který se dá dlouhodobě rozvíjet, a&nbsp;aplikacích, které lidi baví používat.</p></div>
 <div class="xp">
-<div class="dl-h">// PRAXE</div>
 <div class="job"><div class="job-h"><h3>IT systémový administrátor</h3><span class="co">Renocar</span></div><ul class="ul"><li>vývoj interních mobilních aplikací</li><li>správa firemní sítě</li><li>správa ERP Helios&nbsp;Nephrite</li><li>digitalizace firemních procesů</li></ul></div>
 <div class="job"><div class="job-h"><h3>Mobile app / web developer</h3><span class="co">freelance</span></div><ul class="ul"><li>Flutter aplikace pro iOS, Android a&nbsp;web</li><li>návrh UI, backend, integrace na ERP a&nbsp;SSO</li></ul></div>
 <div class="dl-h xp-lang">// JAZYKY</div>
@@ -355,9 +355,9 @@ h1{font-size:44pt}
 </div>
 </section>
 
-<section class="sec sec-join-t" id="stack" data-screen-label="Stack">
+<section class="sec sec-join-t" id="stack">
 <div class="wrap split reveal">
-<div class="sh"><div class="crumb"><span class="n">03</span><span class="sl">/</span><span>stack</span><span class="ln"></span></div><h2>Tech stack</h2><p class="sub">S&nbsp;čím dnes pracuji. Volba stacku není dogma — beru nástroj, který se k&nbsp;problému hodí.</p></div>
+<div class="sh"><div class="crumb"><span class="n">03</span><span class="sl">/</span><span>stack</span><span class="ln"></span></div><h2>Tech stack</h2><p class="sub">S&nbsp;čím dnes pracuji. Volba stacku není dogma — volím nástroj, který se k&nbsp;problému hodí.</p></div>
 <div class="stack">
 <div class="srow"><span class="k">mobile</span><div class="v"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Riverpod</span><span class="chip">ML&nbsp;Kit</span></div></div>
 <div class="srow"><span class="k">backend</span><div class="v"><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Fastify</span><span class="chip">Firebase</span></div></div>
@@ -368,7 +368,7 @@ h1{font-size:44pt}
 </div>
 </section>
 
-<section class="sec" id="sluzby" data-screen-label="Služby">
+<section class="sec" id="sluzby">
 <div class="wrap split reveal">
 <div class="sh"><div class="crumb"><span class="n">04</span><span class="sl">/</span><span>služby</span><span class="ln"></span></div><h2>Projekty na míru</h2><p class="sub">Pro firmy, které potřebují aplikaci na míru, od vývoje po dlouhodobou údržbu. Díky jednomu společnému kódu pro iPhone i&nbsp;Android je vývoj rychlejší a&nbsp;levnější.</p><a class="btn btn-g sh-cta" href="#formbox" data-kind="projekt"><span class="s" aria-hidden="true">&gt;</span>nezávazně poptat projekt</a></div>
 <div class="svc">
@@ -380,7 +380,7 @@ h1{font-size:44pt}
 </div>
 </section>
 
-<section class="sec" id="kontakt" data-screen-label="Kontakt" style="border-bottom:0">
+<section class="sec" id="kontakt">
 <div class="wrap crow reveal">
 <div class="crail">
 <div class="sh"><div class="crumb"><span class="n">05</span><span class="sl">/</span><span>kontakt</span><span class="ln"></span></div><h2>Napište mi</h2><p class="sub">Jsem otevřený pracovním nabídkám i&nbsp;novým projektům. Napište mi pár řádků o&nbsp;tom, co potřebujete.</p></div>
@@ -479,7 +479,7 @@ from_name:name,email:f.email.value.trim(),message:f.msg.value.trim(),botcheck:f.
 .then(function(r){return r.json();})
 .then(function(d){if(!d.success)throw new Error(d.message);clearTimeout(to);
 var box=document.getElementById('formbox');
-box.innerHTML='<h3>Nová zpráva</h3><div class="sent" role="status" tabindex="-1"><div class="c">→ 200 OK</div><div class="t">'+(kind==='prace'?'Díky za nabídku.':'Díky, zprávu mám.')+'</div><div class="b">Ozvu se do jednoho pracovního dne na uvedený e-mail.</div></div>';
+box.innerHTML='<h3>Zpráva odeslána</h3><div class="sent" role="status" tabindex="-1"><div class="c">→ 200 OK</div><div class="t">'+(kind==='prace'?'Díky za nabídku.':'Díky, zprávu mám.')+'</div><div class="b">Ozvu se do jednoho pracovního dne na uvedený e-mail.</div></div>';
 box.querySelector('.sent').focus();})
 .catch(function(err){clearTimeout(to);
 ferrT.textContent=navigator.onLine===false?'Nejste připojeni k\u00A0internetu. Zkontrolujte připojení a\u00A0zkuste to znovu,':err&&err.name==='AbortError'?'Odeslání trvá příliš dlouho. Zkuste to prosím znovu,':'Odeslání selhalo. Zkuste to prosím znovu,';
