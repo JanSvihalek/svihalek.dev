@@ -38,6 +38,7 @@ Jeden člověk od A do Z. Jan zvládne návrh UI, backend, integrace i vydání 
 ### Otevřená rozhodnutí
 
 - **Anglická verze:** není rozhodnuto, jak bude řešená, ani kdo schválí její texty.
+- **Životopis:** zatím se na web nepřidává, Jan to odložil.
 
 ## Brand Commitments
 
