@@ -58,7 +58,7 @@ RenoWorkshop i RenoEnergy vznikly v zaměstnání, ne jako freelance zakázky. J
 
 **Praxe a dovednosti**
 
-- IT systémový administrátor v Renocaru: správa sítě, správa ERP Helios Nephrite, digitalizace procesů.
+- IT systémový administrátor v Renocaru od 1. 9. 2022, stále ve funkci: vývoj interních aplikací, správa sítě, správa ERP Helios Nephrite, digitalizace procesů. Délka praxe se na webu počítá z tohoto data.
 - Mobile app / web developer na volné noze: Flutter, návrh UI, backend, integrace na ERP a SSO.
 - Stack a jazyky jsou uvedené v sekci Stack v `index.html`. Angličtina B2, španělština A2.
 
@@ -72,7 +72,7 @@ RenoWorkshop i RenoEnergy vznikly v zaměstnání, ne jako freelance zakázky. J
 
 **Nevymýšlet, zatím neexistuje**
 
-Reference, doporučení, metriky a čísla o dopadu, loga klientů a data nástupu do jednotlivých pozic. Jan nemá žádnou aplikaci v App Store ani Google Play, takže web nesmí slibovat vydání v obchodech ani na ně odkazovat.
+Reference, doporučení, metriky a čísla o dopadu, loga klientů a začátek práce na volné noze. Jan nemá žádnou aplikaci v App Store ani Google Play, takže web nesmí slibovat vydání v obchodech ani na ně odkazovat.
 
 **Nepoužívat**
 
