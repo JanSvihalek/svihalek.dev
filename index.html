@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jan Švihálek — Flutter vývojář | svihalek.dev</title>
+<title>svihalek.dev - Jan Švihálek</title>
 <meta name="description" content="Jan Švihálek, vývojář mobilních aplikací ve Flutteru. Celý vývoj od návrhu rozhraní přes backend a integrace až po nasazení do provozu. Hledám pozici na HPP v Brně nebo remote.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://svihalek.dev/">
@@ -484,9 +484,9 @@ ferr.hidden=false;send.disabled=false;send.textContent=t('odeslat zprávu','send
 function renderErr(){ferrT.textContent=errKind==='off'?t('Nejste připojeni k\u00A0internetu. Zkontrolujte připojení a\u00A0zkuste to znovu,','You are offline. Check your connection and try again,'):errKind==='slow'?t('Odeslání trvá příliš dlouho. Zkuste to prosím znovu,','Sending is taking too long. Please try again,'):t('Odeslání selhalo. Zkuste to prosím znovu,','Sending failed. Please try again,');}
 function renderSent(){document.getElementById('formbox').innerHTML='<h3>'+t('Zpráva odeslána','Message sent')+'</h3><div class="sent" role="status" tabindex="-1"><div class="t">'+(kind==='prace'?t('Díky za nabídku.','Thanks for the offer.'):t('Díky, zprávu mám.','Thanks, I got your message.'))+'</div><div class="b">'+t('Ozvu se do jednoho pracovního dne na uvedený e-mail.','I’ll reply within one business day to the e-mail you provided.')+'</div></div>';}
 
-var docCs={title:document.title,desc:document.querySelector('meta[name="description"]').content};
+var docCs={desc:document.querySelector('meta[name="description"]').content};
 function setLang(l,save){lang=l==='en'?'en':'cs';root.lang=lang;
-document.title=t(docCs.title,'Jan Švihálek — Flutter developer | svihalek.dev');document.querySelector('meta[name="description"]').content=t(docCs.desc,'Jan Švihálek, mobile app developer in Flutter. The whole development process from interface design through backend and integrations to deployment. Looking for a full-time position in Brno or remote.');
+document.querySelector('meta[name="description"]').content=t(docCs.desc,'Jan Švihálek, mobile app developer in Flutter. The whole development process from interface design through backend and integrations to deployment. Looking for a full-time position in Brno or remote.');
 document.querySelectorAll('[data-t]').forEach(function(e){if(e.csHtml===undefined)e.csHtml=e.innerHTML;e.innerHTML=lang==='en'?EN[e.dataset.t]:e.csHtml;});
 document.querySelectorAll('[data-ta]').forEach(function(e){var p=e.dataset.ta.split('|');p[0].split(',').forEach(function(a){var c='cs_'+a;if(e[c]===undefined)e[c]=e.getAttribute(a);e.setAttribute(a,lang==='en'?EN[p[1]]:e[c]);});});
 document.querySelectorAll('[data-l]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===lang);});
