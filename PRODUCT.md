@@ -34,12 +34,12 @@ Jeden člověk od A do Z. Jan zvládne návrh UI, backend, integrace i vydání 
 - Formulář odesílá přes Web3Forms.
 - Firebase hostuje celý kořen projektu. Nové soubory, které nemají být veřejné, musí být uvedené v `ignore` ve `firebase.json`.
 - `svihalek.dev.html` se nenasazuje a není zdrojem pravdy o webu.
+- Web neodkazuje na GitHub.
 - Web nemá sekci s praxí a seznam pozic nepřidává. Životopisné údaje jsou na LinkedInu, na webu zůstává jedna věta s počtem let ve firemním IT, který se počítá z data 1. 9. 2022, a odkaz na LinkedIn.
 
 ### Otevřená rozhodnutí
 
 - **Anglické texty:** napsal je Claude, Jan je ještě neschválil.
-- **Veřejný GitHub:** web odkazuje na github.com/JanSvihalek, kde jsou veřejně i repozitáře interních aplikací a README RenoWorkshopu jmenuje Renocar. Je potřeba rozhodnout, jestli mají zůstat veřejné.
 - **Životopis:** zatím se na web nepřidává, Jan to odložil.
 
 ## Brand Commitments
