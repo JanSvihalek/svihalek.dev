@@ -18,9 +18,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'Archivo',-apple-system,sans-serif;--max:1200px;--hh:64px}
-[data-theme="dark"]{--bg:#0a0a0c;--bg-2:#121217;--bg-3:#18181e;--line:#1f1f26;--line-2:#2a2a32;--ink:#f2efe8;--ink-2:#b4b4bc;--ink-3:#7f7f8a;--ink-4:#55555e;--accent:#4f8aff;--accent-ink:#fff;--accent-soft:rgba(79,138,255,.08);--accent-line:rgba(79,138,255,.2);--key:#ff79c6;--ok:#28c840;--header:rgba(10,10,12,.82);--shot:#0d1b33;color-scheme:dark}
-[data-theme="light"]{--bg:#f5f4f0;--bg-2:#ffffff;--bg-3:#efede7;--line:#e3e1da;--line-2:#d3d0c7;--ink:#141417;--ink-2:#3d3d45;--ink-3:#62626c;--ink-4:#8a8a93;--accent:#2a62d9;--accent-ink:#fff;--accent-soft:rgba(42,98,217,.06);--accent-line:rgba(42,98,217,.2);--key:#b8327f;--ok:#1a9a33;--header:rgba(245,244,240,.85);--shot:#0d1b33;color-scheme:light}
+:root{--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'Archivo',-apple-system,sans-serif;--max:1200px;--hh:64px;--sec:96px;--sec-t:56px}
+[data-theme="dark"]{--bg:#0a0a0c;--bg-2:#121217;--bg-3:#18181e;--line:#1f1f26;--line-2:#2a2a32;--ink:#f2efe8;--ink-2:#b4b4bc;--ink-3:#7f7f8a;--ink-4:#55555e;--accent:#4f8aff;--accent-ink:#fff;--accent-soft:rgba(79,138,255,.08);--accent-line:rgba(79,138,255,.2);--ok:#28c840;--header:rgba(10,10,12,.82);--shot:#0d1b33;color-scheme:dark}
+[data-theme="light"]{--bg:#f5f4f0;--bg-2:#ffffff;--bg-3:#efede7;--line:#e3e1da;--line-2:#d3d0c7;--ink:#141417;--ink-2:#3d3d45;--ink-3:#62626c;--ink-4:#8a8a93;--accent:#2a62d9;--accent-ink:#fff;--accent-soft:rgba(42,98,217,.06);--accent-line:rgba(42,98,217,.2);--ok:#1a9a33;--header:rgba(245,244,240,.85);--shot:#0d1b33;color-scheme:light}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 24px)}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;transition:background .25s,color .25s;overflow-x:hidden}
@@ -63,7 +63,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--accent);width:0;transition:width .1s linear}
 
 /* hero */
-.hero{padding:112px 0 120px;border-bottom:1px solid var(--line)}
+.hero{padding:96px 0;border-bottom:1px solid var(--line)}
 .cmt{font-family:var(--mono);font-size:14px;color:var(--ink-4);margin-bottom:6px}
 .prompt{font-family:var(--mono);font-size:15px;display:flex;gap:10px;align-items:center;margin-bottom:28px}
 .prompt .t{color:var(--ink-4)}.prompt .a{color:var(--accent)}
@@ -72,60 +72,71 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 h1{font-weight:800;font-size:clamp(64px,10vw,140px);line-height:.92;letter-spacing:-.035em;margin:0;color:var(--ink)}
 .role{margin-top:32px;font-family:var(--mono);font-size:13px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;letter-spacing:.16em}
 .role .a{color:var(--accent);font-weight:500}.role .m{color:var(--ink-3)}.role .sep{color:var(--ink-4);letter-spacing:0}
-.lead{margin:28px 0 0;font-size:18px;line-height:1.65;color:var(--ink-2);max-width:660px;text-wrap:pretty}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px;align-items:center}
+.lead{margin:32px 0 0;font-size:24px;font-weight:500;line-height:1.4;letter-spacing:-.01em;color:var(--ink);max-width:760px;text-wrap:pretty}
+.hire{display:flex;align-items:baseline;gap:12px;margin:20px 0 0;font-size:17px;line-height:1.5;color:var(--ink-2)}
+.hire .dot{flex:none;transform:translateY(-2px)}
+.cta{display:flex;flex-wrap:wrap;gap:12px 16px;margin-top:40px;align-items:center}
+.cta-link{font-family:var(--mono);font-size:13px;color:var(--ink-2);padding:12px 4px;text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:4px}
+.cta-link:hover{color:var(--ink);text-decoration-color:currentColor}
 
 /* sections */
-section.sec{padding:112px 0;border-bottom:1px solid var(--line)}
-.sh{margin-bottom:48px}
+section.sec{padding:var(--sec) 0;border-bottom:1px solid var(--line);scroll-margin-top:calc(0px - var(--sec))}
+section.sec-join-b{padding-bottom:var(--sec-t)}
+section.sec-join-t{padding-top:var(--sec-t);scroll-margin-top:calc(0px - var(--sec-t))}
+.sh{margin-bottom:40px}
 .crumb{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-bottom:20px}
 .crumb .n{color:var(--accent)}.crumb .sl{color:var(--ink-4)}.crumb .ln{flex:1;height:1px;background:var(--line)}
 h2{font-weight:700;font-size:clamp(40px,5vw,60px);line-height:1;letter-spacing:-.025em;margin:0}
 .sub{font-size:17px;line-height:1.6;color:var(--ink-3);margin:16px 0 0;max-width:640px;text-wrap:pretty}
+.split{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:64px;align-items:start}
+.split>.sh{margin:0}
+.split h2{font-size:clamp(32px,3.4vw,44px)}
+.split .sub{font-size:16px}
+.sh-cta{margin-top:24px}
 
 /* services */
-.svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.card{background:var(--bg-2);padding:36px 34px;display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px 12px;transition:background .2s}
-.card:hover{background:var(--bg-3)}
-.card .i{font-family:var(--mono);font-size:12px;color:var(--ink-4);padding-top:3px}
+.svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+.card{padding-top:20px;border-top:1px solid var(--line)}
 .card .m{font-family:var(--mono);font-size:13px;color:var(--accent)}
-.card h3{font-size:24px;font-weight:600;letter-spacing:-.015em;margin:6px 0 12px}
-.card p{font-size:15px;line-height:1.6;color:var(--ink-2);margin:0 0 18px;text-wrap:pretty}
-.ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
+.card h3{font-size:20px;font-weight:600;letter-spacing:-.01em;margin:8px 0 8px}
+.card p{font-size:15px;line-height:1.6;color:var(--ink-2);margin:0 0 16px;text-wrap:pretty}
+.ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
 .ul li{display:flex;gap:10px}.ul li::before{content:"→";color:var(--accent)}
 
 /* portfolio */
 .cases{display:flex;flex-direction:column;gap:32px}
-.case{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:44px;padding:32px;background:var(--bg-2);border:1px solid var(--line);border-radius:8px}
-.shot{border-radius:6px;overflow:hidden;background:radial-gradient(120% 90% at 30% 20%,#13284a 0%,var(--shot) 60%);aspect-ratio:1/1;align-self:start;display:flex;align-items:center;justify-content:center;gap:5%}
-.shot img{width:42%;height:auto;display:block;border-radius:clamp(10px,2.4vw,20px);box-shadow:0 10px 30px rgba(0,0,0,.45)}
-.shot img:first-child{transform:rotate(-3deg) translateY(2%)}
-.shot img:last-child{transform:rotate(3deg) translateY(-2%)}
-.tag{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;padding:32px;background:var(--bg-2);border:1px solid var(--line);border-radius:8px}
+.shot{border-radius:6px;overflow:hidden;background:radial-gradient(120% 90% at 30% 20%,#13284a 0%,var(--shot) 60%);padding:32px 16px;display:flex;align-items:center;justify-content:center;gap:4%}
+.shot img{width:46%;max-width:240px;height:auto;display:block;border-radius:clamp(10px,2.4vw,20px);box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.shot img:first-child{transform:translateY(2%)}
+.shot img:last-child{transform:translateY(-2%)}
+.tag{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .tag img{width:40px;height:40px;border-radius:9px;display:block}
 .tag span{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.18em;color:var(--accent);display:flex;align-items:center;gap:10px}
 .tag span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
-.case h3{font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-.02em;line-height:1.12;margin:0 0 16px;text-wrap:balance}
-.case p{font-size:15.5px;line-height:1.65;color:var(--ink-2);margin:0 0 26px;text-wrap:pretty}
-.meta{display:grid;grid-template-columns:96px minmax(0,1fr);gap:7px 16px;font-family:var(--mono);font-size:12.5px;margin:0 0 24px}
-.meta dt{color:var(--ink-4)}.meta dd{margin:0;color:var(--ink-2)}
+.case h3{font-size:clamp(24px,2.4vw,30px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:0 0 16px;text-wrap:balance}
+.case p{font-size:15.5px;line-height:1.6;color:var(--ink-2);margin:0 0 24px;text-wrap:pretty}
+.meta{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px 16px;font-family:var(--mono);font-size:12.5px;line-height:1.5;margin:0 0 24px}
+.meta dt{color:var(--ink-4)}.meta dd{margin:0;color:var(--ink-2)}.meta dd.me{color:var(--ink)}
 .pill{display:inline-flex;align-items:center;gap:7px}.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
 .pill.prod{color:var(--ok)}.pill.pilot{color:#e0a21a}
-.feat{list-style:none;margin:0;padding:18px 20px;display:flex;flex-direction:column;gap:8px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:6px;font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
+.feat{list-style:none;margin:0;padding:20px 0 0;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;line-height:1.5;color:var(--ink-2)}
 .feat li{display:flex;gap:12px}.feat li::before{content:"✓";color:var(--accent)}
-.note{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:20px}.note b{color:var(--accent);font-weight:400}
 
 /* stack */
-.stack{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:12px 32px;font-family:var(--mono);font-size:14px}
+.stack{font-family:var(--mono);font-size:14px}
 .srow{display:grid;grid-template-columns:140px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.srow:first-child{padding-top:0}
 .srow:last-child{border-bottom:0}
-.srow .k{color:var(--key)}
+.srow .k{color:var(--ink-3)}
 .srow .v{display:flex;flex-wrap:wrap;gap:8px}
 .chip{padding:4px 10px;border:1px solid var(--line-2);border-radius:4px;color:var(--ink);font-size:13px}
 
 /* contact */
-.crow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:32px;align-items:start}
-.box{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:32px}
+.crow{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
+.crail{display:flex;flex-direction:column;gap:40px}
+.crail .sh{margin:0}
+.box{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:32px;scroll-margin-top:0}
 .box h3{font-size:20px;font-weight:600;margin:0 0 24px}
 form{display:flex;flex-direction:column;gap:20px}
 label{display:flex;flex-direction:column;gap:8px}
@@ -144,26 +155,22 @@ textarea{min-height:130px;resize:vertical;line-height:1.55}
 .sent .c{font-family:var(--mono);font-size:13px;color:var(--ok);margin-bottom:10px}
 .sent .t{font-size:19px;font-weight:600;margin-bottom:6px}.sent .b{color:var(--ink-3);font-size:15px}
 .dl-h{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-4);margin-bottom:8px}
-.drow{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"k c" "v v";gap:6px 12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.drow{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"k k" "v c";gap:4px 12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
 .drow .k{grid-area:k}.drow a{grid-area:v}.drow .copy{grid-area:c}
 .drow:last-of-type{border-bottom:0}
 .drow .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-4)}
 .drow a{font-family:var(--mono);font-size:14.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .drow a:hover{color:var(--accent);text-decoration:none}
-.drow a .d{color:var(--accent)}
 .copy{font-family:var(--mono);font-size:11px;color:var(--ink-3);background:transparent;border:1px solid var(--line);border-radius:4px;padding:5px 8px;cursor:pointer;min-width:62px}
 .copy:hover{color:var(--ink);border-color:var(--line-2)}.copy.ok{color:var(--ok);border-color:color-mix(in oklab,var(--ok) 40%,transparent)}
 
-.avail{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
-.avail>span:nth-child(2){flex:0 1 auto;min-width:0}
-@media (max-width:640px){.avail>span:nth-child(2){flex:1 1 200px}}
-.avail .tags{display:flex;flex-wrap:wrap;gap:6px}.avail .tags span{padding:3px 8px;border:1px solid var(--line-2);border-radius:4px;color:var(--ink-3);font-size:11.5px}
-.xp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:32px;align-items:start}
-.job{padding:20px 0;border-bottom:1px solid var(--line)}.job:last-child{border-bottom:0;padding-bottom:0}
+.want{font-size:17px;line-height:1.5;color:var(--ink);margin:8px 0 16px;text-wrap:pretty}
+.job{padding:20px 0;border-bottom:1px solid var(--line)}
+.dl-h+.job{padding-top:8px}
 .job-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:12px}.job-h h3{margin:0;font-size:21px;font-weight:600;letter-spacing:-.01em}
 .co{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+.xp-lang{margin-top:24px;margin-bottom:12px}
 .tagset{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono)}
-.want{font-size:17px;line-height:1.5;color:var(--ink);margin:0 0 16px;text-wrap:pretty}
 .seg{display:grid;grid-template-columns:1fr 1fr;padding:4px;gap:4px;background:var(--bg);border:1px solid var(--line-2);border-radius:8px}
 .seg button{font-family:var(--mono);font-size:13px;padding:10px;border:0;border-radius:5px;background:transparent;color:var(--ink-3);cursor:pointer;transition:background .15s,color .15s}
 .seg button:hover{color:var(--ink)}.seg button.on{background:var(--bg-3);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
@@ -176,10 +183,17 @@ footer{padding:40px 0 56px}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.cur{animation:none}}
 
-@media (max-width:1080px){.xp{grid-template-columns:minmax(0,1fr)}.case{grid-template-columns:minmax(0,1fr)}.shot{max-width:520px;width:100%}.crow{grid-template-columns:minmax(0,1fr)}.status{display:none}}
+@media (max-width:1080px){.status{display:none}}
+@media (max-width:900px){
+.split,.crow,.case{grid-template-columns:minmax(0,1fr)}
+.split,.crow{gap:40px}
+.split .sub{max-width:640px}
+.shot img{max-width:200px}
+}
 @media (max-width:860px){
+:root{--sec:72px;--sec-t:48px}
 .nav,.hdr-r .btn{display:none}.menu-btn{display:grid}.hdr-r{margin-left:auto}
-.mnav{display:block;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px 24px;transform-origin:top;transition:opacity .18s,transform .18s,visibility .18s;opacity:0;visibility:hidden;transform:translateY(-6px);pointer-events:none}
+.mnav{display:block;position:absolute;left:0;right:0;top:100%;max-height:calc(100dvh - var(--hh));overflow-y:auto;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px 24px;transform-origin:top;transition:opacity .18s,transform .18s,visibility .18s;opacity:0;visibility:hidden;transform:translateY(-6px);pointer-events:none}
 .hdr.open .mnav{opacity:1;visibility:visible;transform:none;pointer-events:auto}
 .mnav a{display:flex;justify-content:space-between;font-family:var(--mono);font-size:15px;color:var(--ink-2);padding:15px 0;border-bottom:1px solid var(--line)}
 .mnav a.on{color:var(--ink)}.mnav a.on::after{content:"●";color:var(--accent);font-size:10px}
@@ -187,17 +201,20 @@ footer{padding:40px 0 56px}
 .mnav .btn{margin-top:20px;width:100%;justify-content:center;border-bottom:0;color:var(--accent-ink);font-size:14px}
 .mnav .btn.on::after{content:none}
 .mnav .st{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:16px;justify-content:center}
-.svc{grid-template-columns:minmax(0,1fr)}
 }
+@media (max-width:720px){.svc{grid-template-columns:minmax(0,1fr);gap:32px}}
 @media (max-width:640px){
-.wrap{padding:0 20px}.hero{padding:64px 0 80px}section.sec{padding:72px 0}
+:root{--sec:56px;--sec-t:40px}
+.wrap{padding:0 20px}.hero{padding:56px 0 64px}
 h1{font-size:clamp(44px,15vw,64px)}
 .cmt{font-size:13px;line-height:1.5}
 .role{font-size:12px;gap:8px 12px;letter-spacing:.12em}
-.lead{font-size:16.5px}.cta .btn{flex:1;justify-content:center}
-.card{padding:26px 20px}.case{padding:18px;gap:24px}.box{padding:22px}.stack{padding:4px 18px}
-.srow{grid-template-columns:minmax(0,1fr);gap:10px}.meta{grid-template-columns:80px minmax(0,1fr)}
-.feat{padding:16px}
+.lead{font-size:19px;margin-top:24px}.hire{font-size:16px}
+.cta .btn{flex:1 1 100%;justify-content:center}.cta-link{flex:1 1 100%;text-align:center}
+.case{padding:0;background:none;border:0;border-radius:0;gap:24px}.cases{gap:56px}
+.shot{padding:24px 12px}
+.box{padding:22px}
+.srow{grid-template-columns:minmax(0,1fr);gap:10px}.meta{grid-template-columns:88px minmax(0,1fr)}
 .ft .sp{margin-left:0}
 }
 </style>
@@ -207,28 +224,26 @@ h1{font-size:clamp(44px,15vw,64px)}
 <div class="wrap hdr-in">
 <a class="logo" href="#o-mne"><img src="favicon.svg" alt=""><span>svihalek<span class="d">.dev</span></span></a>
 <nav class="nav" aria-label="Hlavní navigace">
-<a href="#o-mne" data-s="o-mne">o mně</a>
-<a href="#sluzby" data-s="sluzby">služby</a>
 <a href="#portfolio" data-s="portfolio">portfolio</a>
 <a href="#zkusenosti" data-s="zkusenosti">zkušenosti</a>
 <a href="#stack" data-s="stack">stack</a>
+<a href="#sluzby" data-s="sluzby">služby</a>
 <a href="#kontakt" data-s="kontakt">kontakt</a>
 </nav>
 <div class="hdr-r">
 <div class="status"><span class="dot"></span>otevřený nabídkám</div>
 <button class="icon-btn" id="theme" type="button" aria-label="Přepnout světlý / tmavý režim" title="Světlý / tmavý režim"><span class="theme-ic"></span></button>
-<a class="btn btn-p btn-sm" href="#kontakt">napsat mi</a>
+<a class="btn btn-p btn-sm" href="#formbox">napsat mi</a>
 <button class="icon-btn menu-btn" id="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><span class="menu-ic"></span></button>
 </div>
 </div>
 <nav class="mnav" id="mnav" aria-label="Mobilní navigace">
-<a href="#o-mne" data-s="o-mne">o mně</a>
-<a href="#sluzby" data-s="sluzby">služby</a>
 <a href="#portfolio" data-s="portfolio">portfolio</a>
 <a href="#zkusenosti" data-s="zkusenosti">zkušenosti</a>
 <a href="#stack" data-s="stack">stack</a>
+<a href="#sluzby" data-s="sluzby">služby</a>
 <a href="#kontakt" data-s="kontakt">kontakt</a>
-<a class="btn btn-p" href="#kontakt">napsat mi</a>
+<a class="btn btn-p" href="#formbox">napsat mi</a>
 <div class="st"><span class="dot"></span>Otevřený pracovním nabídkám i projektům</div>
 </nav>
 <div class="progress" id="progress"></div>
@@ -241,32 +256,19 @@ h1{font-size:clamp(44px,15vw,64px)}
 <div class="prompt"><span class="t">~</span><span class="a">$</span><span>whoami</span><span class="cur"></span></div>
 <h1>Jan Švihálek</h1>
 <div class="role"><span class="a">▸ MOBILE APP/WEB DEVELOPER</span><span class="sep">/</span><span class="m">FLUTTER · CROSS-PLATFORM</span></div>
-<p class="lead">Pokrývám celý vývoj aplikace, od návrhu rozhraní přes backend a integrace s&nbsp;firemními systémy až po nasazení do provozu.</p>
-<p class="lead">Aktuálně hledám pozici vývojáře na HPP, v&nbsp;Brně nebo remote.</p>
+<p class="lead">Pokrývám celý vývoj aplikace, od návrhu rozhraní přes backend a&nbsp;integrace s&nbsp;firemními systémy až po nasazení do provozu.</p>
+<p class="hire"><span class="dot"></span><span>Aktuálně hledám pozici vývojáře na HPP, v&nbsp;Brně nebo remote.</span></p>
 <div class="cta">
-<a class="btn btn-p" href="#kontakt" data-kind="prace"><span class="s">$</span>poslat pracovní nabídku</a>
+<a class="btn btn-p" href="#formbox" data-kind="prace"><span class="s">$</span>poslat pracovní nabídku</a>
 <a class="btn btn-g" href="#portfolio"><span class="s">&gt;</span>portfolio</a>
-<a class="btn btn-g" href="#kontakt" data-kind="projekt"><span class="s">&gt;</span>nezávazně poptat projekt</a>
-</div>
-<div class="avail"><span class="dot"></span><span>Další možnosti spolupráce</span><span class="tags"><span>částečný úvazek</span><span>IČO / kontrakt</span><span>projekty na míru</span></span></div>
-</div>
-</section>
-
-<section class="sec" id="sluzby" data-screen-label="Služby">
-<div class="wrap">
-<div class="sh reveal"><div class="crumb"><span class="n">01</span><span class="sl">/</span><span>služby</span><span class="ln"></span></div><h2>Projekty na míru</h2><p class="sub">Pro firmy, které potřebují aplikaci na míru, od vývoje po dlouhodobou údržbu. Díky jednomu společnému kódu pro iPhone i Android je vývoj rychlejší a levnější.</p></div>
-<div class="svc reveal">
-<article class="card"><span class="i">01</span><div><div class="m">.buildApp()</div><h3>Vývoj aplikací</h3><p>Návrh a vývoj produkční Flutter aplikace pro iOS a Android. Od architektury přes integrace až po vydání.</p><ul class="ul"><li>nová aplikace za 6–12 týdnů</li><li>cross-platform: iOS, Android, web, Windows</li><li>CI/CD, testy, monitoring od dne 1</li><li>interní distribuce přes MDM</li></ul></div></article>
-<article class="card"><span class="i">02</span><div><div class="m">.consult()</div><h3>Konzultace</h3><p>Diskuze nad architekturou, technologickými volbami, výběrem stacku. Hodinová sazba nebo balíček dní.</p><ul class="ul"><li>výběr stacku a architektura</li><li>audit existující codebase</li><li>odhady, roadmapa, rizika</li><li>review PR / mentoring týmu</li></ul></div></article>
-<article class="card"><span class="i">03</span><div><div class="m">.designUI()</div><h3>UI / UX</h3><p>Návrh rozhraní s ohledem na to, kdo ho bude používat. Jeden člověk od skici po build.</p><ul class="ul"><li>design system &amp; komponenty</li><li>user flows a prototypy</li><li>iOS &amp; Material guidelines</li><li>implementace návrhu přímo ve Flutteru</li></ul></div></article>
-<article class="card"><span class="i">04</span><div><div class="m">.maintain()</div><h3>Údržba</h3><p>Dlouhodobá péče o aplikaci, kterou jste si nechali postavit jinde nebo se mnou. Aktualizace, opravy chyb, drobné nové funkce.</p><ul class="ul"><li>měsíční paušál (8–24 h)</li><li>aktualizace Flutteru a knihoven</li><li>sledování crash reportů</li><li>drobné funkce bez čekání ve frontě</li></ul></div></article>
+<a class="cta-link" href="#formbox" data-kind="projekt">nezávazně poptat projekt</a>
 </div>
 </div>
 </section>
 
 <section class="sec" id="portfolio" data-screen-label="Portfolio">
 <div class="wrap">
-<div class="sh reveal"><div class="crumb"><span class="n">02</span><span class="sl">/</span><span>portfolio</span><span class="ln"></span></div><h2>Vybrané projekty</h2><p class="sub">Dvě interní aplikace z posledního roku, obě pro dealera BMW a jeho zaměstnance.</p></div>
+<div class="sh reveal"><div class="crumb"><span class="n">01</span><span class="sl">/</span><span>portfolio</span><span class="ln"></span></div><h2>Vybrané projekty</h2><p class="sub">Dvě interní aplikace z posledního roku, obě pro dealera BMW a jeho zaměstnance.</p></div>
 <div class="cases">
 <article class="case reveal">
 <div class="shot"><img src="images/renoworkshop_seznam.png" alt="RenoWorkshop — zakázky na dílně" loading="lazy"><img src="images/renoworkshop_detail.png" alt="RenoWorkshop — detail zakázky s obálkou klíče" loading="lazy"></div>
@@ -274,9 +276,8 @@ h1{font-size:clamp(44px,15vw,64px)}
 <div class="tag"><img src="images/renoworkshop-app-icon-192.png" alt=""><span>RENOWORKSHOP</span></div>
 <h3>RenoWorkshop — dílenská aplikace pro servis BMW</h3>
 <p>Interní aplikace pro příjem vozidel a dílnu dealera BMW. Technik naskenuje SPZ nebo VIN a aplikace dohledá zakázku přímo v ERP Helios Nephrite. Příjem vozu s kontrolou a fotodokumentací, průběh opravy, pracovní list i obálky s klíči – papírový zakázkový list v deskách už není potřeba.</p>
-<dl class="meta"><dt>client:</dt><dd>Dealer BMW · interní</dd><dt>platform:</dt><dd>iOS · iPadOS · Android</dd><dt>stack:</dt><dd>Flutter · Node.js · MS SQL · ML Kit</dd><dt>erp:</dt><dd>Helios Nephrite</dd><dt>status:</dt><dd><span class="pill pilot">pilot</span></dd></dl>
+<dl class="meta"><dt>podíl:</dt><dd class="me">návrh UI → Flutter → API → Helios → MDM, vše samostatně</dd><dt>firma:</dt><dd>Dealer BMW · interní</dd><dt>platform:</dt><dd>iOS · iPadOS · Android</dd><dt>stack:</dt><dd>Flutter · Node.js · MS SQL · ML Kit</dd><dt>erp:</dt><dd>Helios Nephrite</dd><dt>distribuce:</dt><dd>MDM, není v obchodech</dd><dt>status:</dt><dd><span class="pill pilot">pilot</span></dd></dl>
 <ul class="feat"><li>rozpoznání SPZ, VIN a QR přímo v zařízení (ML Kit)</li><li>napojení na ERP Helios Nephrite přes vlastní API</li><li>příjem vozidla s kontrolou a fotodokumentací</li><li>dílenský stav, zpracovatel a pracovní list</li><li>obálky na klíče s QR štítky</li><li>PDF protokol zakázky</li></ul>
-<div class="note"><b>//</b> interní distribuce přes MDM – není v obchodech</div>
 </div>
 </article>
 <article class="case reveal">
@@ -285,52 +286,68 @@ h1{font-size:clamp(44px,15vw,64px)}
 <div class="tag"><span>RENOENERGY</span></div>
 <h3>RenoEnergy — evidence nabíjení elektromobilů a odečtů měřidel</h3>
 <p>Interní aplikace pro dealera BMW. Zaměstnanci v ní evidují nabíjení elektromobilů na firemních nabíječkách: vyfotí počítadlo před nabíjením a po něm a aplikace spočítá spotřebu i orientační cenu jako podklad pro fakturaci. Zároveň slouží technikům při obchůzkách, kdy pomáhá s odečty elektroměrů, plynoměrů a dalších měřidel v areálech.</p>
-<dl class="meta"><dt>client:</dt><dd>Dealer BMW · interní</dd><dt>platform:</dt><dd>iOS · Android</dd><dt>stack:</dt><dd>Flutter</dd><dt>status:</dt><dd><span class="pill prod">in production</span></dd></dl>
+<dl class="meta"><dt>podíl:</dt><dd class="me">návrh UI → Flutter → backend → nasazení, vše samostatně</dd><dt>firma:</dt><dd>Dealer BMW · interní</dd><dt>platform:</dt><dd>iOS · Android</dd><dt>stack:</dt><dd>Flutter</dd><dt>distribuce:</dt><dd>pro zaměstnance, není v obchodech</dd><dt>status:</dt><dd><span class="pill prod">in production</span></dd></dl>
 <ul class="feat"><li>fotka počítadla před a po nabíjení jako doklad pro fakturaci</li><li>automatický výpočet spotřeby v kWh a orientační ceny</li><li>měsíční souhrny nabíjení za každého zaměstnance</li><li>obchůzky odběrných míst s načtením měřidla přes QR kód</li></ul>
-<div class="note"><b>//</b> interní distribuce pro zaměstnance – není v obchodech</div>
 </div>
 </article>
 </div>
 </div>
 </section>
 
-<section class="sec" id="zkusenosti" data-screen-label="Zkušenosti">
-<div class="wrap">
-<div class="sh reveal"><div class="crumb"><span class="n">03</span><span class="sl">/</span><span>zkušenosti</span><span class="ln"></span></div><h2>Zkušenosti</h2><p class="sub">Vývojář s praxí z firemního IT — rozumím nejen aplikacím, ale i infrastruktuře a procesům, do kterých zapadají. Zakládám si na rychlém dodání, kódu, který se dá dlouhodobě rozvíjet, a aplikacích, které lidi baví používat.</p></div>
-<div class="xp reveal">
-<div class="box">
+<section class="sec sec-join-b" id="zkusenosti" data-screen-label="Zkušenosti">
+<div class="wrap split reveal">
+<div class="sh"><div class="crumb"><span class="n">02</span><span class="sl">/</span><span>zkušenosti</span><span class="ln"></span></div><h2>Zkušenosti</h2><p class="sub">Vývojář s praxí z firemního IT — rozumím nejen aplikacím, ale i infrastruktuře a procesům, do kterých zapadají. Zakládám si na rychlém dodání, kódu, který se dá dlouhodobě rozvíjet, a aplikacích, které lidi baví používat.</p></div>
+<div class="xp">
 <div class="dl-h">// PRAXE</div>
-<div class="job"><div class="job-h"><h3>IT systémový administrátor</h3><span class="co">Renocar</span></div><ul class="ul"><li>správa firemní sítě</li><li>správa ERP Helios Nephrite</li><li>digitalizace firemních procesů</li></ul></div>
+<div class="job"><div class="job-h"><h3>IT systémový administrátor</h3><span class="co">Renocar</span></div><ul class="ul"><li>vývoj interních mobilních aplikací</li><li>správa firemní sítě</li><li>správa ERP Helios Nephrite</li><li>digitalizace firemních procesů</li></ul></div>
 <div class="job"><div class="job-h"><h3>Mobile app / web developer</h3><span class="co">freelance</span></div><ul class="ul"><li>Flutter aplikace pro iOS, Android a web</li><li>návrh UI, backend, integrace na ERP a SSO</li></ul></div>
-</div>
-<div class="box">
-<div class="dl-h">// FORMA SPOLUPRÁCE</div>
-<p class="want">Preferuji HPP, v&nbsp;Brně nebo remote. Další možnosti:</p>
-<div class="tagset"><span class="chip">částečný úvazek</span><span class="chip">IČO / kontrakt</span><span class="chip">projekty na míru</span></div>
-<a class="btn btn-p" href="#kontakt" data-kind="prace" style="margin-top:28px;width:100%;justify-content:center"><span class="s">$</span>poslat pracovní nabídku</a>
-</div>
+<div class="dl-h xp-lang">// JAZYKY</div>
+<div class="tagset"><span class="chip">angličtina B2</span><span class="chip">španělština A2</span></div>
 </div>
 </div>
 </section>
 
-<section class="sec" id="stack" data-screen-label="Stack">
-<div class="wrap">
-<div class="sh reveal"><div class="crumb"><span class="n">04</span><span class="sl">/</span><span>stack</span><span class="ln"></span></div><h2>Tech stack</h2><p class="sub">S čím dnes pracuji. Volba stacku není dogma — beru nástroj, který se k problému hodí.</p></div>
-<div class="stack reveal">
+<section class="sec sec-join-t" id="stack" data-screen-label="Stack">
+<div class="wrap split reveal">
+<div class="sh"><div class="crumb"><span class="n">03</span><span class="sl">/</span><span>stack</span><span class="ln"></span></div><h2>Tech stack</h2><p class="sub">S čím dnes pracuji. Volba stacku není dogma — beru nástroj, který se k problému hodí.</p></div>
+<div class="stack">
 <div class="srow"><span class="k">mobile</span><div class="v"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Riverpod</span><span class="chip">ML Kit</span></div></div>
 <div class="srow"><span class="k">backend</span><div class="v"><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Fastify</span><span class="chip">Firebase</span></div></div>
 <div class="srow"><span class="k">data</span><div class="v"><span class="chip">SQL Server</span><span class="chip">PostgreSQL</span><span class="chip">Firestore</span></div></div>
 <div class="srow"><span class="k">integrace</span><div class="v"><span class="chip">Helios Nephrite</span><span class="chip">Entra ID (SSO)</span><span class="chip">REST API</span></div></div>
 <div class="srow"><span class="k">infrastruktura</span><div class="v"><span class="chip">Windows Server</span><span class="chip">Active Directory</span><span class="chip">Azure</span><span class="chip">Jamf Pro</span><span class="chip">LAN / WAN</span><span class="chip">bezdrátové sítě</span></div></div>
-<div class="srow"><span class="k">jazyky</span><div class="v"><span class="chip">angličtina B2</span><span class="chip">španělština A2</span></div></div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="sluzby" data-screen-label="Služby">
+<div class="wrap split reveal">
+<div class="sh"><div class="crumb"><span class="n">04</span><span class="sl">/</span><span>služby</span><span class="ln"></span></div><h2>Projekty na míru</h2><p class="sub">Pro firmy, které potřebují aplikaci na míru, od vývoje po dlouhodobou údržbu. Díky jednomu společnému kódu pro iPhone i Android je vývoj rychlejší a levnější.</p><a class="btn btn-g sh-cta" href="#formbox" data-kind="projekt"><span class="s">&gt;</span>nezávazně poptat projekt</a></div>
+<div class="svc">
+<article class="card"><div class="m">.buildApp()</div><h3>Vývoj aplikací</h3><p>Návrh a vývoj produkční Flutter aplikace pro iOS a Android. Od architektury přes integrace až po vydání.</p><ul class="ul"><li>nová aplikace za 6–12 týdnů</li><li>cross-platform: iOS, Android, web, Windows</li><li>CI/CD, testy, monitoring od dne 1</li><li>interní distribuce přes MDM</li></ul></article>
+<article class="card"><div class="m">.consult()</div><h3>Konzultace</h3><p>Diskuze nad architekturou, technologickými volbami, výběrem stacku. Hodinová sazba nebo balíček dní.</p><ul class="ul"><li>výběr stacku a architektura</li><li>audit existující codebase</li><li>odhady, roadmapa, rizika</li><li>review PR / mentoring týmu</li></ul></article>
+<article class="card"><div class="m">.designUI()</div><h3>UI / UX</h3><p>Návrh rozhraní s ohledem na to, kdo ho bude používat. Jeden člověk od skici po build.</p><ul class="ul"><li>design system &amp; komponenty</li><li>user flows a prototypy</li><li>iOS &amp; Material guidelines</li><li>implementace návrhu přímo ve Flutteru</li></ul></article>
+<article class="card"><div class="m">.maintain()</div><h3>Údržba</h3><p>Dlouhodobá péče o aplikaci, kterou jste si nechali postavit jinde nebo se mnou. Aktualizace, opravy chyb, drobné nové funkce.</p><ul class="ul"><li>měsíční paušál (8–24 h)</li><li>aktualizace Flutteru a knihoven</li><li>sledování crash reportů</li><li>drobné funkce bez čekání ve frontě</li></ul></article>
 </div>
 </div>
 </section>
 
 <section class="sec" id="kontakt" data-screen-label="Kontakt" style="border-bottom:0">
-<div class="wrap">
-<div class="sh reveal"><div class="crumb"><span class="n">05</span><span class="sl">/</span><span>kontakt</span><span class="ln"></span></div><h2>Napište mi</h2><p class="sub">Jsem otevřený pracovním nabídkám i novým projektům. Napište mi pár řádků o tom, co potřebujete.</p></div>
-<div class="crow reveal">
+<div class="wrap crow reveal">
+<div class="crail">
+<div class="sh"><div class="crumb"><span class="n">05</span><span class="sl">/</span><span>kontakt</span><span class="ln"></span></div><h2>Napište mi</h2><p class="sub">Jsem otevřený pracovním nabídkám i novým projektům. Napište mi pár řádků o tom, co potřebujete.</p></div>
+<div>
+<div class="dl-h">// PŘÍMÝ KONTAKT</div>
+<div class="drow"><span class="k">E-MAIL</span><a href="mailto:jan.svihalek00@gmail.com">jan.svihalek00@gmail.com</a><button class="copy" type="button" data-copy="jan.svihalek00@gmail.com" aria-label="kopírovat e-mail">kopírovat</button></div>
+<div class="drow"><span class="k">TELEFON</span><a href="tel:+420731901003">+420 731 901 003</a><button class="copy" type="button" data-copy="+420731901003" aria-label="kopírovat telefon">kopírovat</button></div>
+<div class="drow"><span class="k">LINKEDIN</span><a href="https://www.linkedin.com/in/jan-%C5%A1vih%C3%A1lek-526627170/" target="_blank" rel="noopener noreferrer">/in/jan-švihálek</a></div>
+</div>
+<div>
+<div class="dl-h">// FORMA SPOLUPRÁCE</div>
+<p class="want">Preferuji HPP, v&nbsp;Brně nebo remote. Další možnosti:</p>
+<div class="tagset"><span class="chip">částečný úvazek</span><span class="chip">IČO / kontrakt</span><span class="chip">projekty na míru</span></div>
+</div>
+</div>
 <div class="box" id="formbox">
 <h3>Nová zpráva</h3>
 <form id="form" novalidate>
@@ -342,14 +359,6 @@ h1{font-size:clamp(44px,15vw,64px)}
 <p class="form-err" id="form-err" role="alert" hidden>Odeslání selhalo. Zkuste to prosím znovu, nebo napište přímo na <a href="mailto:jan.svihalek00@gmail.com">jan.svihalek00@gmail.com</a>.</p>
 <div class="form-f"><button class="btn btn-p" type="submit" id="send"><span class="s">$</span>odeslat zprávu</button><small>odpověď do 1 pracovního dne</small></div>
 </form>
-</div>
-<aside class="box">
-<div class="dl-h">// PŘÍMÝ KONTAKT</div>
-<div class="drow"><span class="k">E-MAIL</span><a href="mailto:jan.svihalek00@gmail.com">jan.svihalek00@gmail.com</a><button class="copy" type="button" data-copy="jan.svihalek00@gmail.com" aria-label="kopírovat e-mail">kopírovat</button></div>
-<div class="drow"><span class="k">TELEFON</span><a href="tel:+420731901003">+420 731 901 003</a><button class="copy" type="button" data-copy="+420731901003" aria-label="kopírovat telefon">kopírovat</button></div>
-<div class="drow"><span class="k">LINKEDIN</span><a href="https://www.linkedin.com/in/jan-%C5%A1vih%C3%A1lek-526627170/" target="_blank" rel="noopener noreferrer">/in/jan-švihálek</a><span></span></div>
-<div class="drow"><span class="k">WEB</span><a href="https://svihalek.dev">svihalek<span class="d">.dev</span></a><span></span></div>
-</aside>
 </div>
 </div>
 </section>
@@ -371,7 +380,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(fals
 document.addEventListener('click',function(e){if(hdr.classList.contains('open')&&!hdr.contains(e.target))setMenu(false);});
 matchMedia('(min-width:861px)').addEventListener('change',function(m){if(m.matches)setMenu(false);});
 
-var ids=['o-mne','sluzby','portfolio','zkusenosti','stack','kontakt'],links=document.querySelectorAll('[data-s]'),prog=document.getElementById('progress');
+var ids=['o-mne','portfolio','zkusenosti','stack','sluzby','kontakt'],links=document.querySelectorAll('[data-s]'),prog=document.getElementById('progress');
 function spy(){var y=window.scrollY+window.innerHeight*0.35,cur=ids[0];
 ids.forEach(function(id){var el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id;});
 if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4)cur=ids[ids.length-1];
