@@ -71,16 +71,24 @@ main:focus{outline:0}
 .progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--accent);width:0;transition:width .1s linear}
 
 /* hero */
-.hero{padding:96px 0;border-bottom:1px solid var(--line)}
+.hero{padding:72px 0;border-bottom:1px solid var(--line)}
 .cmt{font-family:var(--mono);font-size:var(--t-value);color:var(--ink-4);margin-bottom:6px}
 .prompt{font-family:var(--mono);font-size:var(--t-value);display:flex;gap:10px;align-items:center;margin-bottom:28px}
 .prompt .t{color:var(--ink-4)}.prompt .a{color:var(--accent)}
 .cur{display:inline-block;width:.55em;height:1.25em;background:var(--accent);animation:blink 1.06s steps(1) 4}
 @keyframes blink{50%{opacity:0}}
-h1{font-weight:800;font-size:clamp(4rem,10vw,8.75rem);line-height:.92;letter-spacing:-.035em;margin:0;color:var(--ink)}
+h1{font-weight:800;font-size:clamp(3.5rem,6.2vw,5.5rem);line-height:1;letter-spacing:-.035em;margin:0;color:var(--ink)}
 .role{margin-top:32px;font-family:var(--mono);font-size:var(--t-ui);display:flex;flex-wrap:wrap;gap:12px;align-items:center;letter-spacing:.14em}
 .role .a{color:var(--accent);font-weight:500}.role .m{color:var(--ink-3)}.role .sep{color:var(--ink-4);letter-spacing:0}
 .lead{margin:32px 0 0;font-size:var(--t-lead);font-weight:500;line-height:1.4;letter-spacing:-.01em;color:var(--ink);max-width:47.5rem;text-wrap:pretty}
+.hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:stretch}
+.hero-grid .lead{text-wrap:balance}
+.hero-shot{margin:0;padding:24px 16px}
+.hero-shot img{width:47%;max-width:210px}
+.chain{margin:28px 0 0;font-family:var(--mono)}
+.chain ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 0;font-size:var(--t-body);font-weight:500;color:var(--ink)}
+.chain li+li::before{content:"→";content:"→"/"";color:var(--accent);margin:0 12px;font-weight:400}
+.chain p{margin:8px 0 0;font-size:var(--t-ui);color:var(--ink-3)}
 .hire{display:flex;align-items:baseline;gap:12px;margin:20px 0 0;font-size:var(--t-intro);line-height:1.5;color:var(--ink-2)}
 .hire .dot{flex:none;transform:translateY(-2px)}
 .cta{display:flex;flex-wrap:wrap;gap:12px 16px;margin-top:40px;align-items:center}
@@ -207,7 +215,7 @@ a,button{touch-action:manipulation}
 
 @media (max-width:67.5em){.status{display:none}}
 @media (max-width:56.25em){
-.split,.crow,.case{grid-template-columns:minmax(0,1fr)}
+.split,.crow,.case,.hero-grid{grid-template-columns:minmax(0,1fr)}.hero-shot{display:none}
 .split,.crow{gap:40px}
 .shot img{max-width:200px}
 }
@@ -228,7 +236,8 @@ a,button{touch-action:manipulation}
 @media (max-width:40em){
 :root{--sec:56px;--t-ui:.875rem;--t-sm:1rem;--t-intro:1rem;--t-lead:1.25rem}
 .wrap{padding:0 20px}.hero{padding:56px 0 64px}
-h1{font-size:clamp(2.5rem,14.4vw,4rem);line-height:1}
+h1{font-size:clamp(2.5rem,12vw,3.5rem)}
+.chain ol{font-size:var(--t-value)}.chain li+li::before{margin:0 8px}
 .cmt{line-height:1.5}
 .role{font-size:var(--t-label);gap:6px 12px;letter-spacing:.12em}.role .sep{display:none}
 .lead{margin-top:24px}
@@ -239,14 +248,14 @@ h1{font-size:clamp(2.5rem,14.4vw,4rem);line-height:1}
 .srow,.card{grid-template-columns:minmax(0,1fr)}.srow{gap:10px}.card{gap:4px}
 .ft .sp{margin-left:0}
 }
-@media (max-width:22.5em){.drow{grid-template-columns:minmax(0,1fr);grid-template-areas:"k" "v" "c";justify-items:start}.drow a{max-width:100%}.hdr-r .btn{display:none}}
+@media (max-width:22.5em){:root{--t-lead:1.125rem}.cmt{display:none}.hero{padding:32px 0 56px}.chain{margin-top:20px}.chain ol{font-size:var(--t-label)}.chain li+li::before{margin:0 4px}.drow{grid-template-columns:minmax(0,1fr);grid-template-areas:"k" "v" "c";justify-items:start}.drow a{max-width:100%}.hdr-r .btn{display:none}}
 @media (max-width:30em){#theme{display:none}.mtheme{display:flex}.hdr-in{gap:12px}.hdr-r{gap:8px}}
 @media (max-width:19.9em){.meta,.seg{grid-template-columns:minmax(0,1fr)}.meta{gap:0}.meta dd{margin-bottom:8px}}
-@media (max-height:30em){.hdr{position:static}html{scroll-padding-top:16px}.hero{padding:40px 0}.shot img{max-width:140px}}
+@media (max-height:30em){.hero-grid{grid-template-columns:minmax(0,1fr)}.hero-shot{display:none}.hdr{position:static}html{scroll-padding-top:16px}.hero{padding:40px 0}.shot img{max-width:140px}}
 @media print{
 :root,[data-theme]{--bg:#fff;--bg-2:#fff;--bg-3:#fff;--line:#d3d0c7;--line-2:#d3d0c7;--ink:#141417;--ink-2:#3d3d45;--ink-3:#585862;--ink-4:#6b6b75;--accent:#2a62d9;--ok:#157a2a;--warn:#8a5f00;--err:#c9252c;--header:#fff;color-scheme:light}
 .js .reveal{opacity:1;transform:none}
-.hdr,.skip,.cta,.sh-cta,#formbox,.copy,.cur,.prompt,.ft .sp{display:none}
+.hdr,.skip,.cta,.sh-cta,#formbox,.copy,.cur,.prompt,.ft .sp,.hero-shot{display:none}.hero-grid{grid-template-columns:minmax(0,1fr)}
 .hero{padding:0 0 16px}section.sec{padding:16px 0}.sh{margin-bottom:16px}.split,.crow{gap:16px}h2,.split h2{font-size:22pt}
 h1{font-size:44pt}
 .case{padding:16px;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:20px}.shot{padding:16px 8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}.shot img{max-width:120px;box-shadow:none}
@@ -287,16 +296,22 @@ h1{font-size:44pt}
 <main id="main" tabindex="-1">
 <section class="hero" id="o-mne">
 <div class="wrap">
+<div class="hero-grid">
+<div>
 <div class="cmt"><span aria-hidden="true">// </span>Mobilní aplikace pro iPhone i&nbsp;Android ve Flutteru.</div>
 <div class="prompt" aria-hidden="true"><span class="t">~</span><span class="a">$</span><span>whoami</span><span class="cur"></span></div>
 <h1>Jan Švihálek</h1>
 <div class="role"><span class="a">MOBILE APP/WEB DEVELOPER</span><span class="sep" aria-hidden="true">/</span><span class="m">FLUTTER · CROSS-PLATFORM</span></div>
 <p class="lead">Pokrývám celý vývoj aplikace, od návrhu rozhraní přes backend a&nbsp;integrace s&nbsp;firemními systémy až po nasazení do provozu.</p>
+<div class="chain"><ol><li>návrh UI</li><li>Flutter</li><li>API</li><li>ERP</li><li>nasazení</li></ol><p>RenoWorkshop, celý vývoj samostatně</p></div>
 <p class="hire"><span class="dot"></span><span>Aktuálně hledám pozici vývojáře na HPP, v&nbsp;Brně nebo remote.</span></p>
 <div class="cta">
 <a class="btn btn-p" href="#formbox" data-kind="prace">poslat pracovní nabídku</a>
 <a class="btn btn-g" href="#portfolio">portfolio</a>
 <a class="cta-link" href="#formbox" data-kind="projekt">nezávazně poptat projekt</a>
+</div>
+</div>
+<figure class="shot hero-shot" aria-hidden="true"><img src="images/renoworkshop_seznam-480.webp" srcset="images/renoworkshop_seznam-240.webp 240w,images/renoworkshop_seznam-480.webp 480w,images/renoworkshop_seznam-720.webp 720w" sizes="(max-width:56.25em) 0px,210px" width="1170" height="2532" alt="" loading="lazy" decoding="async"><img src="images/renoenergy_mista-480.webp" srcset="images/renoenergy_mista-240.webp 240w,images/renoenergy_mista-480.webp 480w,images/renoenergy_mista-720.webp 720w" sizes="(max-width:56.25em) 0px,210px" width="1170" height="2532" alt="" loading="lazy" decoding="async"></figure>
 </div>
 </div>
 </section>
