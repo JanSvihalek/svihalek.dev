@@ -34,6 +34,7 @@ Jeden člověk od A do Z. Jan zvládne návrh UI, backend, integrace i vydání 
 - Formulář odesílá přes Web3Forms.
 - Firebase hostuje celý kořen projektu. Nové soubory, které nemají být veřejné, musí být uvedené v `ignore` ve `firebase.json`.
 - `svihalek.dev.html` se nenasazuje a není zdrojem pravdy o webu.
+- Web nemá sekci s praxí a seznam pozic nepřidává. Životopisné údaje jsou na LinkedInu, na webu zůstává jedna věta s počtem let ve firemním IT, který se počítá z data 1. 9. 2022, a odkaz na LinkedIn.
 
 ### Otevřená rozhodnutí
 
@@ -58,7 +59,7 @@ RenoWorkshop i RenoEnergy vznikly v zaměstnání, ne jako freelance zakázky. J
 
 **Praxe a dovednosti**
 
-- IT systémový administrátor v Renocaru od 1. 9. 2022, stále ve funkci: vývoj interních aplikací, správa sítě, správa ERP Helios Nephrite, digitalizace procesů. Délka praxe se na webu počítá z tohoto data.
+- IT systémový administrátor v Renocaru od 1. 9. 2022, stále ve funkci: vývoj interních aplikací, správa sítě, správa ERP Helios Nephrite, digitalizace procesů.
 - Mobile app / web developer na volné noze: Flutter, návrh UI, backend, integrace na ERP a SSO.
 - Stack a jazyky jsou uvedené v sekci Stack v `index.html`. Angličtina B2, španělština A2.
 

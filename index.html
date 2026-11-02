@@ -22,7 +22,7 @@
 @font-face{font-family:'Archivo Fallback';src:local('Arial Bold'),local('Arial-BoldMT'),local('Arimo Bold'),local('Liberation Sans Bold');font-weight:700;size-adjust:99.8%;ascent-override:88.2%;descent-override:21%;line-gap-override:0%}
 @font-face{font-family:'Archivo Fallback';src:local('Arial Bold'),local('Arial-BoldMT'),local('Arimo Bold'),local('Liberation Sans Bold');font-weight:800;size-adjust:105.4%;ascent-override:83.5%;descent-override:19.9%;line-gap-override:0%}
 @font-face{font-family:'JetBrains Mono Fallback';src:local('Consolas');font-weight:400 700;size-adjust:109.1%;ascent-override:93.5%;descent-override:27.5%;line-gap-override:0%}
-:root{--mono:'JetBrains Mono','JetBrains Mono Fallback',ui-monospace,monospace;--sans:'Archivo','Archivo Fallback',-apple-system,sans-serif;--max:1200px;--hh:4rem;--sec:96px;--sec-t:56px;--t-label:.75rem;--t-ui:.8125rem;--t-value:.875rem;--t-sm:.9375rem;--t-body:1rem;--t-intro:1.0625rem;--t-sub:1.25rem;--t-lead:1.5rem}
+:root{--mono:'JetBrains Mono','JetBrains Mono Fallback',ui-monospace,monospace;--sans:'Archivo','Archivo Fallback',-apple-system,sans-serif;--max:1200px;--hh:4rem;--sec:96px;--t-label:.75rem;--t-ui:.8125rem;--t-value:.875rem;--t-sm:.9375rem;--t-body:1rem;--t-intro:1.0625rem;--t-sub:1.25rem;--t-lead:1.5rem}
 [data-theme="dark"]{--bg:#0a0a0c;--bg-2:#121217;--bg-3:#18181e;--line:#1f1f26;--line-2:#2a2a32;--ink:#f2efe8;--ink-2:#b4b4bc;--ink-3:#9494a0;--ink-4:#80808b;--accent:#4f8aff;--btn:#2f6bed;--accent-ink:#fff;--accent-soft:rgba(79,138,255,.08);--ok:#28c840;--warn:#e0a21a;--err:#f0646a;--header:rgba(10,10,12,.82);--shot:#0d1b33;color-scheme:dark}
 [data-theme="light"]{--bg:#f5f4f0;--bg-2:#ffffff;--bg-3:#efede7;--line:#e3e1da;--line-2:#d3d0c7;--ink:#141417;--ink-2:#3d3d45;--ink-3:#585862;--ink-4:#6b6b75;--accent:#2a62d9;--btn:#2a62d9;--accent-ink:#fff;--accent-soft:rgba(42,98,217,.06);--ok:#157a2a;--warn:#8a5f00;--err:#c9252c;--header:rgba(245,244,240,.85);--shot:#0d1b33;color-scheme:light}
 *,*::before,*::after{box-sizing:border-box}
@@ -90,8 +90,6 @@ h1{font-weight:800;font-size:clamp(4rem,10vw,8.75rem);line-height:.92;letter-spa
 /* sections */
 section.sec{padding:var(--sec) 0;border-bottom:1px solid var(--line);scroll-margin-top:calc(0px - var(--sec))}
 #kontakt{border-bottom:0}
-section.sec-join-b{padding-bottom:var(--sec-t)}
-section.sec-join-t{padding-top:var(--sec-t);scroll-margin-top:calc(0px - var(--sec-t))}
 .sh{margin-bottom:40px}
 h2{font-weight:700;font-size:clamp(2.5rem,5vw,3.75rem);line-height:1;letter-spacing:-.025em;margin:0}
 .sub{font-size:var(--t-intro);line-height:1.6;color:var(--ink-3);margin:16px 0 0;max-width:36rem;text-wrap:pretty}
@@ -100,6 +98,7 @@ h2{font-weight:700;font-size:clamp(2.5rem,5vw,3.75rem);line-height:1;letter-spac
 .split h2{font-size:clamp(2rem,3.4vw,2.75rem)}
 .split .sub{font-size:var(--t-body)}
 .sh-cta{margin-top:24px}
+.sh .sh-link{display:inline-block;margin-top:8px;padding-left:0}
 
 /* services */
 .svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
@@ -172,12 +171,6 @@ textarea{min-height:130px;resize:vertical;line-height:1.55}
 .copy:hover{color:var(--ink);border-color:var(--line-2)}.copy.ok{color:var(--ok);border-color:color-mix(in oklab,var(--ok) 40%,transparent)}
 
 .want{font-size:var(--t-intro);line-height:1.5;color:var(--ink);margin:8px 0 16px;text-wrap:pretty}
-.job{padding:20px 0;border-bottom:1px solid var(--line)}
-.xp .job:first-child{padding-top:0}
-.job-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:12px}.job-h h3{margin:0;font-size:var(--t-sub);font-weight:600;line-height:1.25;letter-spacing:-.01em}
-.per{flex-basis:100%;margin:0;font-family:var(--mono);font-size:var(--t-ui);color:var(--ink-3)}
-.co{font-family:var(--mono);font-size:var(--t-ui);color:var(--accent)}
-.xp-lang{margin-top:24px;margin-bottom:12px}
 .tagset{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono)}
 .seg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:4px;gap:4px;background:var(--bg);border:1px solid var(--line-2);border-radius:8px}
 .seg button{font-family:var(--mono);font-size:var(--t-ui);padding:10px;border:0;border-radius:5px;background:transparent;color:var(--ink-3);cursor:pointer;transition:background .15s,color .15s}
@@ -188,7 +181,7 @@ footer{padding:40px 0 56px}
 .ft{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;font-family:var(--mono);font-size:var(--t-label);color:var(--ink-4)}
 .ft .d{color:var(--accent)}.ft a{color:var(--ink-3)}.ft .sp{margin-left:auto}
 
-h1,h2,.card h3,.job-h h3,.cmt{text-wrap:balance}
+h1,h2,.card h3,.cmt{text-wrap:balance}
 .meta dd,.feat li,.ul li,.hire span,.form-err,.sent .b{text-wrap:pretty}
 
 .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}.js .reveal.in{opacity:1;transform:none}
@@ -220,7 +213,7 @@ a,button{touch-action:manipulation}
 .shot img{max-width:200px}
 }
 @media (max-width:53.75em){
-:root{--sec:72px;--sec-t:48px}
+:root{--sec:72px}
 .nav{display:none}.menu-btn{display:grid}.hdr-r{margin-left:auto}
 .mnav{display:block;position:absolute;left:0;right:0;top:100%;max-height:calc(100vh - var(--hh));max-height:calc(100dvh - var(--hh));overflow-y:auto;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px 24px;transform-origin:top;transition:opacity .18s,transform .18s,visibility .18s;opacity:0;visibility:hidden;transform:translateY(-6px);pointer-events:none}
 .hdr.open .mnav{opacity:1;visibility:visible;transform:none;pointer-events:auto}
@@ -235,7 +228,7 @@ a,button{touch-action:manipulation}
 @media (min-width:40.0625em) and (max-width:56.25em){.crail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 40px}.crail .sh{grid-column:1/-1}}
 @media (max-width:45em){.svc{grid-template-columns:minmax(0,1fr);gap:32px}}
 @media (max-width:40em){
-:root{--sec:56px;--sec-t:40px;--t-ui:.875rem;--t-sm:1rem;--t-intro:1rem;--t-lead:1.25rem}
+:root{--sec:56px;--t-ui:.875rem;--t-sm:1rem;--t-intro:1rem;--t-lead:1.25rem}
 .wrap{padding:0 20px}.hero{padding:56px 0 64px}
 h1{font-size:clamp(2.5rem,14.4vw,4rem);line-height:1}
 .cmt{line-height:1.5}
@@ -256,10 +249,10 @@ h1{font-size:clamp(2.5rem,14.4vw,4rem);line-height:1}
 :root,[data-theme]{--bg:#fff;--bg-2:#fff;--bg-3:#fff;--line:#d3d0c7;--line-2:#d3d0c7;--ink:#141417;--ink-2:#3d3d45;--ink-3:#585862;--ink-4:#6b6b75;--accent:#2a62d9;--ok:#157a2a;--warn:#8a5f00;--err:#c9252c;--header:#fff;color-scheme:light}
 .js .reveal{opacity:1;transform:none}
 .hdr,.skip,.cta,.sh-cta,#formbox,.copy,.cur,.prompt,.ft .sp{display:none}
-.hero{padding:0 0 16px}section.sec,section.sec-join-b,section.sec-join-t{padding:16px 0}.sh{margin-bottom:16px}.split,.crow{gap:16px}.svc{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}h2,.split h2{font-size:22pt}
+.hero{padding:0 0 16px}section.sec{padding:16px 0}.sh{margin-bottom:16px}.split,.crow{gap:16px}.svc{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}h2,.split h2{font-size:22pt}
 h1{font-size:44pt}
 .case{padding:16px;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:20px}.shot{padding:16px 8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}.shot img{max-width:120px;box-shadow:none}
-.case,.job,.card,.srow{break-inside:avoid}.crow{grid-template-columns:minmax(0,1fr)}
+.case,.card,.srow{break-inside:avoid}.crow{grid-template-columns:minmax(0,1fr)}
 }
 </style>
 </head>
@@ -270,7 +263,6 @@ h1{font-size:44pt}
 <a class="logo" href="#o-mne"><img src="favicon.svg" width="26" height="26" alt=""><span>svihalek<span class="d">.dev</span></span></a>
 <nav class="nav" aria-label="Hlavní navigace">
 <a href="#portfolio" data-s="portfolio">portfolio</a>
-<a href="#zkusenosti" data-s="zkusenosti">zkušenosti</a>
 <a href="#stack" data-s="stack">stack</a>
 <a href="#sluzby" data-s="sluzby">služby</a>
 <a href="#kontakt" data-s="kontakt">kontakt</a>
@@ -284,7 +276,6 @@ h1{font-size:44pt}
 </div>
 <nav class="mnav" id="mnav" aria-label="Mobilní navigace">
 <a href="#portfolio" data-s="portfolio">portfolio</a>
-<a href="#zkusenosti" data-s="zkusenosti">zkušenosti</a>
 <a href="#stack" data-s="stack">stack</a>
 <a href="#sluzby" data-s="sluzby">služby</a>
 <a href="#kontakt" data-s="kontakt">kontakt</a>
@@ -340,27 +331,16 @@ h1{font-size:44pt}
 </div>
 </section>
 
-<section class="sec sec-join-b" id="zkusenosti">
+<section class="sec" id="stack">
 <div class="wrap split reveal">
-<div class="sh"><h2>Zkušenosti</h2><p class="sub">Vývojář s&nbsp;praxí z&nbsp;firemního IT — rozumím nejen aplikacím, ale i&nbsp;infrastruktuře a&nbsp;procesům, do kterých zapadají. Zakládám si na rychlém dodání, kódu, který se dá dlouhodobě rozvíjet, a&nbsp;aplikacích, které lidi baví používat.</p></div>
-<div class="xp">
-<div class="job"><div class="job-h"><h3>IT systémový administrátor</h3><span class="co">Renocar</span><p class="per"><time datetime="2022-09-01">září&nbsp;2022</time> – dosud<span id="job-dur" data-from="2022-09-01"></span></p></div><ul class="ul"><li>vývoj interních mobilních aplikací</li><li>správa firemní sítě</li><li>správa ERP Helios&nbsp;Nephrite</li><li>digitalizace firemních procesů</li></ul></div>
-<div class="job"><div class="job-h"><h3>Mobile app / web developer</h3><span class="co">freelance</span></div><ul class="ul"><li>Flutter aplikace pro iOS, Android a&nbsp;web</li><li>návrh UI, backend, integrace na ERP a&nbsp;SSO</li></ul></div>
-<div class="dl-h xp-lang">JAZYKY</div>
-<div class="tagset"><span class="chip">angličtina B2</span><span class="chip">španělština A2</span></div>
-</div>
-</div>
-</section>
-
-<section class="sec sec-join-t" id="stack">
-<div class="wrap split reveal">
-<div class="sh"><h2>Tech stack</h2><p class="sub">S&nbsp;čím dnes pracuji. Volba stacku není dogma — volím nástroj, který se k&nbsp;problému hodí.</p></div>
+<div class="sh"><h2>Tech stack</h2><p class="sub">S&nbsp;čím dnes pracuji. Volba stacku není dogma — volím nástroj, který se k&nbsp;problému hodí.</p><p class="sub">Přes <span id="exp-yrs" data-from="2022-09-01">4&nbsp;roky</span> ve firemním IT: vyvíjím interní aplikace a&nbsp;starám se o&nbsp;síť i&nbsp;ERP, do kterých zapadají.</p><a class="cta-link sh-link" href="https://www.linkedin.com/in/jan-%C5%A1vih%C3%A1lek-526627170/" target="_blank" rel="noopener noreferrer">celá praxe na LinkedInu</a></div>
 <div class="stack">
 <div class="srow"><span class="k">mobile</span><div class="v"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Riverpod</span><span class="chip">ML&nbsp;Kit</span></div></div>
 <div class="srow"><span class="k">backend</span><div class="v"><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Fastify</span><span class="chip">Firebase</span></div></div>
 <div class="srow"><span class="k">data</span><div class="v"><span class="chip">SQL Server</span><span class="chip">PostgreSQL</span><span class="chip">Firestore</span></div></div>
 <div class="srow"><span class="k">integrace</span><div class="v"><span class="chip">Helios&nbsp;Nephrite</span><span class="chip">Entra ID (SSO)</span><span class="chip">REST API</span></div></div>
 <div class="srow"><span class="k">infrastruktura</span><div class="v"><span class="chip">Windows Server</span><span class="chip">Active Directory</span><span class="chip">Azure</span><span class="chip">Jamf Pro</span><span class="chip">LAN / WAN</span><span class="chip">bezdrátové sítě</span></div></div>
+<div class="srow"><span class="k">jazyky</span><div class="v"><span class="chip">angličtina B2</span><span class="chip">španělština A2</span></div></div>
 </div>
 </div>
 </section>
@@ -442,7 +422,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&hdr.classLi
 document.addEventListener('click',function(e){if(hdr.classList.contains('open')&&!hdr.contains(e.target))setMenu(false);});
 matchMedia('(min-width:53.8125em)').addEventListener('change',function(m){if(m.matches)setMenu(false);});
 
-var ids=['o-mne','portfolio','zkusenosti','stack','sluzby','kontakt'],links=document.querySelectorAll('[data-s]'),prog=document.getElementById('progress'),ticking=false;
+var ids=['o-mne','portfolio','stack','sluzby','kontakt'],links=document.querySelectorAll('[data-s]'),prog=document.getElementById('progress'),ticking=false;
 function spy(){var y=window.scrollY+window.innerHeight*0.35,cur=ids[0];
 ids.forEach(function(id){var el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id;});
 if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4)cur=ids[ids.length-1];
@@ -451,12 +431,9 @@ var h=document.body.scrollHeight-window.innerHeight;prog.style.width=(h>0?window
 function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(function(){ticking=false;spy();});}
 window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);spy();
 
-var dur=document.getElementById('job-dur');
-function czPlural(n,one,few,many){return n===1?one:n>1&&n<5?few:many;}
-if(dur){var since=new Date(dur.dataset.from+'T00:00:00'),now=new Date(),mo=(now.getFullYear()-since.getFullYear())*12+now.getMonth()-since.getMonth()-(now.getDate()<since.getDate()?1:0),yrs=Math.floor(mo/12),rest=mo%12,parts=[];
-if(yrs>0)parts.push(yrs+'\u00A0'+czPlural(yrs,'rok','roky','let'));
-if(rest>0)parts.push(rest+'\u00A0'+czPlural(rest,'měsíc','měsíce','měsíců'));
-if(parts.length)dur.textContent=' · '+parts.join(' ');}
+var expYrs=document.getElementById('exp-yrs');
+if(expYrs){var since=new Date(expYrs.dataset.from+'T00:00:00'),now=new Date(),mo=(now.getFullYear()-since.getFullYear())*12+now.getMonth()-since.getMonth()-(now.getDate()<since.getDate()?1:0),yrs=Math.floor(mo/12);
+if(yrs>0)expYrs.textContent=yrs+'\u00A0'+(yrs===1?'rok':yrs<5?'roky':'let');}
 
 var srs=document.getElementById('sr-status');
 document.querySelectorAll('.copy').forEach(function(b){var tm;
