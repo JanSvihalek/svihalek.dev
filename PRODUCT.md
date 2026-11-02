@@ -29,7 +29,7 @@ Jeden člověk od A do Z. Jan zvládne návrh UI, backend, integrace i vydání 
 ## Capabilities and Constraints
 
 - Celý web je jeden soubor `index.html` (HTML, CSS, JS), bez závislostí a bez build stepu. Hostuje se na Firebase Hosting, projekt `svihalek-dev-web`.
-- Web míří na český i zahraniční trh. Výchozí jazyk je čeština, angličtina se přepíná přepínačem CZ/EN přímo na stránce a jde na ni odkazovat přes `?lang=en`. Každý nový text musí mít i anglickou verzi.
+- Web míří na český i zahraniční trh. Výchozí jazyk je čeština, angličtina se přepíná přepínačem CZ/EN přímo na stránce a jde na ni odkazovat přes `?lang=en`. Každý nový text musí mít i anglickou verzi. Anglické texty Jan schválil 2. 11. 2026.
 - Web má světlý i tmavý režim. Volba se ukládá do `localStorage['sv-theme']`.
 - Formulář odesílá přes Web3Forms.
 - Firebase hostuje celý kořen projektu. Nové soubory, které nemají být veřejné, musí být uvedené v `ignore` ve `firebase.json`.
@@ -39,7 +39,8 @@ Jeden člověk od A do Z. Jan zvládne návrh UI, backend, integrace i vydání 
 
 ### Otevřená rozhodnutí
 
-- **Anglické texty:** napsal je Claude, Jan je ještě neschválil.
+- **Testy a CI u jednotlivých projektů:** Jan zatím neupřesnil, na webu se u projektů neuvádějí.
+- **Přihlášení v RenoEnergy:** nepotvrzeno, přihlášení přes M365 je na webu jen u RenoWorkshopu.
 - **Životopis:** zatím se na web nepřidává, Jan to odložil.
 
 ## Brand Commitments
@@ -55,8 +56,8 @@ Jeden člověk od A do Z. Jan zvládne návrh UI, backend, integrace i vydání 
 
 RenoWorkshop i RenoEnergy vznikly v zaměstnání, ne jako freelance zakázky. Jan je u obou udělal sám, od návrhu UI přes Flutter a backend po nasazení.
 
-- **RenoWorkshop:** interní dílenská aplikace pro servis dealera BMW, napojená na ERP Helios Nephrite. Stav: pilot. Distribuce přes MDM, není v obchodech. Screenshoty: `images/renoworkshop_seznam.png`, `images/renoworkshop_detail.png`. Ikona: `images/renoworkshop-app-icon-192.png`.
-- **RenoEnergy:** interní aplikace pro evidenci nabíjení elektromobilů a odečty měřidel. Stav: v produkci. Není v obchodech. Screenshoty: `images/renoenergy_nabijeni_light.png`, `images/renoenergy_mista.png`.
+- **RenoWorkshop:** interní dílenská aplikace pro servis dealera BMW, napojená na ERP Helios Nephrite: potřebná data jsou v samostatné databázi, která se s Heliosem synchronizuje každých 5 minut, a aplikace s ní komunikuje přes API. Uživatelé se přihlašují účty v tenantu M365. Stav: pilot. Distribuce přes MDM, není v obchodech. Screenshoty: `images/renoworkshop_seznam.png`, `images/renoworkshop_detail.png`. Ikona: `images/renoworkshop-app-icon-192.png`.
+- **RenoEnergy:** interní aplikace pro evidenci nabíjení elektromobilů a odečty měřidel. Backend Firebase, databáze Firestore. Stav: v produkci. Není v obchodech. Screenshoty: `images/renoenergy_nabijeni_light.png`, `images/renoenergy_mista.png`.
 
 **Praxe a dovednosti**
 
