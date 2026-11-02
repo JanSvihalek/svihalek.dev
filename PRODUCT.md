@@ -67,7 +67,6 @@ RenoWorkshop i RenoEnergy vznikly v zaměstnání, ne jako freelance zakázky. J
 
 - Nová aplikace za 6–12 týdnů.
 - Odpověď do jednoho pracovního dne.
-- Měsíční paušál 8–24 hodin.
 - CI/CD, testy a monitoring od prvního dne.
 - Lokalita pro HPP: Brno nebo remote.
 
