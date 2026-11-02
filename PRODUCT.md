@@ -29,7 +29,7 @@ Jeden člověk od A do Z. Jan zvládne návrh UI, backend, integrace i vydání 
 ## Capabilities and Constraints
 
 - Celý web je jeden soubor `index.html` (HTML, CSS, JS), bez závislostí a bez build stepu. Hostuje se na Firebase Hosting, projekt `svihalek-dev-web`.
-- Web má mířit na český i zahraniční trh, česky i anglicky. Dnes existuje jen česká verze.
+- Web míří na český i zahraniční trh. Výchozí jazyk je čeština, angličtina se přepíná přepínačem CZ/EN přímo na stránce a jde na ni odkazovat přes `?lang=en`. Každý nový text musí mít i anglickou verzi.
 - Web má světlý i tmavý režim. Volba se ukládá do `localStorage['sv-theme']`.
 - Formulář odesílá přes Web3Forms.
 - Firebase hostuje celý kořen projektu. Nové soubory, které nemají být veřejné, musí být uvedené v `ignore` ve `firebase.json`.
@@ -38,7 +38,8 @@ Jeden člověk od A do Z. Jan zvládne návrh UI, backend, integrace i vydání 
 
 ### Otevřená rozhodnutí
 
-- **Anglická verze:** není rozhodnuto, jak bude řešená, ani kdo schválí její texty.
+- **Anglické texty:** napsal je Claude, Jan je ještě neschválil.
+- **Veřejný GitHub:** web odkazuje na github.com/JanSvihalek, kde jsou veřejně i repozitáře interních aplikací a README RenoWorkshopu jmenuje Renocar. Je potřeba rozhodnout, jestli mají zůstat veřejné.
 - **Životopis:** zatím se na web nepřidává, Jan to odložil.
 
 ## Brand Commitments
