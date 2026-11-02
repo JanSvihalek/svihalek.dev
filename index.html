@@ -61,7 +61,7 @@ main:focus{outline:0}
 .btn:hover{text-decoration:none}.btn:active{transform:translateY(1px)}
 .btn:disabled{opacity:.6;cursor:default;transform:none}
 .btn-p{background:var(--btn);color:var(--accent-ink)}.btn-p:hover{background:color-mix(in oklab,var(--btn) 88%,#000)}
-.btn-g{border-color:var(--line-2);color:var(--ink)}.btn-g:hover{background:var(--bg-3)}.btn-g .s{color:var(--accent)}
+.btn-g{border-color:var(--line-2);color:var(--ink)}.btn-g:hover{background:var(--bg-3)}
 .btn-sm{padding:9px 14px;font-size:var(--t-label)}
 .menu-btn{display:none}
 .menu-ic{width:16px;height:10px;border-top:2px solid currentColor;border-bottom:2px solid currentColor;position:relative}
@@ -106,8 +106,7 @@ h2{font-weight:700;font-size:clamp(2.5rem,5vw,3.75rem);line-height:1;letter-spac
 /* services */
 .svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
 .card{padding-top:20px;border-top:1px solid var(--line)}
-.card .m{font-family:var(--mono);font-size:var(--t-ui);color:var(--accent)}
-.card h3{font-size:var(--t-sub);font-weight:600;line-height:1.25;letter-spacing:-.01em;margin:8px 0 8px}
+.card h3{font-size:var(--t-sub);font-weight:600;line-height:1.25;letter-spacing:-.01em;margin:0 0 8px}
 .card p{font-size:var(--t-sm);line-height:1.6;color:var(--ink-2);margin:0 0 16px;text-wrap:pretty}
 .ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-size:var(--t-ui);line-height:1.5;color:var(--ink-3)}
 .ul li{display:flex;gap:10px}.ul li::before{content:"→";color:var(--accent)}
@@ -163,7 +162,6 @@ textarea{min-height:130px;resize:vertical;line-height:1.55}
 .form-err{font-size:var(--t-sm);line-height:1.5;color:var(--err);margin:0}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .sent{padding:28px;border:1px solid color-mix(in oklab,var(--ok) 35%,transparent);background:color-mix(in oklab,var(--ok) 7%,transparent);border-radius:6px}
-.sent .c{font-family:var(--mono);font-size:var(--t-ui);color:var(--ok);margin-bottom:10px}
 .sent .t{font-size:var(--t-sub);font-weight:600;line-height:1.25;letter-spacing:-.01em;margin-bottom:6px}.sent .b{color:var(--ink-3);font-size:var(--t-sm)}
 .dl-h{font-family:var(--mono);font-size:var(--t-label);letter-spacing:.14em;color:var(--ink-4);margin-bottom:8px}
 .drow{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"k k" "v c";gap:4px 12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
@@ -206,7 +204,7 @@ a,button{touch-action:manipulation}
 .cta-link{display:inline-block;padding:14px 4px}
 .ft .sp{display:inline-block;padding:14px 0}
 .drow{gap:0 12px;padding:8px 0}.drow a{padding:13px 0;margin-top:-6px}
-.copy{position:relative;min-height:36px}.copy::after{content:"";position:absolute;inset:-4px 0}
+.copy{position:relative;min-height:36px}.copy::after{content:"";position:absolute;inset:-5px -1px}
 }
 @media (hover:none){
 .btn-g:hover,.icon-btn:hover{background:none}.icon-btn:hover{border-color:var(--line);color:var(--ink-2)}
@@ -242,7 +240,7 @@ a,button{touch-action:manipulation}
 .wrap{padding:0 20px}.hero{padding:56px 0 64px}
 h1{font-size:clamp(2.5rem,14.4vw,4rem);line-height:1}
 .cmt{line-height:1.5}
-.role{font-size:var(--t-label);gap:8px 12px;letter-spacing:.12em}
+.role{font-size:var(--t-label);gap:6px 12px;letter-spacing:.12em}.role .sep{display:none}
 .lead{margin-top:24px}
 .btn{white-space:normal;text-align:center}.cta .btn{flex:1 1 100%;justify-content:center}.cta-link{flex:1 1 100%;text-align:center}
 .case{padding:0;background:none;border:0;border-radius:0;gap:24px}.cases{gap:56px}
@@ -301,15 +299,15 @@ h1{font-size:44pt}
 <main id="main" tabindex="-1">
 <section class="hero" id="o-mne">
 <div class="wrap">
-<div class="cmt">// Mobilní aplikace pro iPhone i&nbsp;Android ve Flutteru.</div>
-<div class="prompt"><span class="t">~</span><span class="a">$</span><span>whoami</span><span class="cur"></span></div>
+<div class="cmt"><span aria-hidden="true">// </span>Mobilní aplikace pro iPhone i&nbsp;Android ve Flutteru.</div>
+<div class="prompt" aria-hidden="true"><span class="t">~</span><span class="a">$</span><span>whoami</span><span class="cur"></span></div>
 <h1>Jan Švihálek</h1>
-<div class="role"><span class="a">▸ MOBILE APP/WEB DEVELOPER</span><span class="sep">/</span><span class="m">FLUTTER · CROSS-PLATFORM</span></div>
+<div class="role"><span class="a">MOBILE APP/WEB DEVELOPER</span><span class="sep" aria-hidden="true">/</span><span class="m">FLUTTER · CROSS-PLATFORM</span></div>
 <p class="lead">Pokrývám celý vývoj aplikace, od návrhu rozhraní přes backend a&nbsp;integrace s&nbsp;firemními systémy až po nasazení do provozu.</p>
 <p class="hire"><span class="dot"></span><span>Aktuálně hledám pozici vývojáře na HPP, v&nbsp;Brně nebo remote.</span></p>
 <div class="cta">
-<a class="btn btn-p" href="#formbox" data-kind="prace"><span class="s" aria-hidden="true">$</span>poslat pracovní nabídku</a>
-<a class="btn btn-g" href="#portfolio"><span class="s" aria-hidden="true">&gt;</span>portfolio</a>
+<a class="btn btn-p" href="#formbox" data-kind="prace">poslat pracovní nabídku</a>
+<a class="btn btn-g" href="#portfolio">portfolio</a>
 <a class="cta-link" href="#formbox" data-kind="projekt">nezávazně poptat projekt</a>
 </div>
 </div>
@@ -325,7 +323,7 @@ h1{font-size:44pt}
 <div class="tag"><img src="images/renoworkshop-app-icon-192.png" width="40" height="40" alt="" loading="lazy" decoding="async"><span>RENOWORKSHOP</span></div>
 <h3>RenoWorkshop&nbsp;— dílenská aplikace pro servis BMW</h3>
 <p>Interní aplikace pro příjem vozidel a&nbsp;dílnu dealera&nbsp;BMW. Technik naskenuje SPZ nebo VIN a&nbsp;aplikace dohledá zakázku přímo v&nbsp;ERP Helios&nbsp;Nephrite. Příjem vozu s&nbsp;kontrolou a&nbsp;fotodokumentací, průběh opravy, pracovní list i&nbsp;obálky s&nbsp;klíči – papírový zakázkový list v&nbsp;deskách už není potřeba.</p>
-<dl class="meta"><dt>podíl:</dt><dd class="me">návrh UI → Flutter → API → Helios → MDM, vše&nbsp;samostatně</dd><dt>firma:</dt><dd>Dealer BMW&nbsp;· interní</dd><dt>platform:</dt><dd>iOS&nbsp;· iPadOS&nbsp;· Android</dd><dt>stack:</dt><dd>Flutter&nbsp;· Node.js&nbsp;· MS&nbsp;SQL&nbsp;· ML&nbsp;Kit</dd><dt>erp:</dt><dd>Helios&nbsp;Nephrite</dd><dt>distribuce:</dt><dd>MDM, není v&nbsp;obchodech</dd><dt>status:</dt><dd><span class="pill pilot">pilot</span></dd></dl>
+<dl class="meta"><dt>podíl:</dt><dd class="me">návrh UI → Flutter → API → Helios → MDM, vše&nbsp;samostatně</dd><dt>firma:</dt><dd>Dealer BMW&nbsp;· interní</dd><dt>platforma:</dt><dd>iOS&nbsp;· iPadOS&nbsp;· Android</dd><dt>stack:</dt><dd>Flutter&nbsp;· Node.js&nbsp;· MS&nbsp;SQL&nbsp;· ML&nbsp;Kit</dd><dt>ERP:</dt><dd>Helios&nbsp;Nephrite</dd><dt>distribuce:</dt><dd>MDM, není v&nbsp;obchodech</dd><dt>stav:</dt><dd><span class="pill pilot">pilot</span></dd></dl>
 <ul class="feat"><li>rozpoznání SPZ, VIN a&nbsp;QR přímo v&nbsp;zařízení (ML&nbsp;Kit)</li><li>napojení na ERP Helios&nbsp;Nephrite přes vlastní API</li><li>příjem vozidla s&nbsp;kontrolou a&nbsp;fotodokumentací</li><li>dílenský stav, zpracovatel a&nbsp;pracovní list</li><li>obálky na klíče s&nbsp;QR štítky</li><li>PDF protokol zakázky</li></ul>
 </div>
 </article>
@@ -335,7 +333,7 @@ h1{font-size:44pt}
 <div class="tag"><span>RENOENERGY</span></div>
 <h3>RenoEnergy&nbsp;— evidence nabíjení elektromobilů a&nbsp;odečtů měřidel</h3>
 <p>Interní aplikace pro dealera&nbsp;BMW. Zaměstnanci v&nbsp;ní evidují nabíjení elektromobilů na firemních nabíječkách: vyfotí počítadlo před nabíjením a&nbsp;po něm a&nbsp;aplikace spočítá spotřebu i&nbsp;orientační cenu jako podklad pro fakturaci. Zároveň slouží technikům při obchůzkách, kdy pomáhá s&nbsp;odečty elektroměrů, plynoměrů a&nbsp;dalších měřidel v&nbsp;areálech.</p>
-<dl class="meta"><dt>podíl:</dt><dd class="me">návrh UI → Flutter → backend → nasazení, vše&nbsp;samostatně</dd><dt>firma:</dt><dd>Dealer BMW&nbsp;· interní</dd><dt>platform:</dt><dd>iOS&nbsp;· Android</dd><dt>stack:</dt><dd>Flutter</dd><dt>distribuce:</dt><dd>pro zaměstnance, není v&nbsp;obchodech</dd><dt>status:</dt><dd><span class="pill prod">in production</span></dd></dl>
+<dl class="meta"><dt>podíl:</dt><dd class="me">návrh UI → Flutter → backend → nasazení, vše&nbsp;samostatně</dd><dt>firma:</dt><dd>Dealer BMW&nbsp;· interní</dd><dt>platforma:</dt><dd>iOS&nbsp;· Android</dd><dt>stack:</dt><dd>Flutter</dd><dt>distribuce:</dt><dd>pro zaměstnance, není v&nbsp;obchodech</dd><dt>stav:</dt><dd><span class="pill prod">v provozu</span></dd></dl>
 <ul class="feat"><li>fotka počítadla před a&nbsp;po nabíjení jako doklad pro fakturaci</li><li>automatický výpočet spotřeby v&nbsp;kWh a&nbsp;orientační ceny</li><li>měsíční souhrny nabíjení za každého zaměstnance</li><li>obchůzky odběrných míst s&nbsp;načtením měřidla přes QR kód</li></ul>
 </div>
 </article>
@@ -349,7 +347,7 @@ h1{font-size:44pt}
 <div class="xp">
 <div class="job"><div class="job-h"><h3>IT systémový administrátor</h3><span class="co">Renocar</span></div><ul class="ul"><li>vývoj interních mobilních aplikací</li><li>správa firemní sítě</li><li>správa ERP Helios&nbsp;Nephrite</li><li>digitalizace firemních procesů</li></ul></div>
 <div class="job"><div class="job-h"><h3>Mobile app / web developer</h3><span class="co">freelance</span></div><ul class="ul"><li>Flutter aplikace pro iOS, Android a&nbsp;web</li><li>návrh UI, backend, integrace na ERP a&nbsp;SSO</li></ul></div>
-<div class="dl-h xp-lang">// JAZYKY</div>
+<div class="dl-h xp-lang">JAZYKY</div>
 <div class="tagset"><span class="chip">angličtina B2</span><span class="chip">španělština A2</span></div>
 </div>
 </div>
@@ -370,12 +368,12 @@ h1{font-size:44pt}
 
 <section class="sec" id="sluzby">
 <div class="wrap split reveal">
-<div class="sh"><div class="crumb"><span class="n">04</span><span class="sl">/</span><span>služby</span><span class="ln"></span></div><h2>Projekty na míru</h2><p class="sub">Pro firmy, které potřebují aplikaci na míru, od vývoje po dlouhodobou údržbu. Díky jednomu společnému kódu pro iPhone i&nbsp;Android je vývoj rychlejší a&nbsp;levnější.</p><a class="btn btn-g sh-cta" href="#formbox" data-kind="projekt"><span class="s" aria-hidden="true">&gt;</span>nezávazně poptat projekt</a></div>
+<div class="sh"><div class="crumb"><span class="n">04</span><span class="sl">/</span><span>služby</span><span class="ln"></span></div><h2>Projekty na míru</h2><p class="sub">Pro firmy, které potřebují aplikaci na míru, od vývoje po dlouhodobou údržbu. Díky jednomu společnému kódu pro iPhone i&nbsp;Android je vývoj rychlejší a&nbsp;levnější.</p><a class="btn btn-g sh-cta" href="#formbox" data-kind="projekt">nezávazně poptat projekt</a></div>
 <div class="svc">
-<article class="card"><div class="m">.buildApp()</div><h3>Vývoj aplikací</h3><p>Návrh a&nbsp;vývoj produkční Flutter aplikace pro iOS a&nbsp;Android. Od architektury přes integrace až po vydání.</p><ul class="ul"><li>nová aplikace za 6–12&nbsp;týdnů</li><li>cross-platform: iOS, Android, web, Windows</li><li>CI/CD, testy, monitoring od dne&nbsp;1</li><li>interní distribuce přes MDM</li></ul></article>
-<article class="card"><div class="m">.consult()</div><h3>Konzultace</h3><p>Diskuze nad architekturou, technologickými volbami, výběrem stacku. Hodinová sazba nebo balíček dní.</p><ul class="ul"><li>výběr stacku a&nbsp;architektura</li><li>audit existující codebase</li><li>odhady, roadmapa, rizika</li><li>review PR / mentoring týmu</li></ul></article>
-<article class="card"><div class="m">.designUI()</div><h3>UI / UX</h3><p>Návrh rozhraní s&nbsp;ohledem na to, kdo ho bude používat. Jeden člověk od skici po build.</p><ul class="ul"><li>design system &amp; komponenty</li><li>user flows a&nbsp;prototypy</li><li>iOS &amp; Material guidelines</li><li>implementace návrhu přímo ve Flutteru</li></ul></article>
-<article class="card"><div class="m">.maintain()</div><h3>Údržba</h3><p>Dlouhodobá péče o&nbsp;aplikaci, kterou jste si nechali postavit jinde nebo se mnou. Aktualizace, opravy chyb, drobné nové funkce.</p><ul class="ul"><li>měsíční paušál (8–24&nbsp;h)</li><li>aktualizace Flutteru a&nbsp;knihoven</li><li>sledování crash reportů</li><li>drobné funkce bez čekání ve frontě</li></ul></article>
+<article class="card"><h3>Vývoj aplikací</h3><p>Návrh a&nbsp;vývoj produkční Flutter aplikace pro iOS a&nbsp;Android. Od architektury přes integrace až po vydání.</p><ul class="ul"><li>nová aplikace za 6–12&nbsp;týdnů</li><li>cross-platform: iOS, Android, web, Windows</li><li>CI/CD, testy, monitoring od dne&nbsp;1</li><li>interní distribuce přes MDM</li></ul></article>
+<article class="card"><h3>Konzultace</h3><p>Diskuze nad architekturou, technologickými volbami, výběrem stacku. Hodinová sazba nebo balíček dní.</p><ul class="ul"><li>výběr stacku a&nbsp;architektura</li><li>audit existující codebase</li><li>odhady, roadmapa, rizika</li><li>review PR / mentoring týmu</li></ul></article>
+<article class="card"><h3>UI / UX</h3><p>Návrh rozhraní s&nbsp;ohledem na to, kdo ho bude používat. Jeden člověk od skici po build.</p><ul class="ul"><li>design system &amp; komponenty</li><li>user flows a&nbsp;prototypy</li><li>iOS &amp; Material guidelines</li><li>implementace návrhu přímo ve Flutteru</li></ul></article>
+<article class="card"><h3>Údržba</h3><p>Dlouhodobá péče o&nbsp;aplikaci, kterou jste si nechali postavit jinde nebo se mnou. Aktualizace, opravy chyb, drobné nové funkce.</p><ul class="ul"><li>měsíční paušál (8–24&nbsp;h)</li><li>aktualizace Flutteru a&nbsp;knihoven</li><li>sledování crash reportů</li><li>drobné funkce bez čekání ve frontě</li></ul></article>
 </div>
 </div>
 </section>
@@ -385,13 +383,13 @@ h1{font-size:44pt}
 <div class="crail">
 <div class="sh"><div class="crumb"><span class="n">05</span><span class="sl">/</span><span>kontakt</span><span class="ln"></span></div><h2>Napište mi</h2><p class="sub">Jsem otevřený pracovním nabídkám i&nbsp;novým projektům. Napište mi pár řádků o&nbsp;tom, co potřebujete.</p></div>
 <div>
-<div class="dl-h">// PŘÍMÝ KONTAKT</div>
+<div class="dl-h">PŘÍMÝ KONTAKT</div>
 <div class="drow"><span class="k">E-MAIL</span><a href="mailto:jan.svihalek00@gmail.com">jan.svihalek00@gmail.com</a><button class="copy" type="button" data-copy="jan.svihalek00@gmail.com" aria-label="kopírovat e-mail">kopírovat</button></div>
 <div class="drow"><span class="k">TELEFON</span><a href="tel:+420731901003">+420 731 901 003</a><button class="copy" type="button" data-copy="+420731901003" aria-label="kopírovat telefon">kopírovat</button></div>
 <div class="drow"><span class="k">LINKEDIN</span><a href="https://www.linkedin.com/in/jan-%C5%A1vih%C3%A1lek-526627170/" target="_blank" rel="noopener noreferrer">/in/jan-švihálek</a></div>
 </div>
 <div>
-<div class="dl-h">// FORMA SPOLUPRÁCE</div>
+<div class="dl-h">FORMA SPOLUPRÁCE</div>
 <p class="want">Preferuji HPP, v&nbsp;Brně nebo remote. Další možnosti:</p>
 <div class="tagset"><span class="chip">částečný úvazek</span><span class="chip">IČO / kontrakt</span><span class="chip">projekty na míru</span></div>
 </div>
@@ -406,7 +404,7 @@ h1{font-size:44pt}
 <label data-f="msg"><span class="lbl"><span id="l-msg">ZPRÁVA</span><span class="err" id="e-msg">napište pár slov</span></span><textarea name="msg" placeholder="Firma, pozice, úvazek, remote/onsite, odkaz na inzerát…" required maxlength="5000" aria-labelledby="l-msg"></textarea></label>
 <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
 <p class="form-err" id="form-err" role="alert" hidden><span id="form-err-t">Odeslání selhalo. Zkuste to prosím znovu,</span> nebo napište přímo na <a href="mailto:jan.svihalek00@gmail.com">jan.svihalek00@gmail.com</a>.</p>
-<div class="form-f"><button class="btn btn-p" type="submit" id="send"><span class="s" aria-hidden="true">$</span>odeslat zprávu</button><small>odpověď do 1&nbsp;pracovního dne</small></div>
+<div class="form-f"><button class="btn btn-p" type="submit" id="send">odeslat zprávu</button><small>odpověď do 1&nbsp;pracovního dne</small></div>
 </form>
 </div>
 </div>
@@ -460,7 +458,7 @@ function done(ok){clearTimeout(tm);b.textContent=ok?'✓ hotovo':'nepodařilo se
 b.onclick=function(){if(!navigator.clipboard){done(false);return;}navigator.clipboard.writeText(b.dataset.copy).then(function(){done(true);},function(){done(false);});};});
 
 var form=document.getElementById('form'),send=document.getElementById('send'),ferr=document.getElementById('form-err'),ferrT=document.getElementById('form-err-t'),msg=form.querySelector('textarea'),seg=form.querySelectorAll('.seg button'),
-ph={projekt:'O co jde, jaký rozsah, kdy by to mělo být hotové…',prace:'Firma, pozice, úvazek, remote/onsite, odkaz na inzerát…'},kind='prace',sendLabel='<span class="s" aria-hidden="true">$</span>odeslat zprávu';
+ph={projekt:'O co jde, jaký rozsah, kdy by to mělo být hotové…',prace:'Firma, pozice, úvazek, remote/onsite, odkaz na inzerát…'},kind='prace',sendLabel='odeslat zprávu';
 function setKind(k){kind=k;seg.forEach(function(b){var on=b.dataset.k===k;b.classList.toggle('on',on);b.setAttribute('aria-checked',on);b.tabIndex=on?0:-1;});msg.placeholder=ph[k];}
 seg.forEach(function(b,i){b.onclick=function(){setKind(b.dataset.k);};
 b.onkeydown=function(e){var d=e.key==='ArrowRight'||e.key==='ArrowDown'?1:e.key==='ArrowLeft'||e.key==='ArrowUp'?-1:0;if(!d)return;e.preventDefault();var n=seg[(i+d+seg.length)%seg.length];setKind(n.dataset.k);n.focus();};});
@@ -470,7 +468,7 @@ form.querySelectorAll('label').forEach(function(l){var i=l.querySelector('input,
 form.onsubmit=function(e){e.preventDefault();if(send.disabled)return;var ok=true,first=null;form.querySelectorAll('label').forEach(function(l){if(!check(l)){ok=false;first=first||l;}});
 if(!ok){first.querySelector('input,textarea').focus();return;}
 var f=form.elements,name=f.name.value.trim(),ctrl=window.AbortController?new AbortController():null,to=ctrl&&setTimeout(function(){ctrl.abort();},15000);
-send.disabled=true;send.innerHTML='<span class="s" aria-hidden="true">$</span>odesílám…';ferr.hidden=true;
+send.disabled=true;send.innerHTML='odesílám…';ferr.hidden=true;
 fetch('https://api.web3forms.com/submit',{method:'POST',signal:ctrl?ctrl.signal:undefined,headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({
 access_key:'1dd3b7ad-5611-48bf-bdcf-59ed78e807a9',
 subject:'[svihalek.dev] '+(kind==='prace'?'Pracovní nabídka':'Projekt')+' od '+name,
@@ -479,7 +477,7 @@ from_name:name,email:f.email.value.trim(),message:f.msg.value.trim(),botcheck:f.
 .then(function(r){return r.json();})
 .then(function(d){if(!d.success)throw new Error(d.message);clearTimeout(to);
 var box=document.getElementById('formbox');
-box.innerHTML='<h3>Zpráva odeslána</h3><div class="sent" role="status" tabindex="-1"><div class="c">→ 200 OK</div><div class="t">'+(kind==='prace'?'Díky za nabídku.':'Díky, zprávu mám.')+'</div><div class="b">Ozvu se do jednoho pracovního dne na uvedený e-mail.</div></div>';
+box.innerHTML='<h3>Zpráva odeslána</h3><div class="sent" role="status" tabindex="-1"><div class="t">'+(kind==='prace'?'Díky za nabídku.':'Díky, zprávu mám.')+'</div><div class="b">Ozvu se do jednoho pracovního dne na uvedený e-mail.</div></div>';
 box.querySelector('.sent').focus();})
 .catch(function(err){clearTimeout(to);
 ferrT.textContent=navigator.onLine===false?'Nejste připojeni k\u00A0internetu. Zkontrolujte připojení a\u00A0zkuste to znovu,':err&&err.name==='AbortError'?'Odeslání trvá příliš dlouho. Zkuste to prosím znovu,':'Odeslání selhalo. Zkuste to prosím znovu,';
