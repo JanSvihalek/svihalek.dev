@@ -75,7 +75,6 @@ main:focus{outline:0}
 
 /* hero */
 .hero{padding:96px 0;border-bottom:1px solid var(--line)}
-.cmt{font-family:var(--mono);font-size:var(--t-value);color:var(--ink-4);margin-bottom:6px}
 .prompt{font-family:var(--mono);font-size:var(--t-value);display:flex;gap:10px;align-items:center;margin-bottom:28px}
 .prompt .t{color:var(--ink-4)}.prompt .a{color:var(--accent)}
 .cur{display:inline-block;width:.55em;height:1.25em;background:var(--accent);animation:blink 1.06s steps(1) 4}
@@ -194,7 +193,7 @@ footer{padding:40px 0 56px}
 .ft{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;font-family:var(--mono);font-size:var(--t-label);color:var(--ink-4)}
 .ft .d{color:var(--accent)}.ft a{color:var(--ink-3)}.ft .sp{margin-left:auto}
 
-h1,h2,.cmt{text-wrap:balance}
+h1,h2{text-wrap:balance}
 .meta dd,.feat li,.hire span,.form-err,.sent .b{text-wrap:pretty}
 
 .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}.js .reveal.in{opacity:1;transform:none}
@@ -239,7 +238,7 @@ a,button{touch-action:manipulation}
 .mtheme{width:100%;justify-content:space-between;font-family:var(--mono);font-size:var(--t-body);color:var(--ink-2);padding:15px 0;border:0;border-bottom:1px solid var(--line);background:none;cursor:pointer;text-align:left}
 .mnav .btn{margin-top:20px;width:100%;justify-content:center;border-bottom:0;color:var(--accent-ink);font-size:var(--t-value)}
 .mnav .btn.on::after{content:none}
-.mnav .st{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:var(--t-label);color:var(--ink-3);margin-top:16px;justify-content:center}
+
 }
 @media (min-width:40.0625em) and (max-width:56.25em){.crail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 40px}.crail .sh{grid-column:1/-1}}
 @media (max-width:40em){
@@ -247,7 +246,7 @@ a,button{touch-action:manipulation}
 .wrap{padding:0 20px}.hero{padding:56px 0 64px}
 h1{font-size:clamp(2.5rem,12vw,3.5rem)}
 .chain ol{font-size:var(--t-value)}.chain li:not(:last-child)::after{margin:0 8px}
-.cmt{line-height:1.5}
+
 .role{font-size:var(--t-label);gap:6px 12px;letter-spacing:.12em}.role .sep{display:none}
 .lead{margin-top:24px}
 .btn{white-space:normal;text-align:center}.cta .btn{flex:1 1 100%;justify-content:center}.cta-link{flex:1 1 100%;text-align:center}
@@ -257,7 +256,7 @@ h1{font-size:clamp(2.5rem,12vw,3.5rem)}
 .srow,.card{grid-template-columns:minmax(0,1fr)}.srow{gap:10px}.card{gap:4px}
 .ft .sp{margin-left:0}
 }
-@media (max-width:22.5em){:root{--t-lead:1.125rem}.cmt{display:none}.hero{padding:32px 0 56px}.chain{margin-top:20px}.chain ol{font-size:var(--t-label)}.chain li:not(:last-child)::after{margin:0 4px}.drow{grid-template-columns:minmax(0,1fr);grid-template-areas:"k" "v" "c";justify-items:start}.drow a{max-width:100%}.hdr-r .btn{display:none}}
+@media (max-width:22.5em){:root{--t-lead:1.125rem}.hero{padding:32px 0 56px}.chain{margin-top:20px}.chain ol{font-size:var(--t-label)}.chain li:not(:last-child)::after{margin:0 4px}.drow{grid-template-columns:minmax(0,1fr);grid-template-areas:"k" "v" "c";justify-items:start}.drow a{max-width:100%}.hdr-r .btn{display:none}}
 @media (max-width:32.5em){#theme,.hdr-r>.lang{display:none}.mtheme,.mlang{display:flex}.hdr-in{gap:12px}.hdr-r{gap:8px}}
 @media (max-width:19.9em){.meta,.seg{grid-template-columns:minmax(0,1fr)}.meta{gap:0}.meta dd{margin-bottom:8px}}
 @media (max-height:30em){.hdr{position:static}html{scroll-padding-top:16px}.hero{padding:40px 0}.shot img{max-width:140px}}
@@ -299,7 +298,6 @@ h1{font-size:44pt}
 <div class="mlang"><span data-t="m_lang">jazyk</span><div class="lang" role="group" aria-label="Jazyk" data-ta="aria-label|a_lang"><button type="button" data-l="cs" lang="cs" aria-pressed="true" aria-label="CZ, česky">CZ</button><button type="button" data-l="en" lang="en" aria-pressed="false" aria-label="EN, English">EN</button></div></div>
 <button class="mtheme" type="button" data-t="m_theme">světlý / tmavý režim</button>
 <a class="btn btn-p" href="#formbox" data-t="hdr_cta">napsat mi</a>
-<div class="st"><span class="dot"></span><span data-t="m_status">Otevřený pracovním nabídkám i&nbsp;projektům</span></div>
 </nav>
 <div class="progress" id="progress"></div>
 </header>
@@ -307,7 +305,6 @@ h1{font-size:44pt}
 <main id="main" tabindex="-1">
 <section class="hero" id="o-mne">
 <div class="wrap">
-<div class="cmt" data-t="cmt"><span aria-hidden="true">// </span>Mobilní aplikace pro iPhone i&nbsp;Android ve Flutteru.</div>
 <div class="prompt" aria-hidden="true"><span class="t">~</span><span class="a">$</span><span>whoami</span><span class="cur"></span></div>
 <h1>Jan Švihálek</h1>
 <div class="role"><span class="a">MOBILE APP/WEB DEVELOPER</span><span class="sep" aria-hidden="true">/</span><span class="m">FLUTTER · CROSS-PLATFORM</span></div>
@@ -354,7 +351,7 @@ h1{font-size:44pt}
 
 <section class="sec" id="stack">
 <div class="wrap split reveal">
-<div class="sh"><h2>Tech stack</h2><p class="sub" data-t="sk_sub">S&nbsp;čím dnes pracuji. Volba stacku není dogma — volím nástroj, který se k&nbsp;problému hodí.</p><p class="sub" data-t="sk_exp">Ve firemním IT vyvíjím interní aplikace a&nbsp;starám se o&nbsp;síť i&nbsp;ERP, do kterých zapadají.</p><div class="sh-links"><a class="cta-link" href="https://www.linkedin.com/in/jan-%C5%A1vih%C3%A1lek-526627170/" target="_blank" rel="noopener noreferrer" data-t="sk_li">celá praxe na LinkedInu<span class="sr"> (otevře se v&nbsp;nové kartě)</span></a></div></div>
+<div class="sh"><h2>Tech stack</h2><p class="sub" data-t="sk_exp">Ve firemním IT vyvíjím interní aplikace a&nbsp;starám se o&nbsp;síť i&nbsp;ERP, do kterých zapadají.</p><div class="sh-links"><a class="cta-link" href="https://www.linkedin.com/in/jan-%C5%A1vih%C3%A1lek-526627170/" target="_blank" rel="noopener noreferrer" data-t="sk_li">celá praxe na LinkedInu<span class="sr"> (otevře se v&nbsp;nové kartě)</span></a></div></div>
 <div class="stack">
 <div class="srow"><span class="k">mobile</span><div class="v"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Riverpod</span><span class="chip">ML&nbsp;Kit</span></div></div>
 <div class="srow"><span class="k">backend</span><div class="v"><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Fastify</span><span class="chip">Firebase</span></div></div>
@@ -369,7 +366,7 @@ h1{font-size:44pt}
 
 <section class="sec" id="sluzby">
 <div class="wrap split reveal">
-<div class="sh"><h2 data-t="sv_h">Projekty na míru</h2><p class="sub" data-t="sv_sub">Pro firmy, které potřebují aplikaci na míru, od vývoje po dlouhodobou údržbu. Díky jednomu společnému kódu pro iPhone i&nbsp;Android je vývoj rychlejší a&nbsp;levnější.</p><a class="btn btn-g sh-cta" href="#formbox" data-kind="projekt" data-t="cta_prj">nezávazně poptat projekt</a></div>
+<div class="sh"><h2 data-t="sv_h">Projekty na míru</h2><p class="sub" data-t="sv_sub">Pro firmy, které potřebují vlastní aplikaci. Díky jednomu společnému kódu pro iPhone i&nbsp;Android je vývoj rychlejší a&nbsp;levnější.</p><a class="btn btn-g sh-cta" href="#formbox" data-kind="projekt" data-t="cta_prj">nezávazně poptat projekt</a></div>
 <div class="svc">
 <article class="card"><h3 data-t="sv1_h">Vývoj aplikací</h3><p data-t="sv1">Flutter aplikace pro iOS a&nbsp;Android od architektury po vydání. Nová aplikace za 6–12&nbsp;týdnů.</p></article>
 <article class="card"><h3 data-t="sv2_h">Konzultace</h3><p data-t="sv2">Architektura, výběr stacku, audit kódu a&nbsp;review. Hodinová sazba nebo balíček dní.</p></article>
@@ -382,7 +379,7 @@ h1{font-size:44pt}
 <section class="sec" id="kontakt">
 <div class="wrap crow reveal">
 <div class="crail">
-<div class="sh"><h2 data-t="ct_h">Napište mi</h2><p class="sub" data-t="ct_sub">Jsem otevřený pracovním nabídkám i&nbsp;novým projektům. Napište mi pár řádků o&nbsp;tom, co potřebujete.</p></div>
+<div class="sh"><h2 data-t="ct_h">Napište mi</h2><p class="sub" data-t="ct_sub">Jsem otevřený pracovním nabídkám i&nbsp;novým projektům.</p></div>
 <div>
 <div class="dl-h" data-t="ct_dir">PŘÍMÝ KONTAKT</div>
 <div class="drow"><span class="k" data-t="l_mail">E-MAIL</span><a href="mailto:jan.svihalek00@gmail.com">jan.svihalek00@gmail.com</a><button class="copy" type="button" data-copy="jan.svihalek00@gmail.com" aria-label="kopírovat e-mail" data-ta="aria-label|a_cm" data-t="ct_copy">kopírovat</button></div>
@@ -422,7 +419,7 @@ h1{font-size:44pt}
 (function(){
 var root=document.documentElement,hdr=document.getElementById('hdr'),lang='cs';
 function t(cs,en){return lang==='en'?en:cs;}
-var EN={"a_lang":"Language","m_lang":"language","nav_svc":"services","nav_con":"contact","hdr_status":"open to offers","hdr_cta":"contact me","m_theme":"light / dark mode","m_status":"Open to job offers and projects","skip":"skip to content","cmt":"<span aria-hidden=\"true\">// </span>Mobile apps for iPhone and Android in Flutter.","lead":"I build apps end to end: interface design, backend, integrations with company systems and deployment.","ch_ui":"UI design","ch_dep":"deployment","ch_note":"RenoWorkshop, built end to end as the sole developer","hire":"Looking for a full-time developer role in Brno or remote.","cta_job":"talk about a role","cta_prj":"ask about a project","pf_h":"Selected projects","pf_sub":"Two internal apps from the past year, both for a BMW dealer and its staff.","rw_h":"RenoWorkshop&nbsp;— workshop app for BMW service","rw_solve":"The app digitised vehicle check-in, from photos and checklists to the handover from the service desk to the workshop.","rw_p":"A technician scans the licence plate or VIN and the app finds the repair order in data synced from the Helios&nbsp;Nephrite ERP. It also handles repair progress, job cards, key envelopes with QR labels and a PDF repair order report. It replaces the paper job folder.","dt_part":"my role:","dt_plat":"platform:","dt_rel":"distribution:","dt_st":"status:","rw_part":"sole developer: UI design → Flutter → API → Helios → MDM","rw_rel":"managed devices via MDM, not in app stores","rw_f1":"on-device recognition of licence plates, VINs and QR codes (ML&nbsp;Kit)","rw_f2":"integration with the Helios&nbsp;Nephrite ERP through a separate database synced every 5&nbsp;minutes and a custom API","re_h":"RenoEnergy&nbsp;— EV charging and meter reading records","re_solve":"RenoEnergy replaced handwritten meter readings.","re_p":"Staff photograph the meter before and after charging on company chargers, and the app calculates kWh consumption and an estimated price for invoicing, with monthly summaries for each employee. It also supports technicians on meter-reading rounds for electricity, gas and other meters across the premises, with meters identified by QR code.","re_part":"sole developer: UI design → Flutter → backend → deployment","re_rel":"for employees, not in app stores","st_prod":"in production","sk_sub":"What I work with today. I’m not dogmatic about tools; I pick what fits the problem.","sk_exp":"As part of in-house IT, I build internal apps and look after the network and ERP they connect to.","sk_li":"full experience on LinkedIn<span class=\"sr\"> (opens in a new tab)</span>","k_int":"integrations","k_inf":"infrastructure","k_pra":"practices","k_lang":"spoken languages","c_tests":"tests","c_en":"English B2","c_es":"Spanish A2","sv_h":"Custom projects","sv_sub":"For companies that need a custom app, from development to long-term maintenance. One shared codebase for iPhone and Android makes development faster and cheaper.","sv1_h":"App development","sv1":"Flutter apps for iOS and Android from architecture to release. A new app in 6–12&nbsp;weeks.","sv2_h":"Consulting","sv2":"Architecture, stack selection, code audits and reviews. Hourly rate or a package of days.","sv3":"Interface design and prototypes, implemented directly in Flutter.","sv4_h":"Maintenance","sv4":"Updates, fixes and small features, including apps built elsewhere.","ct_h":"Get in touch","ct_sub":"I’m open to job offers and new projects. Send me a few lines about what you need.","ct_dir":"DIRECT CONTACT","ct_tel":"PHONE","ct_copy":"copy","ct_way":"WORK PREFERENCES","ct_want":"I prefer a full-time role, in Brno or remote. Other options:","c_part":"part-time","c_ico":"freelance contract","c_prj":"custom projects","f_h":"Send me a message","f_job":"Job offer","f_prj":"I have a project","f_hint":"All fields are required.","f_name":"NAME","f_name_e":"enter your full name","f_mail_e":"enter a valid email","f_msg":"MESSAGE","f_msg_e":"write a few words","f_or":" or write directly to ","f_send":"send message","f_small":"reply within 1&nbsp;business day","ft_top":"back to top ↑","a_theme":"Switch light / dark mode","a_nav":"Main navigation","a_mnav":"Mobile navigation","a_seg":"Message type","a_cm":"copy email","a_ct":"copy phone","a_rw1":"RenoWorkshop — workshop orders","a_rw2":"RenoWorkshop — order detail with key envelope","a_re1":"RenoEnergy — charging overview","a_re2":"RenoEnergy — metering points","p_name":"Jane Smith","p_mail":"jane@company.com","l_mail":"EMAIL","hire_note":"Over <span class=\"exp-yrs\" id=\"exp-yrs\" data-from=\"2022-09-01\">4&nbsp;years</span> in in-house IT, including app development&nbsp;· <a href=\"https://www.linkedin.com/in/jan-%C5%A1vih%C3%A1lek-526627170/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn<span class=\"sr\"> (opens in a new tab)</span></a>","rw_f7":"sign-in with company Microsoft&nbsp;365 accounts","ct_li":"/in/jan-švihálek<span class=\"sr\"> (opens in a new tab)</span>","rw_build":"HOW IT’S BUILT"};
+var EN={"a_lang":"Language","m_lang":"language","nav_svc":"services","nav_con":"contact","hdr_status":"open to offers","hdr_cta":"contact me","m_theme":"light / dark mode","skip":"skip to content","lead":"I build apps end to end: interface design, backend, integrations with company systems and deployment.","ch_ui":"UI design","ch_dep":"deployment","ch_note":"RenoWorkshop, built end to end as the sole developer","hire":"Looking for a full-time developer role in Brno or remote.","cta_job":"talk about a role","cta_prj":"ask about a project","pf_h":"Selected projects","pf_sub":"Two internal apps from the past year, both for a BMW dealer and its staff.","rw_h":"RenoWorkshop&nbsp;— workshop app for BMW service","rw_solve":"The app digitised vehicle check-in, from photos and checklists to the handover from the service desk to the workshop.","rw_p":"A technician scans the licence plate or VIN and the app finds the repair order in data synced from the Helios&nbsp;Nephrite ERP. It also handles repair progress, job cards, key envelopes with QR labels and a PDF repair order report. It replaces the paper job folder.","dt_part":"my role:","dt_plat":"platform:","dt_rel":"distribution:","dt_st":"status:","rw_part":"sole developer: UI design → Flutter → API → Helios → MDM","rw_rel":"managed devices via MDM, not in app stores","rw_f1":"on-device recognition of licence plates, VINs and QR codes (ML&nbsp;Kit)","rw_f2":"integration with the Helios&nbsp;Nephrite ERP through a separate database synced every 5&nbsp;minutes and a custom API","re_h":"RenoEnergy&nbsp;— EV charging and meter reading records","re_solve":"RenoEnergy replaced handwritten meter readings.","re_p":"Staff photograph the meter before and after charging on company chargers, and the app calculates kWh consumption and an estimated price for invoicing, with monthly summaries for each employee. It also supports technicians on meter-reading rounds for electricity, gas and other meters across the premises, with meters identified by QR code.","re_part":"sole developer: UI design → Flutter → backend → deployment","re_rel":"for employees, not in app stores","st_prod":"in production","sk_exp":"As part of in-house IT, I build internal apps and look after the network and ERP they connect to.","sk_li":"full experience on LinkedIn<span class=\"sr\"> (opens in a new tab)</span>","k_int":"integrations","k_inf":"infrastructure","k_pra":"practices","k_lang":"spoken languages","c_tests":"tests","c_en":"English B2","c_es":"Spanish A2","sv_h":"Custom projects","sv_sub":"For companies that need their own app. One shared codebase for iPhone and Android makes development faster and cheaper.","sv1_h":"App development","sv1":"Flutter apps for iOS and Android from architecture to release. A new app in 6–12&nbsp;weeks.","sv2_h":"Consulting","sv2":"Architecture, stack selection, code audits and reviews. Hourly rate or a package of days.","sv3":"Interface design and prototypes, implemented directly in Flutter.","sv4_h":"Maintenance","sv4":"Updates, fixes and small features, including apps built elsewhere.","ct_h":"Get in touch","ct_sub":"I’m open to job offers and new projects.","ct_dir":"DIRECT CONTACT","ct_tel":"PHONE","ct_copy":"copy","ct_way":"WORK PREFERENCES","ct_want":"I prefer a full-time role, in Brno or remote. Other options:","c_part":"part-time","c_ico":"freelance contract","c_prj":"custom projects","f_h":"Send me a message","f_job":"Job offer","f_prj":"I have a project","f_hint":"All fields are required.","f_name":"NAME","f_name_e":"enter your full name","f_mail_e":"enter a valid email","f_msg":"MESSAGE","f_msg_e":"write a few words","f_or":" or write directly to ","f_send":"send message","f_small":"reply within 1&nbsp;business day","ft_top":"back to top ↑","a_theme":"Switch light / dark mode","a_nav":"Main navigation","a_mnav":"Mobile navigation","a_seg":"Message type","a_cm":"copy email","a_ct":"copy phone","a_rw1":"RenoWorkshop — workshop orders","a_rw2":"RenoWorkshop — order detail with key envelope","a_re1":"RenoEnergy — charging overview","a_re2":"RenoEnergy — metering points","p_name":"Jane Smith","p_mail":"jane@company.com","l_mail":"EMAIL","hire_note":"Over <span class=\"exp-yrs\" id=\"exp-yrs\" data-from=\"2022-09-01\">4&nbsp;years</span> in in-house IT, including app development&nbsp;· <a href=\"https://www.linkedin.com/in/jan-%C5%A1vih%C3%A1lek-526627170/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn<span class=\"sr\"> (opens in a new tab)</span></a>","rw_f7":"sign-in with company Microsoft&nbsp;365 accounts","ct_li":"/in/jan-švihálek<span class=\"sr\"> (opens in a new tab)</span>","rw_build":"HOW IT’S BUILT"};
 
 root.classList.add('js');
 var rv=document.querySelectorAll('.reveal');
