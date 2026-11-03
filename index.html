@@ -7,7 +7,7 @@
 <meta name="description" content="Jan Švihálek, vývojář mobilních aplikací ve Flutteru. Celý vývoj od návrhu rozhraní přes backend a integrace až po nasazení do provozu. Hledám pozici na HPP v Brně nebo remote.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://svihalek.dev/">
-<meta property="og:title" content="Jan Švihálek — Mobile App/Web Developer">
+<meta property="og:title" content="Jan Švihálek – Mobile App/Web Developer">
 <meta property="og:description" content="Celý vývoj mobilních aplikací od návrhu rozhraní po nasazení do provozu. Hledám pozici na HPP v Brně nebo remote.">
 <meta property="og:image" content="https://svihalek.dev/images/renoworkshop_seznam.png">
 <meta name="theme-color" content="#0a0a0c">
@@ -23,8 +23,8 @@
 @font-face{font-family:'Archivo Fallback';src:local('Arial Bold'),local('Arial-BoldMT'),local('Arimo Bold'),local('Liberation Sans Bold');font-weight:800;size-adjust:105.4%;ascent-override:83.5%;descent-override:19.9%;line-gap-override:0%}
 @font-face{font-family:'JetBrains Mono Fallback';src:local('Consolas');font-weight:400 700;size-adjust:109.1%;ascent-override:93.5%;descent-override:27.5%;line-gap-override:0%}
 :root{--mono:'JetBrains Mono','JetBrains Mono Fallback',ui-monospace,monospace;--sans:'Archivo','Archivo Fallback',-apple-system,sans-serif;--max:1200px;--hh:4rem;--sec:96px;--t-label:.75rem;--t-ui:.8125rem;--t-value:.875rem;--t-sm:.9375rem;--t-body:1rem;--t-intro:1.0625rem;--t-sub:1.25rem;--t-lead:1.5rem}
-[data-theme="dark"]{--bg:#0a0a0c;--bg-2:#121217;--bg-3:#18181e;--line:#1f1f26;--line-2:#2a2a32;--ink:#f2efe8;--ink-2:#b4b4bc;--ink-3:#9494a0;--ink-4:#80808b;--accent:#4f8aff;--btn:#2f6bed;--accent-ink:#fff;--accent-soft:rgba(79,138,255,.08);--ok:#28c840;--warn:#e0a21a;--err:#f0646a;--header:rgba(10,10,12,.82);--shot:#0d1b33;color-scheme:dark}
-[data-theme="light"]{--bg:#f5f4f0;--bg-2:#ffffff;--bg-3:#efede7;--line:#e3e1da;--line-2:#d3d0c7;--ink:#141417;--ink-2:#3d3d45;--ink-3:#585862;--ink-4:#6b6b75;--accent:#2a62d9;--btn:#2a62d9;--accent-ink:#fff;--accent-soft:rgba(42,98,217,.06);--ok:#157a2a;--warn:#8a5f00;--err:#c9252c;--header:rgba(245,244,240,.85);--shot:#0d1b33;color-scheme:light}
+[data-theme="dark"]{--bg:#0a0a0c;--bg-2:#121217;--bg-3:#18181e;--line:#1f1f26;--line-2:#2a2a32;--field:#6f6f7a;--ink:#f2efe8;--ink-2:#b4b4bc;--ink-3:#9494a0;--ink-4:#80808b;--accent:#4f8aff;--btn:#2f6bed;--accent-ink:#fff;--accent-soft:rgba(79,138,255,.08);--ok:#28c840;--warn:#e0a21a;--err:#f0646a;--header:rgba(10,10,12,.92);--shot:#0d1b33;color-scheme:dark}
+[data-theme="light"]{--bg:#f5f4f0;--bg-2:#ffffff;--bg-3:#efede7;--line:#e3e1da;--line-2:#d3d0c7;--field:#8c8a82;--ink:#141417;--ink-2:#3d3d45;--ink-3:#585862;--ink-4:#6b6b75;--accent:#2a62d9;--btn:#2a62d9;--accent-ink:#fff;--accent-soft:rgba(42,98,217,.06);--ok:#157a2a;--warn:#8a5f00;--err:#c9252c;--header:rgba(245,244,240,.85);--shot:#0d1b33;color-scheme:light}
 *,*::before,*::after{box-sizing:border-box}
 [data-theme="dark"] body{-webkit-font-smoothing:antialiased}
 html{scrollbar-color:var(--line-2) var(--bg);-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 24px)}
@@ -36,7 +36,7 @@ a{color:var(--accent);text-decoration:none;text-underline-offset:.2em}a:hover{te
 .sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .skip{position:absolute;left:16px;top:-64px;z-index:60;padding:12px 16px;border-radius:6px;background:var(--btn);color:var(--accent-ink);font-family:var(--mono);font-size:var(--t-ui);font-weight:600}
 .skip:focus{top:12px}.skip:hover{text-decoration:none}
-main:focus{outline:0}
+main:focus,#formbox:focus{outline:0}
 
 /* header */
 .hdr{position:sticky;top:0;z-index:50;background:var(--header);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
@@ -59,18 +59,19 @@ main:focus{outline:0}
 .theme-ic::after{content:"";position:absolute;inset:0;width:50%;background:currentColor}
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:var(--t-ui);font-weight:600;padding:12px 20px;border-radius:6px;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .15s,border-color .15s,opacity .15s;white-space:nowrap}
 .btn:hover{text-decoration:none}.btn:active{transform:translateY(1px)}
-.btn:disabled{opacity:.6;cursor:default;transform:none}
+.btn:disabled{cursor:progress;transform:none}
 .btn-p{background:var(--btn);color:var(--accent-ink)}.btn-p:hover{background:color-mix(in oklab,var(--btn) 88%,#000)}
 .btn-g{border-color:var(--line-2);color:var(--ink)}.btn-g:hover{background:var(--bg-3)}
 .btn-sm{padding:9px 14px;font-size:var(--t-label);white-space:nowrap}
 .menu-btn{display:none}
 .menu-ic{width:16px;height:10px;border-top:2px solid currentColor;border-bottom:2px solid currentColor;position:relative}
 .menu-ic::after{content:"";position:absolute;left:0;right:0;top:2px;border-top:2px solid currentColor}
+.hdr.open .menu-ic{border-color:transparent}.hdr.open .menu-ic::before{content:"";position:absolute;left:0;right:0;top:2px;border-top:2px solid currentColor;transform:rotate(45deg)}.hdr.open .menu-ic::after{transform:rotate(-45deg)}
 .mnav{display:none}
 .mtheme{display:none}
 .lang{display:inline-flex;gap:2px;padding:2px;border:1px solid var(--line);border-radius:8px}
 .lang button{min-width:32px;height:32px;padding:0 6px;border:0;border-radius:6px;background:none;color:var(--ink-3);font-family:var(--mono);font-size:var(--t-label);font-weight:600;cursor:pointer;transition:color .15s,background .15s}
-.lang button:hover{color:var(--ink)}.lang button[aria-pressed="true"]{background:var(--bg-3);color:var(--ink)}
+.lang button:hover{color:var(--ink)}.lang button[aria-pressed="true"]{background:var(--bg-3);color:var(--ink);box-shadow:inset 0 0 0 1px var(--field)}
 .progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--accent);width:0;transition:width .1s linear}
 
 /* hero */
@@ -120,7 +121,7 @@ h2{font-weight:700;font-size:clamp(2.5rem,5vw,3.75rem);line-height:1;letter-spac
 /* portfolio */
 .cases{display:flex;flex-direction:column;gap:32px}
 .case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;padding:32px;background:var(--bg-2);border:1px solid var(--line);border-radius:8px}
-.shot{color:#d7deea;font-size:var(--t-ui);text-align:center;border-radius:6px;overflow:hidden;background:radial-gradient(120% 90% at 30% 20%,#13284a 0%,var(--shot) 60%);padding:32px 12px;display:flex;align-items:center;justify-content:center;gap:4%}
+.shot{border-radius:6px;overflow:hidden;background:radial-gradient(120% 90% at 30% 20%,#13284a 0%,var(--shot) 60%);padding:32px 12px;display:flex;align-items:center;justify-content:center;gap:4%}
 .shot img{width:47%;max-width:240px;height:auto;display:block;border-radius:clamp(10px,2.4vw,20px);box-shadow:0 10px 30px rgba(0,0,0,.45)}
 .shot img:first-child{transform:translateY(2%)}
 .shot img:last-child{transform:translateY(-2%)}
@@ -160,7 +161,7 @@ label{display:flex;flex-direction:column;gap:8px}
 .lbl{font-family:var(--mono);font-size:var(--t-label);letter-spacing:.14em;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px}
 .lbl .err{color:var(--err);letter-spacing:0;display:none}
 label.bad .err{display:inline}label.bad input,label.bad textarea{border-color:var(--err)}
-input,textarea{width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:6px;padding:13px 14px;font-family:var(--mono);font-size:var(--t-value);color:var(--ink);caret-color:var(--accent);outline:none;transition:border-color .15s,box-shadow .15s}
+input,textarea{width:100%;background:var(--bg);border:1px solid var(--field);border-radius:6px;padding:13px 14px;font-family:var(--mono);font-size:var(--t-value);color:var(--ink);caret-color:var(--accent);outline:none;transition:border-color .15s,box-shadow .15s}
 input::placeholder,textarea::placeholder{color:var(--ink-4)}
 input:-webkit-autofill{-webkit-text-fill-color:var(--ink);-webkit-box-shadow:inset 0 0 0 100px var(--bg);caret-color:var(--accent)}
 input:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
@@ -186,7 +187,7 @@ textarea{min-height:130px;resize:vertical;line-height:1.55}
 .tagset{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono)}
 .seg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:4px;gap:4px;background:var(--bg);border:1px solid var(--line-2);border-radius:8px}
 .seg button{font-family:var(--mono);font-size:var(--t-ui);padding:10px;border:0;border-radius:5px;background:transparent;color:var(--ink-3);cursor:pointer;transition:background .15s,color .15s}
-.seg button:hover{color:var(--ink)}.seg button.on{background:var(--bg-3);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
+.seg button:hover{color:var(--ink)}.seg button.on{background:var(--bg-3);color:var(--ink);box-shadow:inset 0 0 0 1px var(--field)}
 
 /* footer */
 footer{padding:40px 0 56px}
@@ -257,6 +258,7 @@ h1{font-size:clamp(2.5rem,12vw,3.5rem)}
 @media (max-width:22.5em){:root{--t-lead:1.125rem}.hero{padding:32px 0 56px}.chain{margin-top:20px}.chain ol{font-size:var(--t-label)}.chain li:not(:last-child)::after{margin:0 4px}.drow{grid-template-columns:minmax(0,1fr);grid-template-areas:"k" "v" "c";justify-items:start}.drow a{max-width:100%}}
 @media (max-width:32.5em){#theme,.hdr-r>.lang button[aria-pressed="true"]{display:none}.mtheme{display:flex}.hdr-in{gap:8px}.hdr-r{gap:6px}.hdr-r>.lang button{color:var(--ink-2)}
 .shot{margin-inline:-20px;border-radius:0;padding:24px 20px;gap:12px;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-inline:20px;scrollbar-width:none}.shot::-webkit-scrollbar{display:none}
+.shot:focus-visible{outline-offset:-3px;border-radius:0}
 .shot img{flex:none;width:62vw;max-width:260px;scroll-snap-align:start}.shot img:first-child,.shot img:last-child{transform:none}}
 @media (max-width:24.25em){.logo{min-width:44px}.logo>span{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}
 @media (max-width:19.9em){.meta,.seg{grid-template-columns:minmax(0,1fr)}.meta{gap:0}.meta dd{margin-bottom:8px}}
@@ -286,7 +288,7 @@ h1{font-size:44pt}
 <div class="hdr-r">
 <div class="status"><span class="dot"></span><span data-t="hdr_status">otevřený nabídkám</span></div>
 <div class="lang" role="group" aria-label="Jazyk" data-ta="aria-label|a_lang"><button type="button" data-l="cs" lang="cs" aria-pressed="true" aria-label="CZ, česky">CZ</button><button type="button" data-l="en" lang="en" aria-pressed="false" aria-label="EN, English">EN</button></div>
-<button class="icon-btn" id="theme" type="button" aria-label="Přepnout světlý / tmavý režim" title="Světlý / tmavý režim" data-ta="aria-label,title|a_theme"><span class="theme-ic"></span></button>
+<button class="icon-btn" id="theme" type="button" aria-label="Přepnout na světlý režim" title="Přepnout na světlý režim"><span class="theme-ic"></span></button>
 <a class="btn btn-p btn-sm" href="#formbox" data-t="hdr_cta">napsat mi</a>
 <button class="icon-btn menu-btn" id="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><span class="menu-ic"></span></button>
 </div>
@@ -296,7 +298,7 @@ h1{font-size:44pt}
 <a href="#stack" data-s="stack">stack</a>
 <a href="#sluzby" data-s="sluzby" data-t="nav_svc">služby</a>
 <a href="#kontakt" data-s="kontakt" data-t="nav_con">kontakt</a>
-<button class="mtheme" type="button" data-t="m_theme">světlý / tmavý režim</button>
+<button class="mtheme" type="button">přepnout na světlý režim</button>
 </nav>
 <div class="progress" id="progress"></div>
 </header>
@@ -324,10 +326,10 @@ h1{font-size:44pt}
 <div class="sh reveal"><h2 data-t="pf_h">Vybrané projekty</h2><p class="sub" data-t="pf_sub">Dvě interní aplikace z&nbsp;posledního roku, obě pro dealera&nbsp;BMW a&nbsp;jeho zaměstnance.</p></div>
 <div class="cases">
 <article class="case reveal">
-<div class="shot" role="group" aria-label="Screenshoty aplikace" data-ta="aria-label|a_shots"><img src="images/renoworkshop_seznam-480.webp" srcset="images/renoworkshop_seznam-240.webp 240w,images/renoworkshop_seznam-480.webp 480w,images/renoworkshop_seznam-720.webp 720w" sizes="(max-width:32.5em) 62vw,260px" width="1170" height="2532" alt="RenoWorkshop — zakázky na dílně" data-ta="alt|a_rw1" loading="lazy" decoding="async"><img src="images/renoworkshop_detail-480.webp" srcset="images/renoworkshop_detail-240.webp 240w,images/renoworkshop_detail-480.webp 480w,images/renoworkshop_detail-720.webp 720w" sizes="(max-width:32.5em) 62vw,260px" width="1170" height="2532" alt="RenoWorkshop — detail zakázky s obálkou klíče" data-ta="alt|a_rw2" loading="lazy" decoding="async"></div>
+<div class="shot" role="group" aria-label="Screenshoty aplikace" data-ta="aria-label|a_shots"><img src="images/renoworkshop_seznam-480.webp" srcset="images/renoworkshop_seznam-240.webp 240w,images/renoworkshop_seznam-480.webp 480w,images/renoworkshop_seznam-720.webp 720w" sizes="(max-width:32.5em) 62vw,260px" width="1170" height="2532" alt="RenoWorkshop – zakázky na dílně" data-ta="alt|a_rw1" loading="lazy" decoding="async"><img src="images/renoworkshop_detail-480.webp" srcset="images/renoworkshop_detail-240.webp 240w,images/renoworkshop_detail-480.webp 480w,images/renoworkshop_detail-720.webp 720w" sizes="(max-width:32.5em) 62vw,260px" width="1170" height="2532" alt="RenoWorkshop – detail zakázky s obálkou klíče" data-ta="alt|a_rw2" loading="lazy" decoding="async"></div>
 <div>
 <div class="tag"><img src="images/renoworkshop-app-icon-192.png" width="40" height="40" alt="" loading="lazy" decoding="async"><span>RENOWORKSHOP</span></div>
-<h3 data-t="rw_h">RenoWorkshop&nbsp;— dílenská aplikace pro servis BMW</h3>
+<h3 data-t="rw_h">RenoWorkshop&nbsp;– dílenská aplikace pro servis BMW</h3>
 <p class="solve" data-t="rw_solve">Aplikace zdigitalizovala proces příjmu zakázky, od fotodokumentace a&nbsp;checklistu až po přenos z&nbsp;příjmu servisu na dílnu.</p>
 <p data-t="rw_p">Technik naskenuje SPZ nebo VIN a&nbsp;aplikace dohledá zakázku v&nbsp;datech z&nbsp;ERP Helios&nbsp;Nephrite. Aplikace dále řeší průběh opravy, pracovní list, obálky na klíče s&nbsp;QR štítky a&nbsp;PDF protokol zakázky. Papírový zakázkový list v&nbsp;deskách už není potřeba.</p>
 <dl class="meta"><dt data-t="dt_part">podíl:</dt><dd class="me" data-t="rw_part">návrh UI → Flutter → API → Helios → MDM, vše&nbsp;samostatně</dd><dt>stack:</dt><dd>Flutter&nbsp;· Node.js&nbsp;· MS&nbsp;SQL&nbsp;· ML&nbsp;Kit</dd><dt data-t="dt_plat">platforma:</dt><dd>iOS&nbsp;· iPadOS&nbsp;· Android</dd><dt data-t="dt_rel">distribuce:</dt><dd data-t="rw_rel">spravovaná zařízení přes MDM, není v&nbsp;obchodech</dd><dt data-t="dt_st">stav:</dt><dd><span class="pill pilot">pilot</span></dd></dl>
@@ -335,10 +337,10 @@ h1{font-size:44pt}
 </div>
 </article>
 <article class="case reveal">
-<div class="shot" role="group" aria-label="Screenshoty aplikace" data-ta="aria-label|a_shots"><img src="images/renoenergy_nabijeni_light-480.webp" srcset="images/renoenergy_nabijeni_light-240.webp 240w,images/renoenergy_nabijeni_light-480.webp 480w,images/renoenergy_nabijeni_light-720.webp 720w" sizes="(max-width:32.5em) 62vw,260px" width="1170" height="2532" alt="RenoEnergy — přehled nabíjení" data-ta="alt|a_re1" loading="lazy" decoding="async"><img src="images/renoenergy_mista-480.webp" srcset="images/renoenergy_mista-240.webp 240w,images/renoenergy_mista-480.webp 480w,images/renoenergy_mista-720.webp 720w" sizes="(max-width:32.5em) 62vw,260px" width="1170" height="2532" alt="RenoEnergy — odběrná místa" data-ta="alt|a_re2" loading="lazy" decoding="async"></div>
+<div class="shot" role="group" aria-label="Screenshoty aplikace" data-ta="aria-label|a_shots"><img src="images/renoenergy_nabijeni_light-480.webp" srcset="images/renoenergy_nabijeni_light-240.webp 240w,images/renoenergy_nabijeni_light-480.webp 480w,images/renoenergy_nabijeni_light-720.webp 720w" sizes="(max-width:32.5em) 62vw,260px" width="1170" height="2532" alt="RenoEnergy – přehled nabíjení" data-ta="alt|a_re1" loading="lazy" decoding="async"><img src="images/renoenergy_mista-480.webp" srcset="images/renoenergy_mista-240.webp 240w,images/renoenergy_mista-480.webp 480w,images/renoenergy_mista-720.webp 720w" sizes="(max-width:32.5em) 62vw,260px" width="1170" height="2532" alt="RenoEnergy – odběrná místa" data-ta="alt|a_re2" loading="lazy" decoding="async"></div>
 <div>
 <div class="tag"><span>RENOENERGY</span></div>
-<h3 data-t="re_h">RenoEnergy&nbsp;— evidence nabíjení elektromobilů a&nbsp;odečtů měřidel</h3>
+<h3 data-t="re_h">RenoEnergy&nbsp;– evidence nabíjení elektromobilů a&nbsp;odečtů měřidel</h3>
 <p class="solve" data-t="re_solve">RenoEnergy nahradila ruční zápis stavů počítadel na papír.</p>
 <p data-t="re_p">Zaměstnanci na firemních nabíječkách vyfotí počítadlo před nabíjením a&nbsp;po něm a&nbsp;aplikace spočítá spotřebu v&nbsp;kWh i&nbsp;orientační cenu jako podklad pro fakturaci, včetně měsíčních souhrnů za každého zaměstnance. Technikům pomáhá při obchůzkách s&nbsp;odečty elektroměrů, plynoměrů a&nbsp;dalších měřidel v&nbsp;areálech, měřidla se načítají přes QR kód.</p>
 <dl class="meta"><dt data-t="dt_part">podíl:</dt><dd class="me" data-t="re_part">návrh UI → Flutter → backend → nasazení, vše&nbsp;samostatně</dd><dt>stack:</dt><dd>Flutter&nbsp;· Firebase&nbsp;· Firestore</dd><dt data-t="dt_plat">platforma:</dt><dd>iOS&nbsp;· Android</dd><dt data-t="dt_rel">distribuce:</dt><dd data-t="re_rel">pro zaměstnance, není v&nbsp;obchodech</dd><dt data-t="dt_st">stav:</dt><dd><span class="pill prod" data-t="st_prod">v provozu</span></dd></dl>
@@ -391,12 +393,13 @@ h1{font-size:44pt}
 <div class="tagset"><span class="chip" data-t="c_part">částečný úvazek</span><span class="chip" data-t="c_ico">IČO / kontrakt</span><span class="chip" data-t="c_prj">projekty na míru</span></div>
 </div>
 </div>
-<div class="box" id="formbox">
-<h3 data-t="f_h">Napsat zprávu</h3>
-<form id="form" novalidate>
+<div class="box" id="formbox" tabindex="-1" role="group" aria-labelledby="f-h">
+<h3 id="f-h" data-t="f_h">Napsat zprávu</h3>
+<form id="form" method="post" action="https://api.web3forms.com/submit">
+<input type="hidden" name="access_key" value="1dd3b7ad-5611-48bf-bdcf-59ed78e807a9">
 <div class="seg" role="radiogroup" aria-label="Typ zprávy" data-ta="aria-label|a_seg"><button type="button" class="on" data-k="prace" role="radio" aria-checked="true" tabindex="0" data-t="f_job">Pracovní nabídka</button><button type="button" data-k="projekt" role="radio" aria-checked="false" tabindex="-1" data-t="f_prj">Mám projekt</button></div>
 <p class="form-hint" data-t="f_hint">Všechna pole jsou povinná.</p>
-<label data-f="name"><span class="lbl"><span id="l-name" data-t="f_name">JMÉNO</span><span class="err" id="e-name" data-t="f_name_e">vyplňte celé jméno</span></span><input name="name" autocomplete="name" placeholder="Jan Novák" data-ta="placeholder|p_name" required maxlength="100" aria-labelledby="l-name"></label>
+<label data-f="name"><span class="lbl"><span id="l-name" data-t="f_name">JMÉNO</span><span class="err" id="e-name" data-t="f_name_e">vyplňte jméno</span></span><input name="name" autocomplete="name" placeholder="Jan Novák" data-ta="placeholder|p_name" required maxlength="100" aria-labelledby="l-name"></label>
 <label data-f="email"><span class="lbl"><span id="l-email" data-t="l_mail">E-MAIL</span><span class="err" id="e-email" data-t="f_mail_e">zadejte platný e-mail</span></span><input name="email" type="email" autocomplete="email" placeholder="jan@firma.cz" data-ta="placeholder|p_mail" required maxlength="254" aria-labelledby="l-email"></label>
 <label data-f="msg"><span class="lbl"><span id="l-msg" data-t="f_msg">ZPRÁVA</span><span class="err" id="e-msg" data-t="f_msg_e">napište pár slov</span></span><span class="msg-hint" id="msg-hint">Firma, pozice, úvazek, remote/onsite, odkaz na inzerát…</span><textarea name="msg" required maxlength="5000" aria-labelledby="l-msg" aria-describedby="msg-hint"></textarea></label>
 <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -409,7 +412,7 @@ h1{font-size:44pt}
 </main>
 
 <footer>
-<div class="wrap ft"><span>svihalek<span class="d">.dev</span></span><span>© 2026 Jan Švihálek</span><a class="sp" href="#o-mne" data-t="ft_top">nahoru ↑</a></div>
+<div class="wrap ft"><span>svihalek<span class="d">.dev</span></span><span>© <span id="ft-y">2026</span> Jan Švihálek</span><a class="sp" href="#o-mne" data-t="ft_top">nahoru ↑</a></div>
 </footer>
 
 <div class="sr" id="sr-status" role="status" aria-live="polite"></div>
@@ -418,7 +421,7 @@ h1{font-size:44pt}
 (function(){
 var root=document.documentElement,hdr=document.getElementById('hdr'),lang='cs';
 function t(cs,en){return lang==='en'?en:cs;}
-var EN={"a_lang":"Language","nav_svc":"services","nav_con":"contact","hdr_status":"open to offers","hdr_cta":"contact me","m_theme":"light / dark mode","skip":"skip to content","lead":"I build apps end to end: interface design, backend, integrations with company systems and deployment.","ch_ui":"UI design","ch_dep":"deployment","ch_note":"RenoWorkshop, built end to end as the sole developer","hire":"Looking for a full-time developer role in Brno or remote.","cta_job":"talk about a role","cta_prj":"ask about a project","pf_h":"Selected projects","pf_sub":"Two internal apps from the past year, both for a BMW dealer and its staff.","rw_h":"RenoWorkshop&nbsp;— workshop app for BMW service","rw_solve":"The app digitised vehicle check-in, from photos and checklists to the handover from the service desk to the workshop.","rw_p":"A technician scans the licence plate or VIN and the app finds the repair order in data synced from the Helios&nbsp;Nephrite ERP. It also handles repair progress, job cards, key envelopes with QR labels and a PDF repair order report. It replaces the paper job folder.","dt_part":"my role:","dt_plat":"platform:","dt_rel":"distribution:","dt_st":"status:","rw_part":"sole developer: UI design → Flutter → API → Helios → MDM","rw_rel":"managed devices via MDM, not in app stores","rw_f1":"on-device recognition of licence plates, VINs and QR codes (ML&nbsp;Kit)","rw_f2":"integration with the Helios&nbsp;Nephrite ERP through a separate database synced every 5&nbsp;minutes and a custom API","re_h":"RenoEnergy&nbsp;— EV charging and meter reading records","re_solve":"RenoEnergy replaced handwritten meter readings.","re_p":"Staff photograph the meter before and after charging on company chargers, and the app calculates kWh consumption and an estimated price for invoicing, with monthly summaries for each employee. It also supports technicians on meter-reading rounds for electricity, gas and other meters across the premises, with meters identified by QR code.","re_part":"sole developer: UI design → Flutter → backend → deployment","re_rel":"for employees, not in app stores","st_prod":"in production","sk_exp":"As part of in-house IT, I build internal apps and look after the network and ERP they connect to.","sk_li":"full experience on LinkedIn<span class=\"sr\"> (opens in a new tab)</span>","k_int":"integrations","k_inf":"infrastructure","k_pra":"practices","k_lang":"spoken languages","c_tests":"tests","c_en":"English B2","c_es":"Spanish A2","sv_h":"Custom projects","sv_sub":"For companies that need their own app. One shared codebase for iPhone and Android makes development faster and cheaper.","sv1_h":"App development","sv1":"Flutter apps for iOS and Android from architecture to release. A new app in 6–12&nbsp;weeks.","sv2_h":"Consulting","sv2":"Architecture, stack selection, code audits and reviews. Hourly rate or a package of days.","sv3":"Interface design and prototypes, implemented directly in Flutter.","sv4_h":"Maintenance","sv4":"Updates, fixes and small features, including apps built elsewhere.","ct_h":"Get in touch","ct_sub":"I’m open to job offers and new projects.","ct_dir":"DIRECT CONTACT","ct_tel":"PHONE","ct_copy":"copy","ct_way":"WORK PREFERENCES","ct_want":"I prefer a full-time role, in Brno or remote. Other options:","c_part":"part-time","c_ico":"freelance contract","c_prj":"custom projects","f_h":"Send me a message","f_job":"Job offer","f_prj":"I have a project","f_hint":"All fields are required.","f_name":"NAME","f_name_e":"enter your full name","f_mail_e":"enter a valid email","f_msg":"MESSAGE","f_msg_e":"write a few words","f_or":" or write directly to ","f_send":"send message","f_small":"reply within 1&nbsp;business day","ft_top":"back to top ↑","a_theme":"Switch light / dark mode","a_nav":"Main navigation","a_mnav":"Mobile navigation","a_seg":"Message type","a_cm":"copy email","a_ct":"copy phone","a_rw1":"RenoWorkshop — workshop orders","a_rw2":"RenoWorkshop — order detail with key envelope","a_re1":"RenoEnergy — charging overview","a_re2":"RenoEnergy — metering points","p_name":"Jane Smith","p_mail":"jane@company.com","l_mail":"EMAIL","hire_note":"Over <span class=\"exp-yrs\" id=\"exp-yrs\" data-from=\"2022-09-01\">4&nbsp;years</span> in in-house IT, including app development&nbsp;· <a href=\"https://www.linkedin.com/in/jan-%C5%A1vih%C3%A1lek-526627170/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn<span class=\"sr\"> (opens in a new tab)</span></a>","rw_f7":"sign-in with company Microsoft&nbsp;365 accounts","ct_li":"/in/jan-švihálek<span class=\"sr\"> (opens in a new tab)</span>","rw_build":"HOW IT’S BUILT","a_shots":"App screenshots"};
+var EN={"a_lang":"Language","nav_svc":"services","nav_con":"contact","hdr_status":"open to offers","hdr_cta":"contact me","skip":"skip to content","lead":"I build apps end to end: interface design, backend, integrations with company systems and deployment.","ch_ui":"UI design","ch_dep":"deployment","ch_note":"RenoWorkshop, built end to end as the sole developer","hire":"Looking for a full-time developer role in Brno or remote.","cta_job":"talk about a role","cta_prj":"ask about a project","pf_h":"Selected projects","pf_sub":"Two internal apps from the past year, both for a BMW dealer and its staff.","rw_h":"RenoWorkshop&nbsp;– workshop app for BMW service","rw_solve":"The app digitised vehicle check-in, from photos and checklists to the handover from the service desk to the workshop.","rw_p":"A technician scans the licence plate or VIN and the app finds the repair order in data synced from the Helios&nbsp;Nephrite ERP. It also handles repair progress, job cards, key envelopes with QR labels and a PDF repair order report. It replaces the paper job folder.","dt_part":"my role:","dt_plat":"platform:","dt_rel":"distribution:","dt_st":"status:","rw_part":"sole developer: UI design → Flutter → API → Helios → MDM","rw_rel":"managed devices via MDM, not in app stores","rw_f1":"on-device recognition of licence plates, VINs and QR codes (ML&nbsp;Kit)","rw_f2":"integration with the Helios&nbsp;Nephrite ERP through a separate database synced every 5&nbsp;minutes and a custom API","re_h":"RenoEnergy&nbsp;– EV charging and meter reading records","re_solve":"RenoEnergy replaced handwritten meter readings.","re_p":"Staff photograph the meter before and after charging on company chargers, and the app calculates kWh consumption and an estimated price for invoicing, with monthly summaries for each employee. It also supports technicians on meter-reading rounds for electricity, gas and other meters across the premises, with meters identified by QR code.","re_part":"sole developer: UI design → Flutter → backend → deployment","re_rel":"for employees, not in app stores","st_prod":"in production","sk_exp":"As part of in-house IT, I build internal apps and look after the network and ERP they connect to.","sk_li":"full experience on LinkedIn<span class=\"sr\"> (opens in a new tab)</span>","k_int":"integrations","k_inf":"infrastructure","k_pra":"practices","k_lang":"spoken languages","c_tests":"tests","c_en":"English B2","c_es":"Spanish A2","sv_h":"Custom projects","sv_sub":"For companies that need their own app. One shared codebase for iPhone and Android makes development faster and cheaper.","sv1_h":"App development","sv1":"Flutter apps for iOS and Android from architecture to release. A new app in 6–12&nbsp;weeks.","sv2_h":"Consulting","sv2":"Architecture, stack selection, code audits and reviews. Hourly rate or a package of days.","sv3":"Interface design and prototypes, implemented directly in Flutter.","sv4_h":"Maintenance","sv4":"Updates, fixes and small features, including apps built elsewhere.","ct_h":"Get in touch","ct_sub":"I’m open to job offers and new projects.","ct_dir":"DIRECT CONTACT","ct_tel":"PHONE","ct_copy":"copy","ct_way":"WORK PREFERENCES","ct_want":"I prefer a full-time role, in Brno or remote. Other options:","c_part":"part-time","c_ico":"freelance contract","c_prj":"custom projects","f_h":"Send me a message","f_job":"Job offer","f_prj":"I have a project","f_hint":"All fields are required.","f_name":"NAME","f_name_e":"enter your name","f_mail_e":"enter a valid email","f_msg":"MESSAGE","f_msg_e":"write a few words","f_or":" or write directly to ","f_send":"send message","f_small":"reply within 1&nbsp;business day","ft_top":"back to top ↑","a_nav":"Main navigation","a_mnav":"Mobile navigation","a_seg":"Message type","a_cm":"copy email","a_ct":"copy phone","a_rw1":"RenoWorkshop – workshop orders","a_rw2":"RenoWorkshop – order detail with key envelope","a_re1":"RenoEnergy – charging overview","a_re2":"RenoEnergy – metering points","p_name":"Jane Smith","p_mail":"jane@company.com","l_mail":"EMAIL","hire_note":"Over <span class=\"exp-yrs\" id=\"exp-yrs\" data-from=\"2022-09-01\">4&nbsp;years</span> in in-house IT, including app development&nbsp;· <a href=\"https://www.linkedin.com/in/jan-%C5%A1vih%C3%A1lek-526627170/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn<span class=\"sr\"> (opens in a new tab)</span></a>","rw_f7":"sign-in with company Microsoft&nbsp;365 accounts","ct_li":"/in/jan-švihálek<span class=\"sr\"> (opens in a new tab)</span>","rw_build":"HOW IT’S BUILT","a_shots":"App screenshots"};
 
 root.classList.add('js');
 var rv=document.querySelectorAll('.reveal');
@@ -428,7 +431,8 @@ rv.forEach(function(el){io.observe(el);});
 }else rv.forEach(function(el){el.classList.add('in');});
 
 var tc=document.querySelector('meta[name="theme-color"]');
-function setTheme(t){root.setAttribute('data-theme',t);tc.content=t==='dark'?'#0a0a0c':'#f5f4f0';}
+function setTheme(t){root.setAttribute('data-theme',t);tc.content=t==='dark'?'#0a0a0c':'#f5f4f0';renderTheme();}
+function renderTheme(){var l=root.getAttribute('data-theme')==='dark'?t('přepnout na světlý režim','switch to light mode'):t('přepnout na tmavý režim','switch to dark mode'),b=document.getElementById('theme');b.setAttribute('aria-label',l[0].toUpperCase()+l.slice(1));b.title=b.getAttribute('aria-label');document.querySelector('.mtheme').textContent=l;}
 function savedTheme(){try{return localStorage.getItem('sv-theme');}catch(e){return null;}}
 document.querySelectorAll('#theme,.mtheme').forEach(function(b){b.onclick=function(){var t=root.getAttribute('data-theme')==='dark'?'light':'dark';setTheme(t);try{localStorage.setItem('sv-theme',t);}catch(e){}};});
 matchMedia('(prefers-color-scheme: light)').addEventListener('change',function(m){if(!savedTheme())setTheme(m.matches?'light':'dark');});
@@ -460,7 +464,8 @@ document.querySelectorAll('.copy').forEach(function(b){var tm;
 function done(ok){clearTimeout(tm);b.textContent=ok?t('✓ hotovo','✓ done'):t('nepodařilo se','failed');b.classList.toggle('ok',ok);srs.textContent=ok?t('Zkopírováno do schránky.','Copied to clipboard.'):t('Kopírování se nepodařilo, zkopírujte údaj ručně.','Copying failed, please copy it manually.');tm=setTimeout(function(){b.textContent=t('kopírovat','copy');b.classList.remove('ok');srs.textContent='';},2400);}
 b.onclick=function(){if(!navigator.clipboard){done(false);return;}navigator.clipboard.writeText(b.dataset.copy).then(function(){done(true);},function(){done(false);});};});
 
-var form=document.getElementById('form'),send=document.getElementById('send'),ferr=document.getElementById('form-err'),ferrT=document.getElementById('form-err-t'),msg=form.querySelector('textarea'),msgHint=document.getElementById('msg-hint'),seg=form.querySelectorAll('.seg button'),
+var form=document.getElementById('form');form.noValidate=true;
+var send=document.getElementById('send'),ferr=document.getElementById('form-err'),ferrT=document.getElementById('form-err-t'),msg=form.querySelector('textarea'),msgHint=document.getElementById('msg-hint'),seg=form.querySelectorAll('.seg button'),
 ph={cs:{projekt:'O co jde, jaký rozsah, kdy by to mělo být hotové…',prace:'Firma, pozice, úvazek, remote/onsite, odkaz na inzerát…'},en:{projekt:'What it’s about, the scope, when it should be done…',prace:'Company, role, employment type, remote/on-site, link to the job ad…'}},kind='prace',errKind='',sent=false;
 function setKind(k){kind=k;seg.forEach(function(b){var on=b.dataset.k===k;b.classList.toggle('on',on);b.setAttribute('aria-checked',on);b.tabIndex=on?0:-1;});msgHint.textContent=ph[lang][k];}
 seg.forEach(function(b,i){b.onclick=function(){setKind(b.dataset.k);};
@@ -473,7 +478,7 @@ if(!ok){first.querySelector('input,textarea').focus();return;}
 var f=form.elements,name=f.name.value.trim(),ctrl=window.AbortController?new AbortController():null,to=ctrl&&setTimeout(function(){ctrl.abort();},15000);
 send.disabled=true;send.textContent=t('odesílám…','sending…');ferr.hidden=true;
 fetch('https://api.web3forms.com/submit',{method:'POST',signal:ctrl?ctrl.signal:undefined,headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({
-access_key:'1dd3b7ad-5611-48bf-bdcf-59ed78e807a9',
+access_key:form.access_key.value,
 subject:'[svihalek.dev] '+(kind==='prace'?'Pracovní nabídka':'Projekt')+' od '+name,
 typ:kind==='prace'?'Pracovní nabídka':'Mám projekt',
 from_name:name,email:f.email.value.trim(),message:f.msg.value.trim(),botcheck:f.botcheck.checked})})
@@ -492,14 +497,15 @@ document.querySelector('meta[name="description"]').content=t(docCs.desc,'Jan Šv
 document.querySelectorAll('[data-t]').forEach(function(e){if(e.csHtml===undefined)e.csHtml=e.innerHTML;e.innerHTML=lang==='en'?EN[e.dataset.t]:e.csHtml;});
 document.querySelectorAll('[data-ta]').forEach(function(e){var p=e.dataset.ta.split('|');p[0].split(',').forEach(function(a){var c='cs_'+a;if(e[c]===undefined)e[c]=e.getAttribute(a);e.setAttribute(a,lang==='en'?EN[p[1]]:e[c]);});});
 document.querySelectorAll('[data-l]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===lang);});
-renderYears();if(sent)renderSent();else{msgHint.textContent=ph[lang][kind];if(!ferr.hidden)renderErr();if(send.disabled)send.textContent=t('odesílám…','sending…');}
+renderYears();renderTheme();if(sent)renderSent();else{msgHint.textContent=ph[lang][kind];if(!ferr.hidden)renderErr();if(send.disabled)send.textContent=t('odesílám…','sending…');}
 if(save){try{localStorage.setItem('sv-lang',lang);}catch(e){}
 try{var u=new URL(location.href);if(lang==='en')u.searchParams.set('lang','en');else u.searchParams.delete('lang');history.replaceState(null,'',u);}catch(e){}}}
 var shots=document.querySelectorAll('.shot');function shotFocus(){shots.forEach(function(e){if(e.scrollWidth>e.clientWidth+1)e.tabIndex=0;else e.removeAttribute('tabindex');});}
 shotFocus();addEventListener('resize',shotFocus);addEventListener('load',shotFocus);
 document.querySelectorAll('[data-l]').forEach(function(b){b.onclick=function(){setLang(b.dataset.l,true);if(!b.offsetParent){var o=b.parentNode.querySelector('button:not([aria-pressed="true"])');if(o)o.focus();}};});
-var startLang=null;try{startLang=new URLSearchParams(location.search).get('lang')||localStorage.getItem('sv-lang');}catch(e){}
-if(startLang==='en')setLang('en');else renderYears();
+var startLang=null;try{var q=new URLSearchParams(location.search).get('lang');startLang=q==='en'||q==='cs'?q:localStorage.getItem('sv-lang');}catch(e){}
+if(startLang==='en')setLang('en');else{renderYears();renderTheme();}
+document.getElementById('ft-y').textContent=new Date().getFullYear();
 })();
 </script>
 </body>
