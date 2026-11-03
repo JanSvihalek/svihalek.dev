@@ -10,7 +10,8 @@
       ".firebaseignore",
       "README.md",
       "PRODUCT.md",
-      "svihalek.dev.html"
+      "svihalek.dev.html",
+      "*.log"
     ]
   }
 }
