@@ -56,7 +56,7 @@ Jeden člověk od A do Z. Jan zvládne návrh UI, backend, integrace i vydání 
 
 RenoWorkshop i RenoEnergy vznikly v zaměstnání, ne jako freelance zakázky. Jan je u obou udělal sám, od návrhu UI přes Flutter a backend po nasazení.
 
-- **RenoWorkshop:** interní dílenská aplikace pro servis dealera BMW, napojená na ERP Helios Nephrite: potřebná data jsou v samostatné databázi, která se s Heliosem synchronizuje každých 5 minut, a aplikace s ní komunikuje přes API. Uživatelé se přihlašují účty v tenantu M365. Stav: pilot. Distribuce přes MDM, není v obchodech. Screenshoty: `images/renoworkshop_seznam.png`, `images/renoworkshop_detail.png`, iPad `images/renoworkshop_ipad-*.webp`. Ikona: `images/renoworkshop-app-icon-192.png`.
+- **RenoWorkshop:** interní dílenská aplikace pro servis dealera BMW, napojená na ERP Helios Nephrite: potřebná data jsou v samostatné databázi, která se s Heliosem synchronizuje každých 5 minut, a aplikace s ní komunikuje přes API. Uživatelé se přihlašují účty v tenantu M365. Stav: pilot. Distribuce přes MDM, není v obchodech. Screenshoty: `images/renoworkshop_seznam.png`, iPad `images/renoworkshop_ipad-*.webp`. Ikona: `images/renoworkshop-app-icon-192.png`.
 - **RenoEnergy:** interní aplikace pro evidenci nabíjení elektromobilů a odečty měřidel. Backend Firebase, databáze Firestore. Stav: v produkci. Není v obchodech. Screenshoty: `images/renoenergy_nabijeni_light.png`, `images/renoenergy_mista.png`.
 
 **Praxe a dovednosti**
