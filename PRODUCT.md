@@ -56,7 +56,7 @@ Jeden člověk od A do Z. Jan zvládne návrh UI, backend, integrace i vydání 
 
 RenoWorkshop i RenoEnergy vznikly v zaměstnání, ne jako freelance zakázky. Jan je u obou udělal sám, od návrhu UI přes Flutter a backend po nasazení.
 
-- **RenoWorkshop:** interní dílenská aplikace pro servis dealera BMW, napojená na ERP Helios Nephrite: potřebná data jsou v samostatné databázi, která se s Heliosem synchronizuje každých 5 minut, a aplikace s ní komunikuje přes API. Uživatelé se přihlašují účty v tenantu M365. Stav: pilot. Distribuce přes MDM, není v obchodech. Screenshoty: `images/renoworkshop_seznam.png`, `images/renoworkshop_detail.png`. Ikona: `images/renoworkshop-app-icon-192.png`.
+- **RenoWorkshop:** interní dílenská aplikace pro servis dealera BMW, napojená na ERP Helios Nephrite: potřebná data jsou v samostatné databázi, která se s Heliosem synchronizuje každých 5 minut, a aplikace s ní komunikuje přes API. Uživatelé se přihlašují účty v tenantu M365. Stav: pilot. Distribuce přes MDM, není v obchodech. Screenshoty: `images/renoworkshop_seznam.png`, `images/renoworkshop_detail.png`, iPad `images/renoworkshop_ipad-*.webp`. Ikona: `images/renoworkshop-app-icon-192.png`.
 - **RenoEnergy:** interní aplikace pro evidenci nabíjení elektromobilů a odečty měřidel. Backend Firebase, databáze Firestore. Stav: v produkci. Není v obchodech. Screenshoty: `images/renoenergy_nabijeni_light.png`, `images/renoenergy_mista.png`.
 
 **Praxe a dovednosti**
@@ -80,7 +80,7 @@ Reference, doporučení, metriky a čísla o dopadu, loga klientů a začátek p
 
 - **Jméno klienta:** u RenoWorkshopu a RenoEnergy se klient uvádí jen jako „dealer BMW“. Web nesmí napsat, že aplikace vznikly pro Renocar. Renocar zůstává v praxi jako zaměstnavatel a Jan přijímá, že si čtenář vazbu může domyslet.
 - **Torkis a QRkni:** do portfolia se nevracejí. Jejich obrázky jsou z projektu smazané.
-- **Screenshoty se skutečnými osobními údaji:** žádný obrázek na webu nesmí ukazovat skutečný IBAN, telefon, e-mail, SPZ, VIN ani údaje zákazníků. Nové screenshoty musí používat vymyšlená data. Současné screenshoty jsou v pořádku: RenoEnergy ukazuje Janovo vlastní vozidlo a údaje, které schválil ke zveřejnění, a RenoWorkshop vymyšlená data.
+- **Screenshoty se skutečnými osobními údaji:** žádný obrázek na webu nesmí ukazovat skutečný IBAN, telefon, e-mail, SPZ, VIN ani údaje zákazníků. Nové screenshoty musí používat vymyšlená data. Současné screenshoty jsou v pořádku: RenoEnergy i RenoWorkshop ukazují Janovo vlastní vozidlo a údaje, které schválil ke zveřejnění. Ze seznamu zakázek RenoWorkshopu je odstraněná karta jiného zákazníka.
 
 ## Product Principles
 
