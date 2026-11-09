@@ -80,7 +80,7 @@ Reference, doporučení, metriky a čísla o dopadu, loga klientů a začátek p
 
 - **Jméno klienta:** u RenoWorkshopu a RenoEnergy se klient uvádí jen jako „dealer BMW“. Web nesmí napsat, že aplikace vznikly pro Renocar. Renocar zůstává v praxi jako zaměstnavatel a Jan přijímá, že si čtenář vazbu může domyslet.
 - **Torkis a QRkni:** do portfolia se nevracejí. Jejich obrázky jsou z projektu smazané.
-- **Screenshoty se skutečnými osobními údaji:** žádný obrázek na webu nesmí ukazovat skutečný IBAN, telefon, e-mail, SPZ, VIN ani údaje zákazníků. Nové screenshoty musí používat vymyšlená data. Současné screenshoty jsou v pořádku: RenoEnergy i RenoWorkshop ukazují Janovo vlastní vozidlo a údaje, které schválil ke zveřejnění. Ze seznamu zakázek RenoWorkshopu je odstraněná karta jiného zákazníka.
+- **Screenshoty se skutečnými osobními údaji:** žádný obrázek na webu nesmí ukazovat skutečný IBAN, telefon, e-mail, SPZ, VIN ani údaje zákazníků. Nové screenshoty musí používat vymyšlená data. Současné screenshoty jsou v pořádku: RenoEnergy i RenoWorkshop ukazují Janovo vlastní vozidlo a údaje, které schválil ke zveřejnění. Ze seznamů zakázek RenoWorkshopu na telefonu i iPadu jsou odstraněné karty jiných zákazníků.
 
 ## Product Principles
 
