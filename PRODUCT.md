@@ -32,6 +32,7 @@ Jeden člověk od A do Z. Jan zvládne návrh UI, backend, integrace i vydání 
 - Web míří na český i zahraniční trh. Výchozí jazyk je čeština, angličtina se přepíná přepínačem CZ/EN přímo na stránce a jde na ni odkazovat přes `?lang=en`. Každý nový text musí mít i anglickou verzi. Anglické texty Jan schválil 2. 11. 2026.
 - Web má světlý i tmavý režim. Volba se ukládá do `localStorage['sv-theme']`.
 - Formulář odesílá přes Web3Forms.
+- Návštěvnost měří Cloudflare Web Analytics, bez cookies.
 - Firebase hostuje celý kořen projektu. Nové soubory, které nemají být veřejné, musí být uvedené v `ignore` ve `firebase.json`.
 - `svihalek.dev.html` se nenasazuje a není zdrojem pravdy o webu.
 - Web neodkazuje na GitHub.
