@@ -125,11 +125,14 @@ h2{font-weight:700;font-size:clamp(2.5rem,5vw,3.75rem);line-height:1;letter-spac
 .shot img{width:47%;max-width:240px;height:auto;display:block;border-radius:clamp(10px,2.4vw,20px);box-shadow:0 10px 30px rgba(0,0,0,.45)}
 .shot img:first-child{transform:translateY(2%)}
 .shot img:last-child{transform:translateY(-2%)}
-.shot-3{display:grid;grid-template-columns:minmax(0,1fr);align-content:space-between;justify-items:center;gap:20px;padding-bottom:0}
-.phs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:4%;justify-items:center;width:100%}
-.shot.shot-3 img{transform:none}
-.shot-3 .tab{width:100%;max-width:560px;border-radius:clamp(8px,1.2vw,14px)}
-.shot-3 .ph{width:100%;max-width:260px;aspect-ratio:1/1.2;object-fit:cover;object-position:top;border-radius:clamp(10px,2.4vw,20px) clamp(10px,2.4vw,20px) 0 0}
+.case.case-w{grid-template-columns:minmax(0,1fr)}
+.shot.shot-3{display:block;position:relative;aspect-ratio:1.9;padding:0;overflow:hidden;scroll-snap-type:none}
+.shot.shot-3 img{position:absolute;top:50%;height:auto;max-width:none;box-shadow:0 18px 44px rgba(0,0,0,.5)}
+.shot.shot-3 .tab{left:21%;width:58%;transform:translateY(-50%);border-radius:clamp(8px,1.2vw,14px)}
+.shot.shot-3 .ph{z-index:1;width:21%;border-radius:clamp(10px,1.8vw,20px)}
+.shot.shot-3 .l{left:5%;transform:translateY(-50%) rotate(-7deg)}
+.shot.shot-3 .r{right:5%;left:auto;transform:translateY(-50%) rotate(7deg)}
+@media (min-width:64.0625em){.rw-txt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;align-items:start}.rw-txt p:last-child{margin-bottom:0}}
 .tag{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .tag img{width:40px;height:40px;border-radius:9px;display:block}
 .tag span{font-family:var(--mono);font-size:var(--t-label);font-weight:600;letter-spacing:.14em;color:var(--accent);display:flex;align-items:center;gap:10px}
@@ -256,6 +259,7 @@ h1{font-size:clamp(2.5rem,12vw,3.5rem)}
 .btn{white-space:normal;text-align:center}.cta .btn{flex:1 1 100%;justify-content:center}.cta-link{flex:1 1 100%;text-align:center}
 .case{padding:0;background:none;border:0;border-radius:0;gap:24px}.cases{gap:56px}
 .shot{padding:24px 12px}
+.shot.shot-3{aspect-ratio:1.5}.shot.shot-3 .tab{left:16%;width:68%}.shot.shot-3 .ph{width:25%}.shot.shot-3 .l{left:3%}.shot.shot-3 .r{right:3%}
 .box{padding:22px}
 .srow,.card{grid-template-columns:minmax(0,1fr)}.srow{gap:10px}.card{gap:4px}
 .ft .sp{margin-left:0}
@@ -263,14 +267,11 @@ h1{font-size:clamp(2.5rem,12vw,3.5rem)}
 @media (max-width:22.5em){:root{--t-lead:1.125rem}.hero{padding:32px 0 56px}.chain{margin-top:20px}.chain ol{font-size:var(--t-label)}.chain li:not(:last-child)::after{margin:0 4px}.drow{grid-template-columns:minmax(0,1fr);grid-template-areas:"k" "v" "c";justify-items:start}.drow a{max-width:100%}}
 @media (max-width:32.5em){#theme,.hdr-r>.lang button[aria-pressed="true"]{display:none}.mtheme{display:flex}.hdr-in{gap:8px}.hdr-r{gap:6px}.hdr-r>.lang button{color:var(--ink-2)}
 .shot{margin-inline:-20px;border-radius:0;padding:24px 20px;gap:12px;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-inline:20px;scrollbar-width:none}.shot::-webkit-scrollbar{display:none}
-.shot:focus-visible,.phs:focus-visible{outline-offset:-3px;border-radius:0}
-.shot img{flex:none;width:62vw;max-width:260px;scroll-snap-align:start}.shot img:first-child,.shot img:last-child{transform:none}
-.shot-3{justify-items:stretch;gap:16px;overflow:hidden;padding-bottom:0;scroll-snap-type:none}
-.phs{display:flex;gap:12px;width:auto;margin-inline:-20px;padding-inline:20px;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-inline:20px;scrollbar-width:none}.phs::-webkit-scrollbar{display:none}
-.shot-3 .ph{flex:none;width:62vw;aspect-ratio:1/1.45}}
+.shot:focus-visible{outline-offset:-3px;border-radius:0}
+.shot img{flex:none;width:62vw;max-width:260px;scroll-snap-align:start}.shot img:first-child,.shot img:last-child{transform:none}}
 @media (max-width:24.25em){.logo{min-width:44px}.logo>span{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}
 @media (max-width:19.9em){.meta,.seg{grid-template-columns:minmax(0,1fr)}.meta{gap:0}.meta dd{margin-bottom:8px}}
-@media (max-height:30em){.hdr{position:static}html{scroll-padding-top:16px}.hero{padding:40px 0}.shot img,.shot-3 .ph{max-width:140px}.shot-3 .tab{max-width:320px}}
+@media (max-height:30em){.hdr{position:static}html{scroll-padding-top:16px}.hero{padding:40px 0}.shot img{max-width:140px}}
 @media print{
 :root,[data-theme]{--bg:#fff;--bg-2:#fff;--bg-3:#fff;--line:#d3d0c7;--line-2:#d3d0c7;--ink:#141417;--ink-2:#3d3d45;--ink-3:#585862;--ink-4:#6b6b75;--accent:#2a62d9;--ok:#157a2a;--warn:#8a5f00;--err:#c9252c;--header:#fff;color-scheme:light}
 .js .reveal{opacity:1;transform:none}
@@ -333,15 +334,19 @@ h1{font-size:44pt}
 <div class="wrap">
 <div class="sh reveal"><h2 data-t="pf_h">Vybrané projekty</h2><p class="sub" data-t="pf_sub">Dvě interní aplikace z&nbsp;posledního roku, obě pro dealera&nbsp;BMW a&nbsp;jeho zaměstnance.</p></div>
 <div class="cases">
-<article class="case reveal">
-<div class="shot shot-3"><img class="tab" src="images/renoworkshop_ipad-720.webp" srcset="images/renoworkshop_ipad-480.webp 480w,images/renoworkshop_ipad-720.webp 720w,images/renoworkshop_ipad-1200.webp 1200w" sizes="(max-width:32.5em) 86vw,560px" width="2360" height="1640" alt="RenoWorkshop na iPadu – detail zakázky s&nbsp;obálkou klíče a&nbsp;postupem práce" data-ta="alt|a_rw3" loading="lazy" decoding="async"><div class="phs" role="group" aria-label="Screenshoty aplikace" data-ta="aria-label|a_shots"><img class="ph" src="images/renoworkshop_seznam-480.webp" srcset="images/renoworkshop_seznam-240.webp 240w,images/renoworkshop_seznam-480.webp 480w,images/renoworkshop_seznam-720.webp 720w" sizes="(max-width:32.5em) 62vw,260px" width="1170" height="2532" alt="RenoWorkshop – zakázky na dílně" data-ta="alt|a_rw1" loading="lazy" decoding="async"><img class="ph" src="images/renoworkshop_detail-480.webp" srcset="images/renoworkshop_detail-240.webp 240w,images/renoworkshop_detail-480.webp 480w,images/renoworkshop_detail-720.webp 720w" sizes="(max-width:32.5em) 62vw,260px" width="1170" height="2532" alt="RenoWorkshop – detail zakázky se závadami a&nbsp;úkony" data-ta="alt|a_rw2" loading="lazy" decoding="async"></div></div>
+<article class="case case-w reveal">
+<div class="shot shot-3"><img class="ph l" src="images/renoworkshop_seznam-480.webp" srcset="images/renoworkshop_seznam-240.webp 240w,images/renoworkshop_seznam-480.webp 480w,images/renoworkshop_seznam-720.webp 720w" sizes="(max-width:40em) 25vw,480px" width="1170" height="2532" alt="RenoWorkshop – zakázky na dílně" data-ta="alt|a_rw1" loading="lazy" decoding="async"><img class="tab" src="images/renoworkshop_ipad-720.webp" srcset="images/renoworkshop_ipad-480.webp 480w,images/renoworkshop_ipad-720.webp 720w,images/renoworkshop_ipad-1200.webp 1200w" sizes="(max-width:40em) 68vw,(max-width:70em) 58vw,640px" width="2360" height="1640" alt="RenoWorkshop na iPadu – detail zakázky s&nbsp;obálkou klíče a&nbsp;postupem práce" data-ta="alt|a_rw3" loading="lazy" decoding="async"><img class="ph r" src="images/renoworkshop_detail-480.webp" srcset="images/renoworkshop_detail-240.webp 240w,images/renoworkshop_detail-480.webp 480w,images/renoworkshop_detail-720.webp 720w" sizes="(max-width:40em) 25vw,480px" width="1170" height="2532" alt="RenoWorkshop – detail zakázky se závadami a&nbsp;úkony" data-ta="alt|a_rw2" loading="lazy" decoding="async"></div>
+<div class="rw-txt">
 <div>
 <div class="tag"><img src="images/renoworkshop-app-icon-192.png" width="40" height="40" alt="" loading="lazy" decoding="async"><span>RENOWORKSHOP</span></div>
 <h3 data-t="rw_h">RenoWorkshop&nbsp;– dílenská aplikace pro servis BMW</h3>
 <p class="solve" data-t="rw_solve">Aplikace zdigitalizovala proces příjmu zakázky, od fotodokumentace a&nbsp;checklistu až po přenos z&nbsp;příjmu servisu na dílnu.</p>
 <p data-t="rw_p">Technik naskenuje SPZ nebo VIN a&nbsp;aplikace dohledá zakázku v&nbsp;datech z&nbsp;ERP Helios&nbsp;Nephrite. Aplikace dále řeší průběh opravy, pracovní list, obálky na klíče s&nbsp;QR štítky a&nbsp;PDF protokol zakázky. Papírový zakázkový list v&nbsp;deskách už není potřeba.</p>
+</div>
+<div>
 <dl class="meta"><dt data-t="dt_part">podíl:</dt><dd class="me" data-t="rw_part">návrh UI → Flutter → API → Helios → MDM, vše&nbsp;samostatně</dd><dt>stack:</dt><dd>Flutter&nbsp;· Node.js&nbsp;· MS&nbsp;SQL&nbsp;· ML&nbsp;Kit</dd><dt data-t="dt_plat">platforma:</dt><dd>iOS&nbsp;· iPadOS&nbsp;· Android</dd><dt data-t="dt_rel">distribuce:</dt><dd data-t="rw_rel">spravovaná zařízení přes MDM, není v&nbsp;obchodech</dd><dt data-t="dt_st">stav:</dt><dd><span class="pill pilot">pilot</span></dd></dl>
 <div class="build"><h4 class="dl-h" data-t="rw_build">JAK JE POSTAVENÁ</h4><ul class="feat"><li data-t="rw_f2">napojení na ERP Helios&nbsp;Nephrite přes samostatnou databázi synchronizovanou každých 5&nbsp;minut a&nbsp;vlastní API</li><li data-t="rw_f1">rozpoznání SPZ, VIN a&nbsp;QR přímo v&nbsp;zařízení (ML&nbsp;Kit)</li><li data-t="rw_f7">přihlášení firemním účtem Microsoft&nbsp;365</li></ul></div>
+</div>
 </div>
 </article>
 <article class="case reveal">
@@ -508,7 +513,7 @@ document.querySelectorAll('[data-l]').forEach(function(b){b.setAttribute('aria-p
 renderYears();renderTheme();if(sent)renderSent();else{msgHint.textContent=ph[lang][kind];if(!ferr.hidden)renderErr();if(send.disabled)send.textContent=t('odesílám…','sending…');}
 if(save){try{localStorage.setItem('sv-lang',lang);}catch(e){}
 try{var u=new URL(location.href);if(lang==='en')u.searchParams.set('lang','en');else u.searchParams.delete('lang');history.replaceState(null,'',u);}catch(e){}}}
-var shots=document.querySelectorAll('.shot:not(.shot-3),.phs');function shotFocus(){shots.forEach(function(e){if(e.scrollWidth>e.clientWidth+1)e.tabIndex=0;else e.removeAttribute('tabindex');});}
+var shots=document.querySelectorAll('.shot:not(.shot-3)');function shotFocus(){shots.forEach(function(e){if(e.scrollWidth>e.clientWidth+1)e.tabIndex=0;else e.removeAttribute('tabindex');});}
 shotFocus();addEventListener('resize',shotFocus);addEventListener('load',shotFocus);
 document.querySelectorAll('[data-l]').forEach(function(b){b.onclick=function(){setLang(b.dataset.l,true);if(!b.offsetParent){var o=b.parentNode.querySelector('button:not([aria-pressed="true"])');if(o)o.focus();}};});
 var startLang=null;try{var q=new URLSearchParams(location.search).get('lang');startLang=q==='en'||q==='cs'?q:localStorage.getItem('sv-lang');}catch(e){}
