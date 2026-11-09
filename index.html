@@ -125,14 +125,13 @@ h2{font-weight:700;font-size:clamp(2.5rem,5vw,3.75rem);line-height:1;letter-spac
 .shot img{width:47%;max-width:240px;height:auto;display:block;border-radius:clamp(10px,2.4vw,20px);box-shadow:0 10px 30px rgba(0,0,0,.45)}
 .shot img:first-child{transform:translateY(2%)}
 .shot img:last-child{transform:translateY(-2%)}
-.case.case-w{grid-template-columns:minmax(0,1fr)}
-.shot.shot-3{display:block;position:relative;aspect-ratio:1.9;padding:0;overflow:hidden;scroll-snap-type:none}
+.shot.shot-3{display:block;position:relative;align-self:stretch;min-height:26rem;padding:0;overflow:hidden;scroll-snap-type:none}
 .shot.shot-3 img{position:absolute;top:50%;height:auto;max-width:none;box-shadow:0 18px 44px rgba(0,0,0,.5)}
-.shot.shot-3 .tab{left:21%;width:58%;transform:translateY(-50%);border-radius:clamp(8px,1.2vw,14px)}
-.shot.shot-3 .ph{z-index:1;width:21%;border-radius:clamp(10px,1.8vw,20px)}
-.shot.shot-3 .l{left:5%;transform:translateY(-50%) rotate(-7deg)}
-.shot.shot-3 .r{right:5%;left:auto;transform:translateY(-50%) rotate(7deg)}
-@media (min-width:64.0625em){.rw-txt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;align-items:start}.rw-txt p:last-child{margin-bottom:0}}
+.shot.shot-3 .tab{left:14%;width:72%;transform:translateY(-50%);border-radius:clamp(8px,1.2vw,14px)}
+.shot.shot-3 .ph{z-index:1;width:28%;border-radius:clamp(10px,1.8vw,20px)}
+.shot.shot-3 .l{left:3%;transform:translateY(-50%) rotate(-7deg)}
+.shot.shot-3 .r{right:3%;left:auto;transform:translateY(-50%) rotate(7deg)}
+@media (max-width:64em){.case-w>.shot{order:1}.shot.shot-3{aspect-ratio:1.9;min-height:0}.shot.shot-3 .tab{left:21%;width:58%}.shot.shot-3 .ph{width:21%}.shot.shot-3 .l{left:5%}.shot.shot-3 .r{right:5%}}
 .tag{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .tag img{width:40px;height:40px;border-radius:9px;display:block}
 .tag span{font-family:var(--mono);font-size:var(--t-label);font-weight:600;letter-spacing:.14em;color:var(--accent);display:flex;align-items:center;gap:10px}
@@ -336,17 +335,13 @@ h1{font-size:44pt}
 <div class="cases">
 <article class="case case-w reveal">
 <div class="shot shot-3"><img class="ph l" src="images/renoworkshop_seznam-480.webp" srcset="images/renoworkshop_seznam-240.webp 240w,images/renoworkshop_seznam-480.webp 480w,images/renoworkshop_seznam-720.webp 720w" sizes="(max-width:40em) 25vw,480px" width="1170" height="2532" alt="RenoWorkshop – zakázky na dílně" data-ta="alt|a_rw1" loading="lazy" decoding="async"><img class="tab" src="images/renoworkshop_ipad-720.webp" srcset="images/renoworkshop_ipad-480.webp 480w,images/renoworkshop_ipad-720.webp 720w,images/renoworkshop_ipad-1200.webp 1200w" sizes="(max-width:40em) 68vw,(max-width:70em) 58vw,640px" width="2360" height="1640" alt="RenoWorkshop na iPadu – detail zakázky s&nbsp;obálkou klíče a&nbsp;postupem práce" data-ta="alt|a_rw3" loading="lazy" decoding="async"><img class="ph r" src="images/renoworkshop_detail-480.webp" srcset="images/renoworkshop_detail-240.webp 240w,images/renoworkshop_detail-480.webp 480w,images/renoworkshop_detail-720.webp 720w" sizes="(max-width:40em) 25vw,480px" width="1170" height="2532" alt="RenoWorkshop – detail zakázky se závadami a&nbsp;úkony" data-ta="alt|a_rw2" loading="lazy" decoding="async"></div>
-<div class="rw-txt">
 <div>
 <div class="tag"><img src="images/renoworkshop-app-icon-192.png" width="40" height="40" alt="" loading="lazy" decoding="async"><span>RENOWORKSHOP</span></div>
 <h3 data-t="rw_h">RenoWorkshop&nbsp;– dílenská aplikace pro servis BMW</h3>
 <p class="solve" data-t="rw_solve">Aplikace zdigitalizovala proces příjmu zakázky, od fotodokumentace a&nbsp;checklistu až po přenos z&nbsp;příjmu servisu na dílnu.</p>
 <p data-t="rw_p">Technik naskenuje SPZ nebo VIN a&nbsp;aplikace dohledá zakázku v&nbsp;datech z&nbsp;ERP Helios&nbsp;Nephrite. Aplikace dále řeší průběh opravy, pracovní list, obálky na klíče s&nbsp;QR štítky a&nbsp;PDF protokol zakázky. Papírový zakázkový list v&nbsp;deskách už není potřeba.</p>
-</div>
-<div>
 <dl class="meta"><dt data-t="dt_part">podíl:</dt><dd class="me" data-t="rw_part">návrh UI → Flutter → API → Helios → MDM, vše&nbsp;samostatně</dd><dt>stack:</dt><dd>Flutter&nbsp;· Node.js&nbsp;· MS&nbsp;SQL&nbsp;· ML&nbsp;Kit</dd><dt data-t="dt_plat">platforma:</dt><dd>iOS&nbsp;· iPadOS&nbsp;· Android</dd><dt data-t="dt_rel">distribuce:</dt><dd data-t="rw_rel">spravovaná zařízení přes MDM, není v&nbsp;obchodech</dd><dt data-t="dt_st">stav:</dt><dd><span class="pill pilot">pilot</span></dd></dl>
 <div class="build"><h4 class="dl-h" data-t="rw_build">JAK JE POSTAVENÁ</h4><ul class="feat"><li data-t="rw_f2">napojení na ERP Helios&nbsp;Nephrite přes samostatnou databázi synchronizovanou každých 5&nbsp;minut a&nbsp;vlastní API</li><li data-t="rw_f1">rozpoznání SPZ, VIN a&nbsp;QR přímo v&nbsp;zařízení (ML&nbsp;Kit)</li><li data-t="rw_f7">přihlášení firemním účtem Microsoft&nbsp;365</li></ul></div>
-</div>
 </div>
 </article>
 <article class="case reveal">
